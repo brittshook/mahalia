@@ -7,22 +7,46 @@
 :root {
     --black: #121212;
     --white: #fff;
+    --gray: #2D2D2D;
     --lime-green: #D8D339;
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
 body {
-    margin: 0 48px;
+    margin: 0 auto;
+    padding: 0 100px;
+    max-width: 1600px;
     background-color: var(--black);
     color: var(--white);
+    display: flex;
+    flex-direction: column;
+    gap: 85px;
+}
+
+body, button {
+    font-family: 'Schibsted Grotesk', sans-serif;
 }
 
 #navbar {
-    /* position: fixed; */
+    position: fixed;
     display: flex;
-    width: 100%;
-    margin: 24px 0;
+    width: calc(100% - 200px);
+    max-width: 1400px;
+    padding: 24px 0;
     justify-content: space-between;
     align-items: center;
+    z-index: 10;
+    background: var(--background-desktop-linear, linear-gradient(180deg, var(--black) 0%, transparent 100%));
 }
 
 ul {
@@ -32,10 +56,14 @@ ul {
 #nav-links {
     display: flex;
     align-items: flex-start;
-    gap: 14px;}
+    gap: 30px;
+}
 
 .nav-link {
     color: var(--white);
+}
+
+.nav-link, button, #details, h2, #copyright, h3 {
     text-transform: uppercase;
 }
 
@@ -48,10 +76,97 @@ a:hover {
     text-decoration: underline;
 }
 
+#logo {
+    height: 30px;
+    position: absolute;
+    left: 45%;
+}
+
+.nav-link, button {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
 button {
     padding: 10px 20px;
     border-radius: 11px;
     border: 0;
     background: var(--White, #FFF);
-    text-transform: uppercase;
+}
+
+#hero {
+    margin-top: 100px; 
+}
+
+#hero-img, .fill-img {
+    width: 100%;
+}
+
+.fit-img {
+    object-fit: contain;
+}
+
+.fill-img {
+    object-fit: fill;
+}
+
+#details {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+#tattoos {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.card {
+    display: inline-flex;
+    padding: 8px 8px 16px;
+    flex-direction: column;
+    flex: 1 0 0;
+    gap: 16px 0;
+    border-radius: 18px;
+    background: var(--gray);
+}
+
+.card img, #header-with-img img {
+    border-radius: 10px;
+}
+
+h2 {
+    font-size: 80px;
+    line-height: 75px;
+}
+
+#about, #faqs {
+    margin: 0 auto;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+#header-with-img {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: end;
+}
+
+#header-with-img img {
+    width: 350px;
+}
+
+p {
+    font-size: 22px;
 }

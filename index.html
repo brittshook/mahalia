@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Mahalia Xiaoqi Tattoos</title>
 </head>
 <body>
@@ -13,47 +16,51 @@
             <li><a class="nav-link" href="#about">About</a></li>
             <li><a class="nav-link" href="#faqs">FAQs</a></li>
         </ul>
-        <img id="logo" class="fit-img" src="" alt="logo">
+        <img id="logo" class="fit-img" src="./imgs/logo.svg" alt="logo">
         <button type="button" class="openBookingModal">Book</button>
     </nav>
     <div id="hero">
         <h1 class="sr-only">Mahalia Xiaoqi</h1>
-        <img class="fit-img sr-hidden" src="" alt="Mahalia Xiaoqi">
+        <img id="hero-img" class="fit-img sr-hidden" src="./imgs/hero.svg" alt="Mahalia Xiaoqi">
         <div id="details">
             <p>Illustrative Tattoos</p>
             <p>Brooklyn / NYC</p>
         </div>
     </div>
     <div id="tattoos">
-        <div class="card">
-            <img class="fill-img" src="" alt="">
-            <p>Tattoo Description</p>
+        <div class="row">
+            <div class="card">
+                <img class="fill-img" src="./imgs/sample-tattoo1.jpg" alt="">
+                <p>Tattoo Description</p>
+            </div>
+            <div class="card">
+                <img class="fill-img" src="./imgs/sample-tattoo2.jpg" alt="">
+                <p>Tattoo Description</p>
+            </div>
+            <div class="card">
+                <img class="fill-img" src="./imgs/sample-tattoo3.jpg" alt="">
+                <p>Tattoo Description</p>
+            </div>
         </div>
-        <div class="card">
-            <img class="fill-img" src="" alt="">
-            <p>Tattoo Description</p>
-        </div>
-        <div class="card">
-            <img class="fill-img" src="" alt="">
-            <p>Tattoo Description</p>
-        </div>
-        <div class="card">
-            <img class="fill-img" src="" alt="">
-            <p>Tattoo Description</p>
-        </div>
-        <div class="card">
-            <img class="fill-img" src="" alt="">
-            <p>Tattoo Description</p>
-        </div>
-        <div class="card">
-            <img class="fill-img" src="" alt="">
-            <p>Tattoo Description</p>
+        <div class="row">
+            <div class="card">
+                <img class="fill-img" src="./imgs/sample-tattoo4.jpg" alt="">
+                <p>Tattoo Description</p>
+            </div>
+            <div class="card">
+                <img class="fill-img" src="./imgs/sample-tattoo5.jpg" alt="">
+                <p>Tattoo Description</p>
+            </div>
+            <div class="card">
+                <img class="fill-img" src="./imgs/sample-tattoo6.jpg" alt="">
+                <p>Tattoo Description</p>
+            </div>
         </div>
     </div>
     <div id="about">
         <div id="header-with-img">
-            <h2>About Mahalia</h2>
-            <img class="fill-img" src="" alt="Mahalia sitting in a cozy, green room">
+            <h2>About</br>Mahalia</h2>
+            <img class="fill-img" src="./imgs/mahalia.jpg" alt="Mahalia sitting in a cozy, green room">
         </div>
         <p>I am Mahalia, a tattoo artist based in Brooklyn, New York. I specialize in illustrative and fineline tattoos. My work is inspired by my training in impressionist oil and mixed medium painting. I enjoy tattooing animal imagery, large florals, and abstract concepts.</br>I believe that tattooing is a form of body liberation and am committed to a trauma-aware, justice-centered tattoo practice.</p>
     </div>
@@ -113,7 +120,7 @@
 </body>
 <footer>
     <div id="copyright">
-        <p id="sr-only">© Mahalia Xiaoqi Smith 2023</p>
+        <p class="sr-only">© Mahalia Xiaoqi Smith 2023</p>
         <div class="sr-hidden">
             <span class="text-regular">© M</span><span class="text-black">a</span><span class="text-regular">halia Xiao</span><span class="text-black">q</span><span class="text-regular">i </span><span class="text-black">S</span><span class="text-regular">mith 2023</span>
         </div>
