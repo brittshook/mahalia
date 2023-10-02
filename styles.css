@@ -20,11 +20,15 @@
     padding: 0;
 }
 
+/* add fallbacks -- complete for b/w only */
 :root {
     --black: #121212;
     --white: #ffffff;
     --translucent-white: #ffffff33;
-    --gray: #2D2D2D;
+    --gray: #313131;
+    --light-gray: #444141;
+    --dark-gray: #2D2D2D;
+    --translucent-gray: #2D2D2D99;
     --lime-green: #D8D339;
     --light-green: #F1F0B8;
 }
@@ -47,19 +51,19 @@ html {
 body {
     margin: 0 auto;
     max-width: 1600px;
-    background-color: var(--black);
-    color: var(--white);
+    background-color: var(--black, #121212);
+    color: var(--white, #fff);
     display: flex;
     flex-direction: column;
     gap: 84px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4 {
     font-family: 'ED Manteca', sans-serif;
     font-weight: 400;
 }
 
-.p1, .p2:not(#copyright .p2), .p3, .ui-text {
+h5, .p1, .p2:not(#copyright .p2), .p3, .ui-text, label, legend {
     font-family: 'Schibsted Grotesk', sans-serif;
 }
 
@@ -76,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: space-between;
     align-items: center;
     z-index: 10;
-    background: var(--background-desktop-linear, linear-gradient(180deg, var(--black) 0%, transparent 100%));
+    background: var(linear-gradient(180deg, var(--black, #121212) 0%, transparent 100%));
 }
 
 ul {
@@ -90,10 +94,10 @@ ul {
 }
 
 .nav-link {
-    color: var(--white);
+    color: var(--white, #fff);
 }
 
-.nav-link, .footer-link, button, #details, h1, h2, h3, #copyright {
+.nav-link, .footer-link, button, #details, h1, h2, h3, h4, #copyright {
     text-transform: uppercase;
 }
 
@@ -115,12 +119,43 @@ a:hover {
 
 button {
     width: fit-content;
-    padding: 15px 25px;
+    padding: 12px 30px;
     border-radius: 11px;
     border: 0;
-    background: var(--White, #FFF);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
+}
+
+button.primary, button.secondary:hover:not(button:disabled) {
+    background: var(--White, #fff);
+}
+
+button.primary:hover:not(button:disabled), button.primary:active:not(button:disabled), button.secondary {
+    outline: 1px solid var(--white, #fff);
+    background-color: var(--black, #121212);
+    color: var(--white, #fff);
+}
+
+button.secondary:hover:not(button:disabled) {
+    color: var(--black, #121212);
+}
+
+button.primary:active:not(button:disabled) {
+    box-shadow: 0px 4px 10px 0px #fff8f840 inset;
+}
+
+button.secondary:active:not(button:disabled) {
+    box-shadow: 0px 4px 10px 0px #00000040 inset;
+}
+
+button.primary:disabled {
+    background-color: #444141;
+    color: var(--black, #121212);
+}
+
+button.secondary:disabled {
+    color: #444141;
+    outline-color: #444141;
 }
 
 #hero {
@@ -168,7 +203,7 @@ button {
     gap: 14px;
 }
 
-.row {
+#tattoos .row {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -182,12 +217,12 @@ button {
     flex: 1 0 0;
     gap: 16px 0;
     border-radius: 18px;
-    background: var(--gray);
+    background: var(--dark-gray);
 }
 
 .card:hover {
     background-color: var(--light-green);
-    color: var(--black);
+    color: var(--black, #121212);
 }
 
 .card img, #header-with-img img, #book img {
@@ -228,7 +263,13 @@ h3 {
 }
 
 h4 {
-    font-size: 65px;
+    font-size: 48px;
+    line-height: 44px;
+}
+
+h5 {
+    font-size: 24px;
+    font-weight: 400;
 }
 
 .p1 {
@@ -239,13 +280,17 @@ h4 {
     font-size: 20px;
 }
 
-.p3 {
+.p3, label, legend {
     font-size: 18px;
 }
 
 .ui-text {
     font-size: 16px;
     font-weight: 500;
+}
+
+.small-text {
+    font-size: 15px;
 }
 
 .bold  {
@@ -312,7 +357,11 @@ h4 {
 
 .small {
     padding: 10px 20px;
-    font-size: 16px;
+}
+
+.large {
+    padding: 15px 25px;
+    font-size: 18px;
 }
 
 #footer {
@@ -326,7 +375,7 @@ h4 {
 
 #copyright {
     background-color: var(--lime-green);
-    color: var(--black);
+    color: var(--black, #121212);
     border-radius: 0 30px 0 0;
     padding: 60px 130px 60px 100px;
 }
@@ -343,7 +392,7 @@ h4 {
 }
 
 #copyright a {
-    color: var(--black);
+    color: var(--black, #121212);
 }
 
 .fill {
@@ -354,6 +403,154 @@ p:not(p:last-of-type) {
     margin-bottom: 20px;
 }
 
+.no-spacing {
+    margin-bottom: 0px !important;
+}
+
 #copyright p {
     margin-bottom: 8px;
+}
+
+#bookingModal {
+    background-color: var(--translucent-gray);
+}
+
+.form-page {
+    margin: 0 auto;
+    padding: 65px;
+    background-color: var(--black, #121212);
+    max-width: 575px;
+    height: fit-content;
+    border-radius: 30px;
+    border: 1px solid var(--light-gray);
+}
+
+#get-started {
+    padding: 35px 0;
+    text-align: center;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#start-btn {
+    margin-top: 30px;
+}
+
+fieldset {
+    border: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    align-self: stretch;
+}
+
+.header-with-line {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    align-self: stretch;
+    margin-bottom: 10px;
+}
+
+.line {
+    height: 1.5px;
+    background-color: var(--white, #fff);
+    flex: 1 0 0;
+}
+
+.progress {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+.progress .active {
+    width: 60px;
+    border-radius: 1000px;
+    background: linear-gradient(180deg, #00000066 0%, #00000052 36.41%, #00000000 100%), var(--lime-green);
+}
+
+.progress .inactive {
+    width: 14px;
+    background-color: var(--gray);
+}
+
+.progress * {
+    border-radius: 1000px;
+    height: 14px;
+}
+
+.form-navigation {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 0;
+}
+
+.options {
+    display: flex;
+    padding: 10px 0px;
+    align-items: flex-start;
+    gap: 100px;
+    align-self: stretch;
+}
+
+.col {
+    display: flex;
+    width: 115px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.row {
+    display: flex;
+    padding: 10px 0px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 75px;
+}
+
+.row label, .col label, #custom-option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: unset;
+    gap: 10px;
+}
+
+.btns {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 15px;
+}
+
+textarea {
+    resize: none;
+}
+
+input[type="file"], textarea {
+    margin-top: 10px;
+}
+
+input[type="text"], input[type="tel"], input[type="email"], input[type="number"], textarea {
+    border-radius: 11px;
+}
+
+input[type="text"], input[type="tel"], input[type="email"], input[type="number"] {
+    padding: 8px 14px;
+}
+
+#custom-option {
+    transform: translateY(-7px);
 }
