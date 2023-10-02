@@ -245,6 +245,7 @@ h4 {
 
 .ui-text {
     font-size: 16px;
+    font-weight: 500;
 }
 
 .bold  {
@@ -282,7 +283,7 @@ h4 {
 }
 
 .reveal {
-   /* display: none;*/
+   display: none;
 }
 
 #book {
@@ -298,9 +299,10 @@ h4 {
 #book h2 {
     margin-bottom: 18px;
 }
+
 #book img {
     position: absolute;
-    top: 16%;
+    top: 13%;
     left: 50%;
     transform: translate(-50%, 0%);
     opacity: 40%;
@@ -350,4 +352,8 @@ h4 {
 
 p:not(p:last-of-type) {
     margin-bottom: 20px;
+}
+
+#copyright p {
+    margin-bottom: 8px;
 }
