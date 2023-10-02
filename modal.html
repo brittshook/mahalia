@@ -7,21 +7,59 @@
 </head>
 <body>
     <div id="bookingModal" class="modal">
-        <div class="form-page" data-page="1">
-            <h4>Book a Consultation</h4>
-            <p class="p1">Got an idea? Tell me about it using this form and I’ll respond within 3 days.</p>
-            <button type="button" class="next-page fill">Get Started</button>
-          </div>
-          <div class="form-page" data-page="2">
-            <!-- Page 2 content here -->
-            <button type="button" class="prev-page">Previous</button>
-            <button type="button"  class="next-page">Next</button>
-          </div>
-          <div class="form-page" data-page="3">
-            <!-- Page 3 content here -->
-            <button type="button" class="prev-page">Previous</button>
-            <button type="button" class="submit-form">Submit</button>
+        <form action="https://submit-form.com/qcjYhXPT" method="post">
+            <div class="form-page" data-page="1">
+                <h4>Book a Consultation</h4>
+                <p class="p1">Got an idea? Tell me about it using this form and I’ll respond within 3 days.</p>
+                <button type="button" class="next-page fill">Get Started</button>
+            </div>
+            <div class="form-page" data-page="2">
+                <div class="header-with-line">
+                    <h4>About You</h4>
+                    <div class="line"></div>
+                </div>
+                <fieldset id="name-fields">
+                    <label for="first-name">First Name<input type="text" id="first-name" name="first-name" placeholder="Liana" required></label>
+                    <label for="last-name">Last Name<input type="text" id="last-name" name="last-name" placeholder="Fulmer" required></label>
+                </fieldset>
+                <fieldset id="pronoun-fields">
+                    <legend>
+                        <p class="p2">Pronouns</p>
+                        <p class="p3">Select all that apply.</p>
+                    </legend>
+                    <div>
+                        <label for="she"><input type="checkbox" id="she" name="pronoun" value="she/her">She/Her</label>
+                        <label for="they"><input type="checkbox" id="they" name="pronoun" value="they/them">They/Them</label>
+                    </div>
+                    <div>
+                        <label for="he"><input type="checkbox" id="he" name="pronoun" value="he/him">He/Him</label>
+                        <div>
+                            <label for="custom"><input type="checkbox" id="custom" name="pronoun" value="custom"></label>
+                            <label for="custom-pronoun" class="sr-only">(Optional) Write my own pronouns.<input type="text" id="custom-pronoun" name="custom-pronoun" placeholder="Write My Own"></label>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset id="contact-fields">
+                    <label for="email">Email Address<input type="email" id="email" name="email" placeholder="liana@gmail.com" required></label>
+                    <label for="phone">Phone Number<span class="sr-only">Format: 123-456-7890</span><input type="tel" id="phone" name="phone" placeholder="555-555-5555" minlength="4" maxlength="20"></label>
+                    <fieldset id="preferred-method">
+                        <legend>Preferred Contact Method</legend>
+                        <label for="prefer-email"><input type="radio" id="prefer-email" name="prefer-email" value="email">Email</label>
+                        <label for="prefer-phone"><input type="radio" id="prefer-phone" name="prefer-phone" value="phone">Phone</label>
+                    </fieldset>
+                </fieldset>
+                <button type="button" class="prev-page">Previous</button>
+                <button type="button"  class="next-page">Next</button>
+            </div>
+            <div class="form-page" data-page="3">
+                <div class="header-with-line">
+                    <h4>About Your Tattoo</h4>
+                    <div class="line"></div>
+                </div>            
+                <button type="button" class="prev-page">Previous</button>
+                <button type="submit" class="submit-form">Submit</button>
+            </div>
+        </form>
     </div>
-    
 </body>
 </html>
