@@ -58,16 +58,33 @@ body {
     gap: 84px;
 }
 
-h1, h2, h3, h4 {
-    font-family: 'ED Manteca', sans-serif;
-    font-weight: 400;
-}
-
-h5, .p1, .p2:not(#copyright .p2), .p3, .ui-text, label, legend {
+body, 
+input::placeholder,
+textarea::placeholder {
     font-family: 'Schibsted Grotesk', sans-serif;
 }
 
-#hero, #tattoos, #about, #faqs, #book {
+h1,
+h2,
+h3,
+h4,
+#copyright .p2 {
+    font-family: 'ED Manteca', sans-serif;
+}
+
+
+h1, 
+h2,
+h3,
+h4 {
+    font-weight: 400;
+}
+
+#hero,  
+#tattoos, 
+#about, 
+#faqs, 
+#book {
     padding: 0 100px;
 }
 
@@ -97,7 +114,15 @@ ul {
     color: var(--white, #fff);
 }
 
-.nav-link, .footer-link, button, #details, h1, h2, h3, h4, #copyright {
+.nav-link, 
+.footer-link, 
+button, 
+#details, 
+h1, 
+h2, 
+h3, 
+h4, 
+#copyright {
     text-transform: uppercase;
 }
 
@@ -126,11 +151,14 @@ button {
     font-weight: 500;
 }
 
-button.primary, button.secondary:hover:not(button:disabled) {
+button.primary, 
+button.secondary:hover:not(button:disabled) {
     background: var(--White, #fff);
 }
 
-button.primary:hover:not(button:disabled), button.primary:active:not(button:disabled), button.secondary {
+button.primary:hover:not(button:disabled), 
+button.primary:active:not(button:disabled), 
+button.secondary {
     outline: 1px solid var(--white, #fff);
     background-color: var(--black, #121212);
     color: var(--white, #fff);
@@ -178,7 +206,9 @@ button.secondary:disabled {
     to {transform: translateY(0px);}
 }
 
-#hero-img img, .fill-img {
+#hero-img img, 
+.fill-img,
+#faqs {
     width: 100%;
 }
 
@@ -225,7 +255,9 @@ button.secondary:disabled {
     color: var(--black, #121212);
 }
 
-.card img, #header-with-img img, #book img {
+.card img, 
+#header-with-img img, 
+#book img {
     border-radius: 10px;
 }
 
@@ -286,14 +318,14 @@ h5 {
 
 .ui-text {
     font-size: 16px;
-    font-weight: 500;
 }
 
 .small-text {
     font-size: 15px;
 }
 
-.bold  {
+.bold, 
+.ui-text {
     font-weight: 500;
 }
 
@@ -301,11 +333,8 @@ h5 {
     font-weight: 900;
 }
 
-#faqs {
-    width: 100%;
-}
-
-#faqs h2, #book * {
+#faqs h2,
+#book * {
     text-align: center;
 }
 
@@ -380,7 +409,8 @@ h5 {
     padding: 60px 130px 60px 100px;
 }
 
-#socials, #other {
+#socials, 
+#other {
     padding: 24px 0px;
     display: flex;
     flex-direction: column;
@@ -403,8 +433,8 @@ p:not(p:last-of-type) {
     margin-bottom: 20px;
 }
 
-.no-spacing {
-    margin-bottom: 0px !important;
+.reduced-spacing {
+    margin-bottom: 4px !important;
 }
 
 #copyright p {
@@ -494,22 +524,29 @@ label {
     display: flex;
     flex-direction: column;
     flex: 1 0 0;
+    gap: 12px
 }
 
 .options {
     display: flex;
-    padding: 10px 0px;
+    padding: 10px 0 0;
     align-items: flex-start;
-    gap: 100px;
     align-self: stretch;
 }
 
 .col {
     display: flex;
-    width: 115px;
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
+}
+
+.col, .row label {
+    width: 125px;
+}
+
+.options, .row {
+    gap: 48px;
 }
 
 .row {
@@ -517,10 +554,11 @@ label {
     padding: 10px 0px;
     justify-content: flex-start;
     align-items: center;
-    gap: 75px;
 }
 
-.row label, .col label, #custom-option {
+.row label, 
+.col label, 
+#custom-option {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -537,20 +575,43 @@ label {
 
 textarea {
     resize: none;
+    padding: 14px;
 }
 
-input[type="file"], textarea {
+input[type="file"] {
     margin-top: 10px;
 }
 
-input[type="text"], input[type="tel"], input[type="email"], input[type="number"], textarea {
+input[type="text"], 
+input[type="tel"], 
+input[type="email"], 
+input[type="number"], 
+textarea {
     border-radius: 11px;
 }
 
-input[type="text"], input[type="tel"], input[type="email"], input[type="number"] {
+input[type="text"], 
+input[type="tel"], 
+input[type="email"], 
+input[type="number"] {
     padding: 8px 14px;
 }
 
 #custom-option {
     transform: translateY(-7px);
+}
+
+#upload {
+    height: 225px;
+    outline: 2px dashed #E2E6EA;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+}
+
+.file_input label {
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
 }

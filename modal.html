@@ -12,7 +12,7 @@
 </head>
 <body>
     <div id="bookingModal" class="modal">
-        <form action="https://submit-form.com/qcjYhXPT" method="post">
+        <form action="https://submit-form.com/qcjYhXPT" method="post" enctype="multipart/form-data">
             <div class="form-page" data-page="1">
                 <div id="get-started" class="modal-content">
                     <h4>Book a Consultation</h4>
@@ -32,7 +32,7 @@
                     </fieldset>
                     <fieldset id="pronoun-fields">
                         <legend>
-                            <p class="p2 no-spacing">Pronouns</p>
+                            <p class="reduced-spacing">Pronouns</p>
                             <p class="small-text">Select all that apply.</p>
                         </legend>
                         <div class="options">
@@ -84,8 +84,8 @@
                     <fieldset id="size-fields">
                         <legend>Approximate Size</legend>
                         <div class="row">
-                            <label for="width"><input type="number" id="width" name="width" value="1" step="0.5" min="0.5" max="50" required>Inches Wide</label>
-                            <label for="height"><input type="number" id="height" name="height" value="1" step="0.5" min="0.5" max="50" required>Inches Long</label>
+                            <label for="width" class="small-text"><input type="number" id="width" name="width" value="1" step="0.5" min="0.5" max="50" required>Inches Wide</label>
+                            <label for="height" class="small-text"><input type="number" id="height" name="height" value="1" step="0.5" min="0.5" max="50" required>Inches Long</label>
                         </div>
                     </fieldset>
                     <fieldset id="coverup-field">
@@ -123,7 +123,16 @@
                         <h5>Upload Reference Photos</h5>
                         <div class="line"></div>
                     </div>
-                    <label for="photos">Show me your inspiration and/or placement.<input type="file" id="photos" name="photos" accept="image/*,.pdf" multiple required></label>
+                    <legend>Show me your inspiration and/or placement.</legend>
+                    <div id="upload">
+                        <div class="file_input">
+                            <input type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" accept="image/*,.pdf" multiple required>
+                            <label for="file"><span class="black">Choose a file</span><span class="drag-and-drop"> or drag it here</span></label>
+                        </div>
+                        <div class="uploading">Uploading…</div>
+                        <div class="success">Done!</div>
+                        <div class="error">Error! <span></span></div>
+                    </div>
                     <div class="form-navigation">
                         <div class="progress">
                             <div class="inactive"></div>
