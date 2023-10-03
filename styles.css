@@ -348,7 +348,8 @@ h5 {
     gap: 32px;
 }
 
-.question:hover {
+.question:hover,
+.question.revealed {
     background-color: var(--translucent-white);
 }
 
@@ -358,8 +359,16 @@ h5 {
     align-items: center
 }
 
-.reveal {
+i.revealed {
+    transform: rotate(-45deg);
+}
+
+.answer {
    display: none;
+}
+
+.answer.revealed {
+    display: block;
 }
 
 #book {
