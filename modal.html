@@ -22,45 +22,40 @@
             </div>
             <div class="form-page" data-page="2">
                 <div class="modal-content">
-                    <div class="header-with-line">
-                        <h5>About You</h5>
-                        <div class="line"></div>
-                    </div>
-                    <fieldset id="name-fields">
-                        <label for="first-name">First Name<input type="text" id="first-name" name="first-name" placeholder="Liana" minlength="1" maxlength="30" required></label>
-                        <label for="last-name">Last Name<input type="text" id="last-name" name="last-name" placeholder="Fulmer" minlength="1" maxlength="30" required></label>
-                    </fieldset>
-                    <fieldset id="pronoun-fields">
-                        <legend>
-                            <p class="reduced-spacing">Pronouns</p>
-                            <p class="small-text">Select all that apply.</p>
-                        </legend>
-                        <div class="options">
-                            <div class="col">
-                                <label for="she"><input type="checkbox" id="she" name="pronoun" value="she/her">She/Her</label>
-                                <label for="he"><input type="checkbox" id="he" name="pronoun" value="he/him">He/Him</label>
-                            </div>
-                            <div class="col">
-                                <label for="they"><input type="checkbox" id="they" name="pronoun" value="they/them">They/Them</label>
-                                <div id="custom-option">
-                                    <input type="checkbox" id="custom" name="pronoun" value="custom">
-                                    <label for="custom-pronoun" class="sr-only">(Optional) Write my own pronouns.</label>
-                                    <input type="text" id="custom-pronoun" name="custom-pronoun" placeholder="Write My Own" maxlength="15" size="15">
+                    <div class="form-fields">
+                        <div class="header-with-line">
+                            <h5>About You</h5>
+                            <div class="line"></div>
+                        </div>
+                        <fieldset id="name-fields">
+                            <label for="first-name">First Name<input type="text" id="first-name" name="first-name" placeholder="Liana" minlength="1" maxlength="30" required></label>
+                            <label for="last-name">Last Name<input type="text" id="last-name" name="last-name" placeholder="Fulmer" minlength="1" maxlength="30" required></label>
+                        </fieldset>
+                        <fieldset id="pronoun-fields">
+                            <legend>
+                                <p class="reduced-spacing">Pronouns</p>
+                                <p class="small-text">Select all that apply.</p>
+                            </legend>
+                            <div class="options">
+                                <div class="col">
+                                    <label for="she"><input type="checkbox" id="she" name="pronoun" value="she/her">She/Her</label>
+                                    <label for="he"><input type="checkbox" id="he" name="pronoun" value="he/him">He/Him</label>
+                                </div>
+                                <div class="col">
+                                    <label for="they"><input type="checkbox" id="they" name="pronoun" value="they/them">They/Them</label>
+                                    <div id="custom-option">
+                                        <input type="checkbox" id="custom" name="pronoun" value="custom">
+                                        <label for="custom-pronoun" class="sr-only">(Optional) Write my own pronouns.</label>
+                                        <input type="text" id="custom-pronoun" name="custom-pronoun" placeholder="Write My Own" maxlength="15" size="15">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </fieldset>
-                    <fieldset id="contact-fields">
-                        <label for="email">Email Address<input type="email" id="email" name="email" placeholder="liana@gmail.com" maxlength="40" required></label>
-                        <label for="phone">Phone Number<span class="sr-only">Format: 123-456-7890</span><input type="tel" id="phone" name="phone" placeholder="555-555-5555" minlength="4" maxlength="20" required></label>
-                    </fieldset>
-                    <fieldset id="preferred-method">
-                        <legend>Preferred Contact Method</legend>
-                        <div class="row">
-                            <label for="prefer-email"><input type="radio" id="prefer-email" name="prefer" value="email">Email</label>
-                            <label for="prefer-phone"><input type="radio" id="prefer-phone" name="prefer" value="phone">Phone</label>    
-                        </div>
                         </fieldset>
+                        <fieldset id="contact-fields">
+                            <label for="email">Email Address<input type="email" id="email" name="email" placeholder="liana@gmail.com" maxlength="40" required></label>
+                            <label for="phone">Phone Number<span class="sr-only">Format: 123-456-7890</span><input type="tel" id="phone" name="phone" placeholder="555-555-5555" minlength="4" maxlength="20" required></label>
+                        </fieldset>
+                    </div>
                     <div class="form-navigation">
                         <div class="progress">
                             <div class="active"></div>
@@ -74,35 +69,37 @@
             </div>
             <div class="form-page" data-page="3">
                 <div class="modal-content">
-                    <div class="header-with-line">
-                        <h5>About Your Tattoo</h5>
-                        <div class="line"></div>
-                    </div>
-                    <fieldset id="placement-field">
-                        <label for="placement">Placement Area<input type="text" id="placement" name="placement" placeholder="Left arm" maxlength="50" required></label>
-                    </fieldset>
-                    <fieldset id="size-fields">
-                        <legend>Approximate Size</legend>
-                        <div class="row">
-                            <label for="width" class="small-text"><input type="number" id="width" name="width" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Wide</label>
-                            <label for="height" class="small-text"><input type="number" id="height" name="height" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Long</label>
+                    <div class="form-fields">
+                        <div class="header-with-line">
+                            <h5>About Your Tattoo</h5>
+                            <div class="line"></div>
                         </div>
-                    </fieldset>
-                    <fieldset id="coverup-field">
-                        <legend>Is this a coverup?</legend>
-                        <div class="row">
-                            <label for="yes-coverup"><input type="radio" id="yes-coverup" name="coverup" value="yes">Yes</label>
-                            <label for="no-coverup"><input type="radio" id="no-coverup" name="coverup" value="no">No</label>
-                        </div>
-                    </fieldset>
-                    <fieldset id="color-field">
-                        <legend>Will there be color?</legend>
-                        <div class="row">
-                            <label for="yes-color"><input type="radio" id="yes-color" name="color" value="yes">Yes</label>
-                            <label for="no-color"><input type="radio" id="no-color" name="color" value="no">No</label>
-                            <label for="not-sure-color"><input type="radio" id="not-sure-color" name="color" value="not sure">Not Sure</label>
-                        </div>
+                        <fieldset id="placement-field">
+                            <label for="placement">Placement Area<input type="text" id="placement" name="placement" placeholder="Left arm" maxlength="50" required></label>
                         </fieldset>
+                        <fieldset id="size-fields">
+                            <legend>Approximate Size</legend>
+                            <div class="row">
+                                <label for="width" class="small-text"><input type="number" id="width" name="width" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Wide</label>
+                                <label for="height" class="small-text"><input type="number" id="height" name="height" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Long</label>
+                            </div>
+                        </fieldset>
+                        <fieldset id="coverup-field">
+                            <legend>Is this a coverup?</legend>
+                            <div class="row">
+                                <label for="yes-coverup"><input type="radio" id="yes-coverup" name="coverup" value="yes">Yes</label>
+                                <label for="no-coverup"><input type="radio" id="no-coverup" name="coverup" value="no">No</label>
+                            </div>
+                        </fieldset>
+                        <fieldset id="color-field">
+                            <legend>Will there be color?</legend>
+                            <div class="row">
+                                <label for="yes-color"><input type="radio" id="yes-color" name="color" value="yes">Yes</label>
+                                <label for="no-color"><input type="radio" id="no-color" name="color" value="no">No</label>
+                                <label for="not-sure-color"><input type="radio" id="not-sure-color" name="color" value="not sure">Not Sure</label>
+                            </div>
+                        </fieldset>
+                    </div>
                     <div class="form-navigation">
                         <div class="progress">
                             <div class="inactive"></div>
@@ -119,19 +116,21 @@
             </div>
             <div class="form-page" data-page="4">
                 <div class="modal-content">
-                    <div class="header-with-line">
-                        <h5>Upload Reference Photos</h5>
-                        <div class="line"></div>
-                    </div>
-                    <legend>Show me your inspiration and/or placement.</legend>
-                    <div id="upload">
-                        <div class="file_input">
-                            <input type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" accept="image/*,.pdf" multiple required>
-                            <label for="file"><span class="black">Choose a file</span><span class="drag-and-drop"> or drag it here</span></label>
+                    <div class="form-fields">
+                        <div class="header-with-line">
+                            <h5>Upload Reference Photos</h5>
+                            <div class="line"></div>
                         </div>
-                        <div class="uploading">Uploading…</div>
-                        <div class="success">Done!</div>
-                        <div class="error">Error! <span></span></div>
+                        <legend>Show me your inspiration and/or placement.</legend>
+                        <div id="upload">
+                            <div class="file_input">
+                                <input type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" accept="image/*,.pdf" multiple required>
+                                <label for="file"><span class="black">Choose a file</span><span class="drag-and-drop"> or drag it here</span></label>
+                            </div>
+                            <div class="uploading">Uploading…</div>
+                            <div class="success">Done!</div>
+                            <div class="error">Error! <span></span></div>
+                        </div>
                     </div>
                     <div class="form-navigation">
                         <div class="progress">
@@ -149,11 +148,13 @@
             </div>
             <div class="form-page" data-page="5">
                 <div class="modal-content">
-                    <div class="header-with-line">
-                        <h5>Your Idea</h5>
-                        <div class="line"></div>
+                    <div class="form-fields">
+                        <div class="header-with-line">
+                            <h5>Your Idea</h5>
+                            <div class="line"></div>
+                        </div>
+                        <label for="idea">Tell me a bit about your tattoo idea.<textarea id="idea" name="idea" rows="10" cols="50" placeholder="I want a..." minlength="20" maxlength="1000" required></textarea></label>
                     </div>
-                    <label for="idea">Tell me a bit about your tattoo idea.<textarea id="idea" name="idea" rows="10" cols="50" placeholder="I want a..." minlength="20" maxlength="1000" required></textarea></label>
                     <div class="form-navigation">
                         <div class="progress">
                             <div class="inactive"></div>

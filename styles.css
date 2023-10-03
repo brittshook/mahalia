@@ -449,12 +449,16 @@ p:not(p:last-of-type) {
 
 .form-page {
     margin: 0 auto;
-    padding: 65px;
+    padding: 50px 65px;
     background-color: var(--black, #121212);
     max-width: 575px;
-    height: fit-content;
+    height: 580px;
     border-radius: 30px;
     border: 1px solid var(--light-gray);
+}
+
+div[data-page="1"] {
+    height: fit-content;
 }
 
 #get-started {
@@ -463,6 +467,14 @@ p:not(p:last-of-type) {
 }
 
 .modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    height: 100%;
+}
+
+.form-fields {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -516,7 +528,6 @@ fieldset {
 }
 
 .form-navigation {
-    margin-top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -568,6 +579,12 @@ label {
     gap: 10px;
 }
 
+
+.row label, 
+.col label {
+    font-size: 16px;
+}
+
 .btns {
     display: flex;
     justify-content: end;
@@ -581,7 +598,7 @@ input, textarea {
 
 textarea {
     resize: none;
-    padding: 14px;
+    padding: 16px;
 }
 
 input[type="file"] {
@@ -608,11 +625,15 @@ input[type="number"] {
 }
 
 #upload {
-    height: 225px;
     outline: 2px dashed #E2E6EA;
     border-radius: 20px;
     padding: 30px;
     text-align: center;
+}
+
+#upload,
+textarea {
+    height: 275px;
 }
 
 .file_input label {
@@ -624,8 +645,8 @@ input[type="number"] {
 
 input[type="checkbox"], input[type="radio"] {
     appearance: unset;
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     outline: 2px solid var(--White, #fff);
     background-color: var(--black);
 }
