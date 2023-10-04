@@ -402,6 +402,10 @@ h5 {
     gap: 32px;
 }
 
+.question:not(:last-of-type) {
+    margin-bottom: 10px;
+}
+
 .question:hover,
 .question.revealed {
     background-color: var(--translucent-white);
@@ -537,6 +541,10 @@ p:not(p:last-of-type) {
     justify-content: center;
     align-items: center;
     transform: translate(25%, -25%);
+}
+
+.close-modal:hover {
+    color: var(--white, #fff);
 }
 
 .start-page {
@@ -718,13 +726,45 @@ textarea {
 input[type="checkbox"], 
 input[type="radio"] {
     appearance: unset;
-    width: 22px;
-    height: 22px;
-    outline: 2px solid var(--White, #fff);
 }
 
-input[type="checkbox"]  {
+.checkbox,
+.radio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: 2px solid var(--White, #fff);
+    width: 24px;
+    height: 24px;
+}
+
+.checkbox {
     border-radius: 6px;
+}
+
+.radio {
+    border-radius: 1000px;
+}
+
+.checked {
+    transform: translateY(1px);
+}
+
+.checked, 
+.filled {
+    display: none;
+}
+
+.circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 1000px;
+    background-color: var(--lime-green, #D8D339);
+}
+
+.checked.revealed,
+.filled.revealed {
+    display: block;
 }
 
 .close-modal,
