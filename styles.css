@@ -51,11 +51,60 @@ html {
 body {
     margin: 0 auto;
     max-width: 1600px;
-    background-color: var(--black, #121212);
-    color: var(--white, #fff);
-    display: flex;
     flex-direction: column;
     gap: 84px;
+}
+
+body,
+#navbar,
+#nav-links,
+#details,
+#tattoos,
+#tattoos .row,
+#about, 
+#faqs, 
+#book,
+#header-with-img,
+.question,
+.question-with-icon,
+#footer,
+#socials, 
+#other,
+.close-modal,
+.start-page,
+fieldset,
+.form-fields,
+.options,
+.form-navigation,
+.progress,
+.header-with-line,
+label,
+.col,
+.col label,
+.row,
+.row label,
+#custom-option,
+.btns
+{
+    display: flex;
+}
+
+body, 
+.nav-link,
+button.primary:hover:not(button:disabled), 
+button.primary:active:not(button:disabled), 
+button.secondary {
+    color: var(--white, #fff);
+}
+
+body,
+button.primary:hover:not(button:disabled), 
+button.primary:active:not(button:disabled), 
+button.secondary,
+.modal,
+input[type="checkbox"], 
+input[type="radio"] {
+    background-color: var(--black, #121212);
 }
 
 body,
@@ -92,7 +141,6 @@ h4 {
 
 #navbar {
     position: fixed;
-    display: flex;
     width: 100%;
     max-width: 1400px;
     padding: 24px 100px;
@@ -107,13 +155,8 @@ ul {
 }
 
 #nav-links {
-    display: flex;
     align-items: flex-start;
     gap: 30px;
-}
-
-.nav-link {
-    color: var(--white, #fff);
 }
 
 .nav-link, 
@@ -142,6 +185,24 @@ a:hover {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+#logo.revealed {
+    animation-name: fade-in;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+button, 
+.close-modal,
+.open-modal {
+    cursor: pointer;
 }
 
 button {
@@ -154,16 +215,15 @@ button {
 }
 
 button.primary, 
-button.secondary:hover:not(button:disabled) {
-    background: var(--White, #fff);
+button.secondary:hover:not(button:disabled),
+.line {
+    background-color: var(--White, #fff);
 }
 
 button.primary:hover:not(button:disabled), 
 button.primary:active:not(button:disabled), 
 button.secondary {
     outline: 1px solid var(--white, #fff);
-    background-color: var(--black, #121212);
-    color: var(--white, #fff);
 }
 
 button.secondary:hover:not(button:disabled) {
@@ -223,20 +283,17 @@ button.secondary:disabled {
 }
 
 #details {
-    display: flex;
     justify-content: space-between;
     padding: 12px 0;
 }
 
 #tattoos {
     margin-bottom: 40px;
-    display: flex;
     flex-direction: column;
     gap: 14px;
 }
 
 #tattoos .row {
-    display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 14px;
@@ -267,7 +324,6 @@ button.secondary:disabled {
     margin: 0 auto;
     padding: 40px 0;
     max-width: 850px;
-    display: flex;
     flex-direction: column;
     gap: 80px;
 }
@@ -277,7 +333,6 @@ button.secondary:disabled {
 }
 
 #header-with-img {
-    display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: end;
@@ -342,7 +397,6 @@ h5 {
 
 .question {
     border-radius: 20px;
-    display: flex;
     flex-direction: column;
     padding: 32px 24px;
     gap: 32px;
@@ -354,7 +408,6 @@ h5 {
 }
 
 .question-with-icon {
-    display: flex;
     justify-content: space-between;
     align-items: center
 }
@@ -406,7 +459,6 @@ i.revealed {
 
 #footer {
     padding: 0;
-    display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
@@ -422,7 +474,6 @@ i.revealed {
 #socials, 
 #other {
     padding: 24px 0px;
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
@@ -467,7 +518,6 @@ p:not(p:last-of-type) {
 .modal {
     position: relative;
     padding: 50px 65px;
-    background-color: var(--black, #121212);
     width: 575px;
     height: fit-content;
     border-radius: 30px;
@@ -480,10 +530,8 @@ p:not(p:last-of-type) {
     top: 0;
     right: 0;
     color: #858585;
-    border-radius: 1000px;
     border: 1px solid var(--light-gray);
     background: var(--black, #121212);
-    display: flex;
     width: 50px;
     height: 50px;
     justify-content: center;
@@ -492,7 +540,6 @@ p:not(p:last-of-type) {
 }
 
 .start-page {
-    display: flex;
     padding: 35px 0;
     text-align: center;
 }
@@ -514,7 +561,6 @@ p:not(p:last-of-type) {
 }
 
 .form-fields {
-    display: flex;
     flex-direction: column;
     gap: 20px;
 }
@@ -525,14 +571,12 @@ p:not(p:last-of-type) {
 
 fieldset {
     border: none;
-    display: flex;
     align-items: flex-start;
     gap: 25px;
     align-self: stretch;
 }
 
 .header-with-line {
-    display: flex;
     align-items: center;
     gap: 14px;
     align-self: stretch;
@@ -541,18 +585,15 @@ fieldset {
 
 .line {
     height: 1.5px;
-    background-color: var(--white, #fff);
     flex: 1 0 0;
 }
 
 .progress {
-    display: flex;
     align-items: flex-start;
     gap: 12px;
 }
 .progress .active {
     width: 60px;
-    border-radius: 1000px;
     background: linear-gradient(180deg, #00000066 0%, #00000052 36.41%, #00000000 100%), var(--lime-green);
 }
 
@@ -562,32 +603,27 @@ fieldset {
 }
 
 .progress * {
-    border-radius: 1000px;
     height: 14px;
 }
 
 .form-navigation {
-    display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 label {
-    display: flex;
     flex-direction: column;
     flex: 1 0 0;
     gap: 12px
 }
 
 .options {
-    display: flex;
     padding: 10px 0 0;
     align-items: flex-start;
     align-self: stretch;
 }
 
 .col {
-    display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
@@ -602,7 +638,6 @@ label {
 }
 
 .row {
-    display: flex;
     padding: 10px 0px;
     justify-content: flex-start;
     align-items: center;
@@ -611,7 +646,6 @@ label {
 .row label, 
 .col label, 
 #custom-option {
-    display: flex;
     flex-direction: row;
     align-items: center;
     flex: unset;
@@ -625,7 +659,6 @@ label {
 }
 
 .btns {
-    display: flex;
     justify-content: end;
     align-items: center;
     gap: 15px;
@@ -682,18 +715,20 @@ textarea {
     justify-content: center;
 }
 
-input[type="checkbox"], input[type="radio"] {
+input[type="checkbox"], 
+input[type="radio"] {
     appearance: unset;
     width: 22px;
     height: 22px;
     outline: 2px solid var(--White, #fff);
-    background-color: var(--black);
 }
 
 input[type="checkbox"]  {
     border-radius: 6px;
 }
 
+.close-modal,
+.progress *,
 input[type="radio"] {
     border-radius: 1000px;
 }
