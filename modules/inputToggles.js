@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
         newInput.addEventListener('click', () => {
             radioInputs.forEach(currentInput => {
                 if (currentInput !== newInput) {
-                    console.log(currentInput.getAttribute('name'), newInput.getAttribute('name'));
                     if (currentInput.getAttribute('name') === newInput.getAttribute('name')) {
                         changeInput(currentInput, 'remove');
                     }

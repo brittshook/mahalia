@@ -14,7 +14,6 @@ function showPage(pageNumber) {
 }
 
 // Enable next button if required fields are complete
-// TODO - clear input fields when user leaves or submits form
 function checkInputs(pageNumber) {
     if (pageNumber > 0) {
         const pages = document.querySelectorAll('.start-page, .form-page, .success-page');
@@ -25,15 +24,8 @@ function checkInputs(pageNumber) {
 
         const nextPageButton = pages[pageNumber].querySelector('.next-page');
         
-
-        const fieldInputsCompleted = fieldInputs.filter(input => {
-            return input.value.trim() !== '' || input.checked;
-        });
-
-        const optionInputsCompleted = optionInputs.filter(input => {
-            return input.checked;
-        });
-
+        const fieldInputsCompleted = fieldInputs.filter(input => input.value.trim() !== '' || input.checked);
+        const optionInputsCompleted = optionInputs.filter(input => input.checked);
 
         if (fieldInputsCompleted.length + optionInputsCompleted.length >= allInputs.length) {
             nextPageButton.removeAttribute('disabled');
