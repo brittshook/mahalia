@@ -74,7 +74,7 @@ body,
 .start-page,
 fieldset,
 .form-fields,
-.options,
+#pronoun-options,
 .form-navigation,
 .progress,
 .header-with-line,
@@ -625,7 +625,7 @@ label {
     gap: 12px
 }
 
-.options {
+#pronoun-options {
     padding: 10px 0 0;
     align-items: flex-start;
     align-self: stretch;
@@ -641,7 +641,7 @@ label {
     width: 125px;
 }
 
-.options, .row {
+#pronoun-options, .row {
     gap: 48px;
 }
 

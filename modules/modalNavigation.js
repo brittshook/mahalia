@@ -14,20 +14,28 @@ function showPage(pageNumber) {
 }
 
 // Enable next button if required fields are complete
-// TODO - clear input fields when user leaves or submits form, include checks for checkmarks/radios
+// TODO - clear input fields when user leaves or submits form
 function checkInputs(pageNumber) {
     if (pageNumber > 0) {
         const pages = document.querySelectorAll('.start-page, .form-page, .success-page');
-        const inputs = Array.from(pages[pageNumber].querySelectorAll('input[required], textarea[required]'));
+
+        const allInputs = Array.from(pages[pageNumber].querySelectorAll('input[required], textarea[required], .options'));
+        const fieldInputs = Array.from(pages[pageNumber].querySelectorAll('input[required], textarea[required]'));
+        const optionInputs = Array.from(pages[pageNumber].querySelectorAll('input[type="checkbox"], input[type="radio"]'));
+
         const nextPageButton = pages[pageNumber].querySelector('.next-page');
         
-        const fieldsCompleted = inputs.filter(input => {
-            return input.value.trim() !== '';
-        }); 
 
-        console.log(fieldsCompleted);
+        const fieldInputsCompleted = fieldInputs.filter(input => {
+            return input.value.trim() !== '' || input.checked;
+        });
 
-        if (fieldsCompleted.length === inputs.length) {
+        const optionInputsCompleted = optionInputs.filter(input => {
+            return input.checked;
+        });
+
+
+        if (fieldInputsCompleted.length + optionInputsCompleted.length >= allInputs.length) {
             nextPageButton.removeAttribute('disabled');
         } else {
             nextPageButton.setAttribute('disabled', 'true');
@@ -52,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const inputElements = document.querySelectorAll('input[required], textarea[required]');
+    const inputElements = document.querySelectorAll('input[required], input[type="checkbox"], input[type="radio"], textarea[required]');
     inputElements.forEach(input => {
         input.addEventListener('input', () => {
             checkInputs(currentPage);
