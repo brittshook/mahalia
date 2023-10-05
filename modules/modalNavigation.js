@@ -1,6 +1,7 @@
+import { inputRules, inputValidation, toggleValidationUI } from './inputValidation.js';
+
 let currentPage = 0;
 
-// Navigate to next / previous page
 function showPage(pageNumber) {
     const pages =  document.querySelectorAll('.start-page, .form-page, .success-page');
     pages.forEach(page => {
@@ -13,7 +14,63 @@ function showPage(pageNumber) {
     }
 }
 
-// Enable next button if required fields are complete (going  to need  to update this after error handling)
+// Issue: when you click the label for the checkboxes, it next page enables but the check doesnt show
+function enableNextButton() {
+    if (currentPage > 0) {
+        const pages = document.querySelectorAll('.start-page, .form-page, .success-page');
+
+        const nextPageButton = pages[currentPage].querySelector('.next-page');
+
+        const allInputs = Array.from(pages[currentPage].querySelectorAll('input[required], input[type="checkbox"], input[type="radio"], textarea[required]'));
+        const allInputsByName = allInputs.map(input => input.name);
+        const allInputsByUnqiueName = [...new Set(allInputsByName)];
+
+        const validInputs = allInputsByUnqiueName.filter(input => inputRules[input]['isValid']); 
+
+        console.log(allInputsByUnqiueName);
+        console.log(validInputs);
+        console.log(validInputs.length === allInputsByUnqiueName.length);
+
+        if (validInputs.length === allInputsByUnqiueName.length) {
+            nextPageButton.removeAttribute('disabled');
+        } else {
+            nextPageButton.setAttribute('disabled', 'true');
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    showPage(currentPage);
+
+    const inputElements = document.querySelectorAll('input[required], input[type="checkbox"], input[type="radio"], textarea[required]');
+    inputElements.forEach(input => {
+        input.addEventListener('input', () => {
+            inputValidation(input);
+            toggleValidationUI(input);
+            console.log(inputRules);
+            enableNextButton();
+        });
+    })
+
+    const nextPageButtons = document.querySelectorAll('.next-page');
+    nextPageButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            showPage(currentPage + 1);
+        });
+    });
+
+    const prevPageButtons = document.querySelectorAll('.prev-page');
+    prevPageButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            showPage(currentPage - 1);
+        });
+    });
+});
+
+export { currentPage, showPage };
+
+
+/* ARCHIVED
 function checkInputs(pageNumber) {
     if (pageNumber > 0) {
         const pages = document.querySelectorAll('.start-page, .form-page, .success-page');
@@ -34,31 +91,4 @@ function checkInputs(pageNumber) {
         }
     }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    showPage(currentPage);
-
-    const nextPageButtons = document.querySelectorAll('.next-page');
-    nextPageButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            showPage(currentPage + 1);
-        });
-    });
-
-    const prevPageButtons = document.querySelectorAll('.prev-page');
-    prevPageButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            showPage(currentPage - 1);
-        });
-    });
-
-    const inputElements = document.querySelectorAll('input[required], input[type="checkbox"], input[type="radio"], textarea[required]');
-    inputElements.forEach(input => {
-        input.addEventListener('input', () => {
-            checkInputs(currentPage);
-        });
-    })
-    
-});
-
-export { currentPage, showPage };
+*/

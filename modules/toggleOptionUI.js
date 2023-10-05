@@ -1,4 +1,4 @@
-function changeInput(input, action) {
+function changeOptionInput(input, action) {
     const fill = input.querySelector('.checked, .filled');
 
     if (action === 'toggle') {
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     checkboxInputs.forEach(input => {
         input.addEventListener('click', () => {
-            changeInput(input, 'toggle');
+            changeOptionInput(input, 'toggle');
         });
     });
 
@@ -25,11 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
             radioInputs.forEach(currentInput => {
                 if (currentInput !== newInput) {
                     if (currentInput.getAttribute('name') === newInput.getAttribute('name')) {
-                        changeInput(currentInput, 'remove');
+                        changeOptionInput(currentInput, 'remove');
                     }
                 }
             })
-            changeInput(newInput, 'add');
+            changeOptionInput(newInput, 'add');
         });
     });
 });
+
+export { changeOptionInput };

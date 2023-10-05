@@ -772,3 +772,11 @@ input[type="radio"] {
 input[type="radio"] {
     border-radius: 1000px;
 }
+
+input[type="text"].success {
+    outline: 2px solid var(--lime-green);
+}
+
+input[type="text"].error {
+    outline: 2px solid red;
+}
