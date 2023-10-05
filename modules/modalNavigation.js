@@ -1,41 +1,37 @@
 import { inputRules, inputValidation, toggleValidationUI } from './inputValidation.js';
 
 let currentPage = 0;
+const pages =  document.querySelectorAll('.start-page, .form-page, .success-page');
 
 function showPage(pageNumber) {
-    const pages =  document.querySelectorAll('.start-page, .form-page, .success-page');
     pages.forEach(page => {
         page.style.display = 'none';
     });
 
     if (pageNumber >= 0 && pageNumber < pages.length) {
         pages[pageNumber].style.display = 'flex';
-        currentPage = pageNumber;
+            currentPage = pageNumber;
     }
 }
 
 // Issue: when you click the label for the checkboxes, it next page enables but the check doesnt show
 function enableNextButton() {
-    if (currentPage > 0) {
-        const pages = document.querySelectorAll('.start-page, .form-page, .success-page');
+    const nextPageButton = pages[currentPage].querySelector('.next-page');
 
-        const nextPageButton = pages[currentPage].querySelector('.next-page');
+    const allInputs = Array.from(pages[currentPage].querySelectorAll('input[required], input[type="checkbox"], input[type="radio"], textarea[required]'));
+    const allInputsByName = allInputs.map(input => input.name);
+    const allInputsByUnqiueName = [...new Set(allInputsByName)];
 
-        const allInputs = Array.from(pages[currentPage].querySelectorAll('input[required], input[type="checkbox"], input[type="radio"], textarea[required]'));
-        const allInputsByName = allInputs.map(input => input.name);
-        const allInputsByUnqiueName = [...new Set(allInputsByName)];
+    const validInputs = allInputsByUnqiueName.filter(input => inputRules[input]['isValid']); 
 
-        const validInputs = allInputsByUnqiueName.filter(input => inputRules[input]['isValid']); 
+    console.log(allInputsByUnqiueName);
+    console.log(validInputs);
+    console.log(validInputs.length === allInputsByUnqiueName.length);
 
-        console.log(allInputsByUnqiueName);
-        console.log(validInputs);
-        console.log(validInputs.length === allInputsByUnqiueName.length);
-
-        if (validInputs.length === allInputsByUnqiueName.length) {
-            nextPageButton.removeAttribute('disabled');
-        } else {
-            nextPageButton.setAttribute('disabled', 'true');
-        }
+    if (validInputs.length === allInputsByUnqiueName.length) {
+        nextPageButton.removeAttribute('disabled');
+    } else {
+        nextPageButton.setAttribute('disabled', 'true');
     }
 }
 
@@ -67,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-export { currentPage, showPage };
+export { currentPage, showPage, pages };
 
 
 /* ARCHIVED

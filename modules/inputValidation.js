@@ -57,24 +57,9 @@ const inputRules = {
     }
 }
 
-/*
-
-const hasProp = (prop) => {
-  return inputRules[name].hasOwnProperty(prop);
-};
-
-const getProp = (prop, name = input.getAttribute('name')) => {
-  return inputRules[name][prop];
-};
-
-// Now you can use the functions to check and set properties
-if (hasProp('isValid')) {
-  // If 'isValid' property exists for the input, you can set it to false
-  getProp('isValid') = false; // This should be assigned to the correct value.
-}*/
-
 function inputValidation(input) {
     const type = input.getAttribute('type');
+    const id = input.getAttribute('id');
 
     const hasProp = (prop, name = input.getAttribute('name')) => inputRules[name].hasOwnProperty(prop);
     const getProp = (prop, name = input.getAttribute('name')) => inputRules[name][prop];
@@ -83,7 +68,7 @@ function inputValidation(input) {
 
     setProp('isValid', false);
 
-    if (type === 'text' || type ===  'email' || type === 'tel' || name === 'idea') {
+    if (type === 'text' || type ===  'email' || type === 'tel' || id === 'idea') {
         const length = input.value.length;
 
         if (hasProp('required') && !length) {
@@ -112,7 +97,6 @@ function inputValidation(input) {
             setProp('isValid', true);
         }
     } else if (type === 'radio' || type === 'checkbox') {
-        const id = input.getAttribute('id');
         const name = input.getAttribute('name');
         const isChecked = input.getAttribute('checked'); 
 
