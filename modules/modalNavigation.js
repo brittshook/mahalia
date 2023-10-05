@@ -13,7 +13,7 @@ function showPage(pageNumber) {
     }
 }
 
-// Enable next button if required fields are complete
+// Enable next button if required fields are complete (going  to need  to update this after error handling)
 function checkInputs(pageNumber) {
     if (pageNumber > 0) {
         const pages = document.querySelectorAll('.start-page, .form-page, .success-page');
