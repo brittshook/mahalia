@@ -5,7 +5,7 @@ let currentPage = 0;
 const pages =  document.querySelectorAll('.start-page, .form-page, .success-page');
 
 let pageInputElements;
-let inputs = (pageNumber) => pages[pageNumber].querySelectorAll('input[required], input[type="radio"], input[type="checkbox"], textarea[required');
+let inputs = (pageNumber) => pages[pageNumber].querySelectorAll('input, textarea');
 
 function showPage(pageNumber) {
     pages.forEach(page => {
@@ -18,7 +18,6 @@ function showPage(pageNumber) {
     }
 }
 
-// Issue with the custom pronoun text box. Require not being removed when it was the only one selected. 
 function enableNextButton() {
     pageInputElements = inputs(currentPage);
     const nextPageButton = pages[currentPage].querySelector('.next-page');
