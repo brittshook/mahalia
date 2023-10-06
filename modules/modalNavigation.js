@@ -1,4 +1,4 @@
-import { inputValidation, toggleUI } from './inputValidation.js';
+import { inputValidation, toggleInputUI } from './inputValidation.js';
 
 let currentPage = 0;
 
@@ -47,14 +47,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     inputElements.forEach(input => {
         input.addEventListener('change', () => {
-            toggleUI(input);
+            toggleInputUI(input);
             enableNextButton();
         });
     })
 
     inputElements.forEach(input => {
         input.addEventListener('autocompletechange', () => {
-            toggleUI(input);
+            toggleInputUI(input);
             enableNextButton();
         });
     });

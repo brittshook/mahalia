@@ -118,7 +118,7 @@ function inputValidation(input) {
                 setProp('required', false, 'custom-pronoun');
                 setProp('unset', true, 'custom-pronoun');
                 customTextField.removeAttribute('required');
-                inputValidation(customTextField);
+                toggleInputUI(customTextField);
             } else if (isChecked) {
                 setProp('required', true, 'custom-pronoun');
                 setProp('unset', false, 'custom-pronoun');
@@ -139,7 +139,7 @@ function inputValidation(input) {
 }
 
 
-function toggleUI(input) {
+function toggleInputUI(input) {
     const isValid = inputValidation(input);
     const unset = inputRules[input.getAttribute('name')]['unset'];
 
@@ -156,4 +156,4 @@ function toggleUI(input) {
         }
 }
 
-export { inputRules, inputValidation, toggleUI };
+export { inputRules, inputValidation, toggleInputUI };
