@@ -1,5 +1,6 @@
 function changeOptionInput(input, action) {
-    const fill = input.querySelector('.checked, .filled');
+    const getID = input.getAttribute('id');
+    const fill = document.querySelector(`label[for="${getID}"] .checked, label[for="${getID}"] .filled`);
 
     if (action === 'toggle') {
         fill.classList.toggle('revealed');
@@ -11,8 +12,8 @@ function changeOptionInput(input, action) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const checkboxInputs = document.querySelectorAll('.checkbox')
-    const radioInputs = document.querySelectorAll('.radio');
+    const checkboxInputs = document.querySelectorAll('input[type="checkbox"]')
+    const radioInputs = document.querySelectorAll('input[type="radio"]');
 
     checkboxInputs.forEach(input => {
         input.addEventListener('click', () => {

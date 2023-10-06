@@ -20,7 +20,7 @@ function closeModal() {
     const inputElements = document.querySelectorAll('input, textarea');
     inputElements.forEach(input => input.classList.remove('error', 'success'));
 
-    const optionInputs = document.querySelectorAll('.checkbox, .radio'); 
+    const optionInputs = document.querySelectorAll('input[type="radio"], input[type="checkbox'); 
     optionInputs.forEach(option => changeOptionInput(option, 'remove'));
 }
 

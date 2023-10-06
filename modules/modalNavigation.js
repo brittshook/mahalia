@@ -1,7 +1,11 @@
-import { inputRules, inputValidation, toggleValidationUI } from './inputValidation.js';
+import { inputValidation, toggleUI } from './inputValidation.js';
 
 let currentPage = 0;
+
 const pages =  document.querySelectorAll('.start-page, .form-page, .success-page');
+
+let pageInputElements;
+let inputs = (pageNumber) => pages[pageNumber].querySelectorAll('input[required], input[type="radio"], input[type="checkbox"], textarea[required');
 
 function showPage(pageNumber) {
     pages.forEach(page => {
@@ -14,22 +18,24 @@ function showPage(pageNumber) {
     }
 }
 
-// Issue: when you click the label for the checkboxes, it next page enables but the check doesnt show
+// Issue with the custom pronoun text box. Require not being removed when it was the only one selected. 
 function enableNextButton() {
+    pageInputElements = inputs(currentPage);
     const nextPageButton = pages[currentPage].querySelector('.next-page');
+    
+    let validInputs = 0;
 
-    const allInputs = Array.from(pages[currentPage].querySelectorAll('input[required], input[type="checkbox"], input[type="radio"], textarea[required]'));
-    const allInputsByName = allInputs.map(input => input.name);
-    const allInputsByUnqiueName = [...new Set(allInputsByName)];
+    pageInputElements.forEach(input => {
+        if (inputValidation(input)) {
+            validInputs++;
+        }
+    });
 
-    const validInputs = allInputsByUnqiueName.filter(input => inputRules[input]['isValid']); 
+    console.log(validInputs, pageInputElements.length);
 
-    console.log(allInputsByUnqiueName);
-    console.log(validInputs);
-    console.log(validInputs.length === allInputsByUnqiueName.length);
-
-    if (validInputs.length === allInputsByUnqiueName.length) {
+    if (validInputs === pageInputElements.length) {
         nextPageButton.removeAttribute('disabled');
+        return true;
     } else {
         nextPageButton.setAttribute('disabled', 'true');
     }
@@ -38,15 +44,21 @@ function enableNextButton() {
 document.addEventListener('DOMContentLoaded', () => {
     showPage(currentPage);
 
-    const inputElements = document.querySelectorAll('input[required], input[type="checkbox"], input[type="radio"], textarea[required]');
+    const inputElements = document.querySelectorAll('input, textarea');
+
     inputElements.forEach(input => {
-        input.addEventListener('input', () => {
-            inputValidation(input);
-            toggleValidationUI(input);
-            console.log(inputRules);
+        input.addEventListener('change', () => {
+            toggleUI(input);
             enableNextButton();
         });
     })
+
+    inputElements.forEach(input => {
+        input.addEventListener('autocompletechange', () => {
+            toggleUI(input);
+            enableNextButton();
+        });
+    });
 
     const nextPageButtons = document.querySelectorAll('.next-page');
     nextPageButtons.forEach(button => {
@@ -64,27 +76,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 export { currentPage, showPage, pages };
-
-
-/* ARCHIVED
-function checkInputs(pageNumber) {
-    if (pageNumber > 0) {
-        const pages = document.querySelectorAll('.start-page, .form-page, .success-page');
-
-        const allInputs = Array.from(pages[pageNumber].querySelectorAll('input[required], textarea[required], .options'));
-        const fieldInputs = Array.from(pages[pageNumber].querySelectorAll('input[required], textarea[required]'));
-        const optionInputs = Array.from(pages[pageNumber].querySelectorAll('input[type="checkbox"], input[type="radio"]'));
-
-        const nextPageButton = pages[pageNumber].querySelector('.next-page');
-        
-        const fieldInputsCompleted = fieldInputs.filter(input => input.value.trim() !== '' || input.checked);
-        const optionInputsCompleted = optionInputs.filter(input => input.checked);
-
-        if (fieldInputsCompleted.length + optionInputsCompleted.length >= allInputs.length) {
-            nextPageButton.removeAttribute('disabled');
-        } else {
-            nextPageButton.setAttribute('disabled', 'true');
-        }
-    }
-}
-*/
