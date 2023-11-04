@@ -36,7 +36,7 @@ const inputRules = {
         min: 0.5,
         max: 50,
     },
-    'pronoun': {
+    'pronouns': {
         required: true,
     },
     'coverup': {
@@ -73,7 +73,8 @@ function inputValidation(input) {
         const length = value.length;
 
         if (getProp('required') && !length) {
-            errorMessage = `Please enter your`; // make a nice string based on name
+            const label = input.parentNode;
+            errorMessage = `Please enter your ${label.innerText.toLowerCase()}`;
         } else if (hasProp('max') && length > getProp('max')) {
             errorMessage = `Please enter less than ${getProp('max')} characters.`;
         } else if (hasProp('min') && length < getProp('min')) {
@@ -96,10 +97,13 @@ function inputValidation(input) {
             return true;
         }
     } else if (type ===  'number') {
-        if (hasProp('max') && value > getProp('max')) {
-            errorMessage = `Please enter less than ${getProp('max')} inches.`;
+        if (getProp('required') && !length) {
+            const label = input.parentNode;
+            errorMessage = `Please select the number of ${label.innerText.toLowerCase()}`;
+        } else if (hasProp('max') && value > getProp('max')) {
+            value = getProp('max');
         } else if (hasProp('min') && value < getProp('min')) {
-            errorMessage = `Please enter at  least ${getProp('min')} inches.`;
+            value = getProp('min');
         } else {
             return true;
         }
@@ -114,18 +118,27 @@ function inputValidation(input) {
             const customTextField = document.querySelector('#custom-pronoun');
 
             if (!isChecked) {
+                // if custom prounoun checkbox is NOT checked, do NOT require the custom pronoun text field
                 setProp('required', false, 'custom-pronoun');
-                setProp('unset', true, 'custom-pronoun');
                 customTextField.removeAttribute('required');
+
+                // reset if filled
+                setProp('unset', true, 'custom-pronoun');
                 customTextField.setAttribute('placeholder', 'Write My Own')
+
+                // disable text field 
                 customTextField.setAttribute('disabled', 'true');
 
                 console.log(customTextField.getAttribute('value'));
                 toggleInputUI(customTextField);
             } else if (isChecked) {
+                // require custom pronoun text field if custom pronoun checkbox is checked
                 setProp('required', true, 'custom-pronoun');
-                setProp('unset', false, 'custom-pronoun');
                 customTextField.setAttribute('required', 'true')
+
+                setProp('unset', false, 'custom-pronoun');
+
+                // enable text field
                 customTextField.removeAttribute('disabled');
             }
         }
@@ -133,12 +146,16 @@ function inputValidation(input) {
         if (type === 'radio' && checkedValues < 1) {
             errorMessage = 'Please choose an option.';
         } else if (type === 'checkbox' && checkedValues < 1) {
-            errorMessage = 'Please choose at least 1 option.';
+            errorMessage = `Please select your ${name.toLowerCase()}`;
         } else {
             return true;
         }
     } else if (type === 'file') {
-        return true; // tbd
+        if (!value) {
+            errorMessage = 'Please upload your reference photos.';
+        } else {
+        return true;
+        }
     }
 }
 
