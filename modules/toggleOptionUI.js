@@ -1,18 +1,19 @@
 function changeOptionInput(input, action) {
-    const getID = input.getAttribute('id');
-    const fill = document.querySelector(`label[for="${getID}"] .checked, label[for="${getID}"] .filled`);
+    const optionUI = input.previousElementSibling.querySelectorAll('.circle, .checkmark')[0];
+    console.log(input);
+    console.log(optionUI);
 
     if (action === 'toggle') {
-        fill.classList.toggle('revealed');
+        optionUI.classList.toggle('checked');
     } else if (action === 'add') {
-        fill.classList.add('revealed');
+        optionUI.classList.add('checked');
     } else if (action === 'remove') {
-        fill.classList.remove('revealed');
+        optionUI.classList.remove('checked');
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const checkboxInputs = document.querySelectorAll('input[type="checkbox"]')
+    const checkboxInputs = document.querySelectorAll('input[type="checkbox"]');
     const radioInputs = document.querySelectorAll('input[type="radio"]');
 
     checkboxInputs.forEach(input => {
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         newInput.addEventListener('click', () => {
             radioInputs.forEach(currentInput => {
                 if (currentInput !== newInput) {
-                    if (currentInput.getAttribute('name') === newInput.getAttribute('name')) {
+                    if (currentInput.name === newInput.name) {
                         changeOptionInput(currentInput, 'remove');
                     }
                 }

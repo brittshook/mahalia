@@ -179,42 +179,41 @@
                                 </legend>
                                 <div id="pronoun-options" class="options">
                                     <div class="col">
-                                        <label for="she">
+                                        <label class="row" for="she">
+                                            <div class="checkbox">
+                                                <img class="checkmark fit-img" src="./imgs/checkmark.svg">
+                                            </div>
                                             <input type="checkbox" id="she" name="pronouns" value="she/her">
-                                            <div class="checkbox">
-                                                <span class="checked">
-                                                    <img class="fit-img" src="./imgs/checkmark.svg">
-                                                </span>
-                                            </div>She/Her
+                                            She/Her
                                         </label>
-                                        <label for="he">
-                                            <input type="checkbox" id="he" name="pronouns" value="he/him">
+                                        <label class="row" for="he">
                                             <div class="checkbox">
-                                                <span class="checked">
-                                                    <img class="fit-img" src="./imgs/checkmark.svg">
-                                                </span>
-                                            </div>He/Him
+                                                <img class="checkmark fit-img" src="./imgs/checkmark.svg">
+                                            </div>
+                                            <input type="checkbox" id="he" name="pronouns" value="he/him">
+                                            He/Him
                                         </label>
                                     </div>
                                     <div class="col">
-                                        <label for="they">
-                                            <input type="checkbox" id="they" name="pronouns" value="they/them">
+                                        <label class="row" for="they">
                                             <div class="checkbox">
-                                                <span class="checked">
-                                                    <img class="fit-img" src="./imgs/checkmark.svg">
-                                                </span>
-                                            </div>They/Them
-                                        </label>
-                                        <label for="custom">
-                                            <input type="checkbox" id="custom" name="pronouns" value="custom">
-                                            <label for="custom-pronoun" class="sr-only">Write my own pronouns.</label>
-                                            <div class="checkbox">
-                                                <span class="checked">
-                                                    <img class="fit-img" src="./imgs/checkmark.svg">
-                                                </span>
+                                                <img class="checkmark fit-img" src="./imgs/checkmark.svg">
                                             </div>
-                                            <input type="text" id="custom-pronoun" name="custom-pronoun" placeholder="Write My Own" maxlength="15" size="15" disabled>
+                                            <input type="checkbox" id="they" name="pronouns" value="they/them">
+                                            They/Them
                                         </label>
+                                        <div id="custom-option" class="row">
+                                            <label class="row" for="custom">
+                                                <div class="checkbox">
+                                                    <img class="checkmark fit-img" src="./imgs/checkmark.svg">
+                                                </div>
+                                                <input type="checkbox" id="custom" name="pronouns" value="custom">
+                                            </label>
+                                            <fieldset id="custom-pronoun-field" class="field">
+                                                <label for="custom-pronoun" class="sr-only">Write my own pronouns.</label>
+                                                <input type="text" id="custom-pronoun" name="custom-pronoun" placeholder="Write My Own" maxlength="15" size="15" disabled>
+                                            </fieldset>
+                                        </div>
                                     </div>
                                 </div>
                             </fieldset>
@@ -262,50 +261,45 @@
                             <fieldset id="coverup-field" class="field">
                                 <legend>Is this a coverup?</legend>
                                 <div id="coverup-options" class="options row">
-                                    <label for="yes-coverup">
+                                    <label class="row" for="yes-coverup">
+                                        <div class="radio" name="coverup">
+                                            <div class="circle"></div>
+                                        </div>
                                         <input type="radio" id="yes-coverup" name="coverup" value="yes">
-                                        <div class="radio" name="coverup">
-                                            <span class="filled">
-                                                <div class="circle"></div>
-                                            </span>
-                                        </div>Yes
+                                        Yes
                                     </label>
-                                    <label for="no-coverup">
+                                    <label class="row" for="no-coverup">
+                                        <div class="radio" name="coverup"> 
+                                            <div class="circle"></div>
+                                        </div>
                                         <input type="radio" id="no-coverup" name="coverup" value="no">
-                                        <div class="radio" name="coverup">
-                                            <span class="filled">
-                                                <div class="circle"></div>
-                                            </span>
-                                        </div>No
+                                        No
                                     </label>
                                 </div>
                             </fieldset>
                             <fieldset id="color-field" class="field">
                                 <legend>Will there be color?</legend>
                                 <div id="color-options" class="options row">
-                                    <label for="yes-color">
-                                        <input type="radio" id="yes-color" name="color" value="yes">
+                                    <label class="row" for="yes-color">
                                         <div class="radio" name="color">
-                                            <span class="filled">
-                                                <div class="circle"></div>
-                                            </span>
-                                        </div>Yes
+                                            <div class="circle"></div>
+                                        </div>
+                                        <input type="radio" id="yes-color" name="color" value="yes">
+                                        Yes
                                     </label>
                                     <label for="no-color">
-                                        <input type="radio" id="no-color" name="color" value="no">
                                         <div class="radio" name="color">
-                                            <span class="filled">
-                                                <div class="circle"></div>
-                                            </span>
-                                        </div>No
+                                            <div class="circle"></div>
+                                        </div>
+                                        <input type="radio" id="no-color" name="color" value="no">
+                                        No
                                     </label>
                                     <label for="not-sure-color">
-                                        <input type="radio" id="not-sure-color" name="color" value="not sure">
                                         <div class="radio" name="color">
-                                            <span class="filled">
-                                                <div class="circle"></div>
-                                            </span>
-                                        </div>Not Sure
+                                            <div class="circle"></div>
+                                        </div>
+                                        <input type="radio" id="not-sure-color" name="color" value="not sure">
+                                        Not Sure
                                     </label>
                                 </div>
                             </fieldset>

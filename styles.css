@@ -82,13 +82,15 @@ fieldset,
 .header-with-line,
 label,
 .col,
-.col label,
 .row,
-.row label,
-#custom-option,
-.btns
+.btns,
+#custom-checkbox-text
 {
     display: flex;
+}
+
+.row {
+    align-items: center;
 }
 
 body, 
@@ -274,7 +276,7 @@ button.secondary:disabled {
 .fill-img,
 #faqs,
 .fill,
-fieldset,
+fieldset:not(#custom-pronoun-field),
 .modal-window {
     width: 100%;
 }
@@ -580,17 +582,12 @@ p:not(p:last-of-type) {
 fieldset {
     border: none;
     align-items: flex-start;
-    gap: 5px;
-    align-self: stretch;
+    gap: 10px;
 }
 
 .field {
     flex-direction: column;
     gap: 10px;
-}
-
-#pronoun-fields {
-    flex-direction: column;
 }
 
 .header-with-line {
@@ -628,51 +625,47 @@ fieldset {
     align-items: center;
 }
 
-label {
+label:not(#pronoun-options label) {
     flex-direction: column;
     flex: 1 0 0;
     gap: 12px
 }
 
 #pronoun-options {
-    padding: 10px 0 0;
+    padding-top: 15px;
+    gap: 80px;
     align-items: flex-start;
-    align-self: stretch;
 }
 
 .col {
     flex-direction: column;
     align-items: flex-start;
-    gap: 15px;
 }
 
-.col, .row label {
-    width: 125px;
+#pronoun-options .col {
+    gap: 20px;
 }
 
-#pronoun-options, .row {
-    gap: 40px;
+#pronoun-options .row {
+    gap: 9px;
 }
 
 .row {
-    padding: 10px 0px;
     justify-content: flex-start;
     align-items: center;
 }
 
 .row label, 
-.col label, 
-#custom-option {
-    flex-direction: row;
-    align-items: center;
-    flex: unset;
-    gap: 10px;
-}
-
-
-.row label, 
 .col label {
     font-size: 16px;
+}
+
+#custom-option {
+    transform: translateY(-9px);
+}
+
+#custom-pronoun-field {
+    transform: translateX(-7px);
 }
 
 .btns {
@@ -708,10 +701,6 @@ input[type="tel"],
 input[type="email"],
 input[type="number"] {
     padding: 8px 14px;
-}
-
-#custom-option {
-    transform: translateY(-7px);
 }
 
 #upload {
@@ -757,24 +746,19 @@ input[type="radio"] {
 }
 
 .checked {
-    transform: translateY(1px);
+    display: block !important;
 }
 
-.checked, 
-.filled {
+.circle, 
+.checkmark {
     display: none;
+    width: 15px;
+    height: 15px;
 }
 
 .circle {
-    width: 15px;
-    height: 15px;
     border-radius: 1000px;
     background-color: var(--lime-green, #D8D339);
-}
-
-.checked.revealed,
-.filled.revealed {
-    display: block;
 }
 
 .close-modal,
@@ -810,10 +794,6 @@ textarea.success {
     background-image: url('./imgs/success.svg');
     background-repeat: no-repeat;
     background-position: right 8px center;
-}
-
-label[for="custom"] {
-    transform: translateY(-8px);
 }
 
 p.error {

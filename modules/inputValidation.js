@@ -18,7 +18,6 @@ const inputRules = {
         formatErrorMessage: 'Enter your email address in the format: name@example.com'
     },
     'phone': {
-
         required: true,
         min: 4,
         max: 20,
@@ -65,7 +64,7 @@ const inputRules = {
 
 function validateText(input, value = input.value) {
     const length = value.length;
-    const label = input.closest('label').innerText;
+    const label = input.closest('label').innerText; // TODO: fix for custom text field
     const regex = inputRules[input.name].formatRegex;
 
     if (inputRules[input.name].required) {
@@ -119,6 +118,7 @@ function validateRadioCheckbox(input, type = input.type, id = input.id, name = i
         const customTextField = document.querySelector('#custom-pronoun');
 
         if (!isChecked) {
+            console.log('I am running code for when the custom pronouns is unchecked');
             // Do not require custom pronoun text field
             inputRules['custom-pronoun'].required = false;
             customTextField.removeAttribute('required');
@@ -130,9 +130,11 @@ function validateRadioCheckbox(input, type = input.type, id = input.id, name = i
 
             toggleInputUI(customTextField);
         } else if (isChecked) {
+            console.log('I am running code for when the custom pronouns is checked');
+
              // Require custom pronoun text field
              inputRules['custom-pronoun'].required = true;
-             customTextField.setAttribute('required');
+             customTextField.setAttribute('required', 'true');
 
              // TODO: Enable field *** ERROR IN THIS CODE
              inputRules['custom-pronoun'].unset = false;
@@ -182,18 +184,24 @@ function updateErrorMessage(input, errorMessage) {
     const id = input.id;
 
     let container = input.closest('fieldset');
+    console.log(input);
+    console.log(container);
     let errorMessageElement = container.querySelector('p[class="error"]');
 
     if (errorMessage) {
+        console.log('There is an error message to display');
         if (!errorMessageElement) {
+            console.log('There is NOT an existing error message element');
             const newErrorMessageElement = document.createElement('p');
             newErrorMessageElement.classList.add('error');
             newErrorMessageElement.textContent = errorMessage;
             container.appendChild(newErrorMessageElement);
         } else {
+            console.log('There is an existing error message element');
             errorMessageElement.textContent = errorMessage;
         }
     } else if (errorMessageElement) {
+        console.log('There is NO error message to display');
         errorMessageElement.textContent = ''; // Clear the error message
         errorMessageElement.remove();
     }
