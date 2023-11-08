@@ -64,12 +64,12 @@ const inputRules = {
 
 function validateText(input, value = input.value) {
     const length = value.length;
-    const label = input.closest('label').innerText; // TODO: fix for custom text field
+    const label = input.name === 'custom-pronoun' ? 'own pronouns' : input.closest('label').innerText;
     const regex = inputRules[input.name].formatRegex;
 
     if (inputRules[input.name].required) {
         if (length === 0) {
-            return `Enter your ${input.name === 'custom-pronoun' ? 'own pronouns' : label.toLowerCase()}`;
+            return `Enter your ${label.toLowerCase()}`;
         }
 
         if (inputRules[input.name].min && length < inputRules[input.name].min) {
