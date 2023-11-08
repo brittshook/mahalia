@@ -165,10 +165,14 @@
                                 <div class="line"></div>
                             </div>
                             <fieldset id="name-fields">
-                                <label for="first-name">First Name<input type="text" id="first-name" name="first-name" placeholder="Liana" minlength="1" maxlength="30" required></label>
-                                <label for="last-name">Last Name<input type="text" id="last-name" name="last-name" placeholder="Fulmer" minlength="1" maxlength="30" required></label>
+                                <fieldset class="field">
+                                    <label for="first-name">First Name<input type="text" id="first-name" name="first-name" placeholder="Liana" minlength="1" maxlength="30" required></label>
+                                </fieldset>
+                                <fieldset class="field">
+                                    <label for="last-name">Last Name<input type="text" id="last-name" name="last-name" placeholder="Fulmer" minlength="1" maxlength="30" required></label>
+                                </fieldset>
                             </fieldset>
-                            <fieldset id="pronoun-fields">
+                            <fieldset id="pronoun-fields" class="field">
                                 <legend id="pronoun"> 
                                     <p class="reduced-spacing">Pronouns</p>
                                     <p class="small-text">Select all that apply.</p>
@@ -215,8 +219,14 @@
                                 </div>
                             </fieldset>
                             <fieldset id="contact-fields">
-                                <label for="email">Email Address<input type="email" id="email" name="email" placeholder="liana@gmail.com" maxlength="40" required></label>
-                                <label for="phone">Phone Number<span class="sr-only">Format: 123-456-7890</span><input type="tel" id="phone" name="phone" placeholder="555-555-5555" minlength="4" maxlength="20" required></label>
+                                <fieldset class="field">
+                                    <label for="email">Email Address<input type="email" id="email" name="email" placeholder="liana@gmail.com" maxlength="40" required></label>
+                                    <span class="sr-only">Format: myname@example.com</span>
+                                </fieldset>
+                                <fieldset class="field">
+                                    <label for="phone">Phone Number<input type="tel" id="phone" name="phone" placeholder="555-555-5555" minlength="4" maxlength="20" required></label>
+                                    <span class="sr-only">Format: 123-456-7890</span> 
+                                </fieldset>
                             </fieldset>
                         </div>
                         <div class="form-navigation">
@@ -235,17 +245,21 @@
                                 <h5>About Your Tattoo</h5>
                                 <div class="line"></div>
                             </div>
-                            <fieldset id="placement-field">
+                            <fieldset class="field">
                                 <label for="placement">Placement Area<input type="text" id="placement" name="placement" placeholder="Left arm" maxlength="50" required></label>
                             </fieldset>
                             <fieldset id="size-fields">
                                 <legend>Approximate Size</legend>
                                 <div class="row">
-                                    <label for="width" class="small-text"><input type="number" id="width" name="width" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Wide</label>
-                                    <label for="height" class="small-text"><input type="number" id="height" name="height" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Long</label>
+                                    <fieldset class="field">
+                                        <label for="width" class="small-text"><input type="number" id="width" name="width" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Wide</label>
+                                    </fieldset>
+                                    <fieldset class="field">
+                                        <label for="height" class="small-text"><input type="number" id="height" name="height" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Long</label>
+                                    </fieldset>
                                 </div>
                             </fieldset>
-                            <fieldset id="coverup-field">
+                            <fieldset id="coverup-field" class="field">
                                 <legend>Is this a coverup?</legend>
                                 <div id="coverup-options" class="options row">
                                     <label for="yes-coverup">
@@ -266,7 +280,7 @@
                                     </label>
                                 </div>
                             </fieldset>
-                            <fieldset id="color-field">
+                            <fieldset id="color-field" class="field">
                                 <legend>Will there be color?</legend>
                                 <div id="color-options" class="options row">
                                     <label for="yes-color">
@@ -316,15 +330,14 @@
                                 <div class="line"></div>
                             </div>
                             <legend>Show me your inspiration and/or placement.</legend>
-                            <div id="upload">
+                            <fieldset class="field">
                                 <div class="file_input">
                                     <input type="file" name="file" id="file" data-multiple-caption="{count} files selected" accept="image/*,.pdf" multiple required>
                                     <label for="file"><span class="black">Choose a file</span><span class="drag-and-drop"> or drag it here</span></label>
                                 </div>
                                 <div class="uploading">Uploading…</div>
                                 <div class="success">Done!</div>
-                                <div class="error">Error! <span></span></div>
-                            </div>
+                            </fieldset>
                         </div>
                         <div class="form-navigation">
                             <div class="progress">
@@ -345,7 +358,9 @@
                                 <h5>Your Idea</h5>
                                 <div class="line"></div>
                             </div>
-                            <label for="idea">Tell me a bit about your tattoo idea.<textarea id="idea" name="idea" rows="10" cols="50" placeholder="I want a..." minlength="20" maxlength="1000" required></textarea></label>
+                            <fieldset class="field">
+                                <label for="idea">Tell me a bit about your tattoo idea.<textarea id="idea" name="idea" rows="10" cols="50" placeholder="I want a..." minlength="20" maxlength="1000" required></textarea></label>
+                            </fieldset>
                         </div>
                         <div class="form-navigation">
                             <div class="progress">
