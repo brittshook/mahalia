@@ -25,7 +25,9 @@ function enableNextButton() {
     let validInputs = 0;
 
     pageInputElements.forEach(input => {
-        if (inputValidation(input)) {
+        const { isValid } = inputValidation(input);
+
+        if (isValid) {
             validInputs++;
         }
     });
@@ -47,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     inputElements.forEach(input => {
         input.addEventListener('change', () => {
+            console.log(`event listener sensed change to ${input.id}`)
             toggleInputUI(input);
             enableNextButton();
         });
