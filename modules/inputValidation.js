@@ -14,13 +14,16 @@ const inputRules = {
     'email': {
         required: true,
         max: 50,
-        format: 'email'
+        formatRegex: /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/i,
+        formatErrorMessage: 'Enter your email address in the format: name@example.com'
     },
     'phone': {
+
         required: true,
         min: 4,
         max: 20,
-        format: 'phone'
+        formatRegex: /^(?:[+\d()\s-]*\d[+\d()\s-]*)*(?:(?:\s?(?:ext|x)\.?\s?)?\d+)?$/,
+        formatErrorMessage: 'Enter your phone number in the format: (123) 456-7890'
     },
     'placement': {
         required: true,
@@ -48,7 +51,9 @@ const inputRules = {
     'file': {
         required: true,
         max: 5,
-        sizeMax: 10485760 // in bytes
+        sizeMax: 10485760, // in bytes
+        fileTypeErrorMessage: 'Please upload image or PDF files.',
+        sizeErrorMessage: 'Files must be less than 10 MB each.'
     },
     'idea': {
         required: true,
@@ -57,154 +62,175 @@ const inputRules = {
     }
 }
 
-let errorMessage = '';
+function validateText(input, value = input.value) {
+    const length = value.length;
+    const label = input.closest('label').innerText;
+    const regex = inputRules[input.name].formatRegex;
 
-function inputValidation(input) {
-    const type = input.getAttribute('type');
-    const id = input.getAttribute('id');
-    let value = input.value;
-
-    const hasProp = (prop, name = input.getAttribute('name')) => inputRules[name].hasOwnProperty(prop);
-    const getProp = (prop, name = input.getAttribute('name')) => inputRules[name][prop];
-    const setProp = (prop, value, name = input.getAttribute('name')) => inputRules[name][prop] = value;
-
-    if (type === 'text' || type ===  'email' || type === 'tel' || id === 'idea') {
-        input.value = value.trim();
-        const length = value.length;
-        if (getProp('required') && !length) {
-            const label = input.parentNode;
-            errorMessage = `Please enter your ${label.innerText.toLowerCase()}`;
-        } else if (hasProp('max') && length > getProp('max')) {
-            value = value.slice(0, getProp('max'));
-        } else if (hasProp('min') && length < getProp('min')) {
-            errorMessage = `Please enter at least ${getProp('min')} characters.`;
-        } else if (hasProp('format')) {
-            let regex;
-            if (getProp('format') === 'email') {
-                regex = /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/i;
-                errorMessage = 'Please enter a valid email address in the format yourname@example.com';
-            } else if (getProp('format') === 'phone') {
-                regex = /^(?:[+\d()\s-]*\d[+\d()\s-]*)*(?:(?:\s?(?:ext|x)\.?\s?)?\d+)?$/; // TODO: test international numbers
-                errorMessage = 'Please enter a valid phone number in the format: (123) 456-7890';
-            } 
-            
-            return regex.test(value);
-        } else {
-            if (!getProp('required')) { 
-                setProp('unset', true);
-            }
-            return true;
-        }
-    } else if (type ===  'number') {
-        const label = input.parentNode;
-
-        if (getProp('required') && !value) {
-            errorMessage = `Please select the number of ${label.innerText.toLowerCase()}`;
-        } else if (hasProp('max') && value > getProp('max')) {
-            errorMessage = `Please enter no more than ${getProp('max')} ${label.innerText.toLowerCase()}`;
-        } else if (hasProp('min') && value < getProp('min')) {
-            errorMessage = `Please enter at least ${getProp('min')} ${label.innerText.toLowerCase()}`;
-        } else {
-            return true;
-        }
-    } else if (type === 'radio' || type === 'checkbox') {
-        const name = input.getAttribute('name');
-        const isChecked = input.checked;
-
-        const allOptions = Array.from(document.querySelectorAll(`input[name="${name}"]`));
-        const checkedValues = allOptions.filter(item => item.checked === true);
-
-        if (id === 'custom') {
-            const customTextField = document.querySelector('#custom-pronoun');
-
-            if (!isChecked) {
-                // if custom prounoun checkbox is NOT checked, do NOT require the custom pronoun text field
-                setProp('required', false, 'custom-pronoun');
-                customTextField.removeAttribute('required');
-
-                // reset if filled
-                setProp('unset', true, 'custom-pronoun');
-                customTextField.setAttribute('placeholder', 'Write My Own')
-
-                // disable text field 
-                customTextField.setAttribute('disabled', 'true');
-
-                console.log(customTextField.getAttribute('value'));
-                toggleInputUI(customTextField);
-            } else if (isChecked) {
-                // require custom pronoun text field if custom pronoun checkbox is checked
-                setProp('required', true, 'custom-pronoun');
-                customTextField.setAttribute('required', 'true')
-
-                setProp('unset', false, 'custom-pronoun');
-
-                // enable text field
-                customTextField.removeAttribute('disabled');
-            }
+    if (inputRules[input.name].required) {
+        if (length === 0) {
+            return `Enter your ${input.name === 'custom-pronoun' ? 'own pronouns' : label.toLowerCase()}`;
         }
 
-        if (type === 'radio' && checkedValues < 1) {
-            errorMessage = 'Please choose an option.';
-        } else if (type === 'checkbox' && checkedValues < 1) {
-            errorMessage = `Please select your ${name.toLowerCase()}`;
-        } else {
-            return true;
+        if (inputRules[input.name].min && length < inputRules[input.name].min) {
+            return `Enter at least ${inputRules[input.name].min} characters`;
         }
-    } else if (type === 'file') {
-        const files = input.files;
-        const length = files.length;
-
-        if (!length) {
-            errorMessage = 'Please upload your reference photos';
-            console.log(errorMessage);
-        } else if (length > getProp('max')) {
-            errorMessage = `Please upload no more than ${getProp('max')} photos`;
-            console.log(errorMessage);
-        } else {
-            let validType = true;
-            let validSize = true;
-
-            for (const file of files) {
-                if (!file.type.includes('pdf') && !file.type.startsWith("image/")) {
-                    validType = false;
-                    break;
-                }
-
-                if (file.size >= getProp('sizeMax')) {
-                    validSize = false;
-                    break;
-                }
-            }
-            
-            if (!validType) {
-                errorMessage = 'Please upload image or PDF files.'
-                console.log(errorMessage);
-            } else if (!validSize) {
-                errorMessage = 'Files must be less than 10 MB each.'
-                console.log(errorMessage);
-            } else {
-                return true;
-            }
+        
+        if (inputRules[input.name].max && length > inputRules[input.name].max) {
+            return `Enter no more than ${inputRules[input.name].max} characters`;
         }
+        
+        if (inputRules[input.name].formatRegex && !regex.test(value)) {
+            return inputRules[input.name].formatErrorMessage;
+        } 
     }
+
+    return null;
 }
 
 
+function validateNumber(input, value = input.value) {
+    const label = input.closest('label').innerText;
+
+    if (inputRules[input.name].required) {
+        if(!value) {
+            return `Select the number of ${label.toLowerCase()}`;
+        }
+
+        if (inputRules[input.name].min && value < inputRules[input.name].min) {
+            return `Must be at least ${inputRules[input.name].min} inches`;
+        }
+
+        if (inputRules[input.name].max && value > inputRules[input.name].max) {
+            return `Cannot be more than ${inputRules[input.name].max} inches`;
+        }
+    }
+
+    return null;
+}
+
+function validateRadioCheckbox(input, type = input.type, id = input.id, name = input.name) {
+    const isChecked = input.checked;
+    const allOptions = Array.from(document.querySelectorAll(`input[name="${name}"]`));
+    const checkedValues = allOptions.filter((item) => item.checked === true);
+
+    if (id === 'custom') {
+        const customTextField = document.querySelector('#custom-pronoun');
+
+        if (!isChecked) {
+            // Do not require custom pronoun text field
+            inputRules['custom-pronoun'].required = false;
+            customTextField.removeAttribute('required');
+
+            // Reset & disable if filled
+            inputRules['custom-pronoun'].unset = true;
+            customTextField.setAttribute('placeholder', 'Write My Own')
+            customTextField.setAttribute('disabled', 'true');
+
+            toggleInputUI(customTextField);
+        } else if (isChecked) {
+             // Require custom pronoun text field
+             inputRules['custom-pronoun'].required = true;
+             customTextField.setAttribute('required');
+
+             // TODO: Enable field *** ERROR IN THIS CODE
+             inputRules['custom-pronoun'].unset = false;
+             customTextField.removeAttribute('disabled');
+        }
+    }
+    
+    if (type === 'radio' && checkedValues < 1) {
+        return 'Please choose an option.';
+    }
+    
+    if (type === 'checkbox' && checkedValues < 1) {
+        return `Please select your ${name.toLowerCase()}`;
+    }
+
+    return null;
+}
+
+function validateFile(input, files = input.files) {
+    const length = files.length;
+
+    if (length === 0) {
+        return 'Please upload your reference photos';
+    }
+
+    if (length > inputRules[input.name].max) {
+        return `Please upload no more than ${inputRules[input.name].max} photos`;
+    }
+
+    for (const file of files) {
+        if (!inputRules[input.name].allowedFileTypes.some((type) => file.type === type)) {
+            return inputRules[input.name].fileTypeErrorMessage;
+        }
+
+        if (file.size >= inputRules[input.name].sizeMax) {
+            return inputRules[input.name].sizeErrorMessage;
+        }
+    }
+
+    return null;
+}
+
+function updateErrorMessage(input, errorMessage) {
+    const type = input.type;
+    const id = input.id;
+
+    let container = input.closest('fieldset');
+    let errorMessageElement = container.querySelector('p[class="error"]');
+
+    if (errorMessage) {
+        if (!errorMessageElement) {
+            const newErrorMessageElement = document.createElement('p');
+            newErrorMessageElement.classList.add('error');
+            newErrorMessageElement.textContent = errorMessage;
+            container.appendChild(newErrorMessageElement);
+        } else {
+            errorMessageElement.textContent = errorMessage;
+        }
+    } else if (errorMessageElement) {
+        errorMessageElement.textContent = ''; // Clear the error message
+        errorMessageElement.remove();
+    }
+}
+
+function inputValidation(input, type = input.type, id = input.id) {
+    let errorMessage = null;
+
+    if (type === 'text' || type ===  'email' || type === 'tel' || id === 'idea') {
+        errorMessage = validateText(input);
+    } else if (type === 'number') {
+        errorMessage = validateNumber(input);
+    } else if (type === 'radio' || type === 'checkbox') {
+        errorMessage = validateRadioCheckbox(input);
+    } else if (type === 'file') {
+        errorMessage = validateFile(input);
+    }
+
+    if (errorMessage) {
+        return { isValid: false, errorMessage};
+    } else {
+        return { isValid: true };
+    }
+}
+
 function toggleInputUI(input) {
-    const isValid = inputValidation(input);
-    const unset = inputRules[input.getAttribute('name')]['unset'];
+    const { isValid, errorMessage } = inputValidation(input);
+    const unset = inputRules[input.name].unset;
+    updateErrorMessage(input, errorMessage);
 
     if (unset) {
-        input.classList.remove('error');
         input.classList.remove('success');
+        input.classList.remove('error');
     } else if (isValid) {
         input.classList.add('success');
         input.classList.remove('error');
     } else {
         input.classList.remove('success');
         input.classList.add('error');
-        // const errorMessage = inputRules[name]['errorMessage'];
-        }
+    }
 }
 
 export { inputRules, inputValidation, toggleInputUI };
