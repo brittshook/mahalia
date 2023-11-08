@@ -24,6 +24,7 @@
 :root {
     --black: #121212;
     --white: #ffffff;
+    --off-white: #dcdcdc;
     --translucent-white: #ffffff33;
     --gray: #313131;
     --light-gray: #444141;
@@ -581,8 +582,17 @@ p:not(p:last-of-type) {
 fieldset {
     border: none;
     align-items: flex-start;
-    gap: 25px;
+    gap: 5px;
     align-self: stretch;
+}
+
+fieldset .field {
+    flex-direction: column;
+    gap: 10px;
+}
+
+#pronoun-fields {
+    flex-direction: column;
 }
 
 .header-with-line {
@@ -806,4 +816,9 @@ textarea.success {
 
 label[for="custom"] {
     transform: translateY(-8px);
+}
+
+p.error {
+    font-size: 14px;
+    color: var(--off-white, #eaeaea);
 }
