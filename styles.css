@@ -587,7 +587,10 @@ fieldset {
 
 .field {
     flex-direction: column;
-    gap: 10px;
+}
+
+.no-gap {
+    gap: 0;
 }
 
 .header-with-line {
@@ -625,14 +628,28 @@ fieldset {
     align-items: center;
 }
 
-label:not(#pronoun-options label) {
-    flex-direction: column;
+label:not(.row) {
     flex: 1 0 0;
+    flex-direction: column;
+}
+
+label {
     gap: 12px
 }
 
+legend {
+    margin-bottom: 15px;
+}
+
+legend#size {
+    margin-bottom: 12px;
+}
+
+#size-fields > div {
+    align-items: flex-start;
+}
+
 #pronoun-options {
-    padding-top: 15px;
     gap: 80px;
     align-items: flex-start;
 }
@@ -646,13 +663,9 @@ label:not(#pronoun-options label) {
     gap: 20px;
 }
 
-#pronoun-options .row {
-    gap: 9px;
-}
-
 .row {
+    gap: 9px;
     justify-content: flex-start;
-    align-items: center;
 }
 
 .row label, 
@@ -661,11 +674,20 @@ label:not(#pronoun-options label) {
 }
 
 #custom-option {
-    transform: translateY(-9px);
+    transform: translateY(-10px);
+    align-items: flex-start;
+}
+
+#custom-option label {
+    height: 42.5px;
 }
 
 #custom-pronoun-field {
     transform: translateX(-7px);
+}
+
+.options {
+    gap: 60px;
 }
 
 .btns {
