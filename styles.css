@@ -272,7 +272,10 @@ button.secondary:disabled {
 
 #hero-img img, 
 .fill-img,
-#faqs {
+#faqs,
+.fill,
+fieldset,
+.modal-window {
     width: 100%;
 }
 
@@ -492,10 +495,6 @@ i.revealed {
     color: var(--black, #121212);
 }
 
-.fill {
-    width: 100%;
-}
-
 p:not(p:last-of-type) {
     margin-bottom: 20px;
 }
@@ -512,7 +511,6 @@ p:not(p:last-of-type) {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
     height: 100%;
     background-color: var(--translucent-gray);
     display: none;
@@ -586,7 +584,7 @@ fieldset {
     align-self: stretch;
 }
 
-fieldset .field {
+.field {
     flex-direction: column;
     gap: 10px;
 }

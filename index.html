@@ -246,15 +246,15 @@
                                 <div class="line"></div>
                             </div>
                             <fieldset class="field">
-                                <label for="placement">Placement Area<input type="text" id="placement" name="placement" placeholder="Left arm" maxlength="50" required></label>
+                                <label for="placement" class="fill">Placement Area<input type="text" id="placement" name="placement" placeholder="Left arm" maxlength="50" required></label>
                             </fieldset>
                             <fieldset id="size-fields">
                                 <legend>Approximate Size</legend>
-                                <div class="row">
-                                    <fieldset class="field">
+                                <div class="row fill">
+                                    <fieldset class="field fill">
                                         <label for="width" class="small-text"><input type="number" id="width" name="width" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Wide</label>
                                     </fieldset>
-                                    <fieldset class="field">
+                                    <fieldset class="field fill">
                                         <label for="height" class="small-text"><input type="number" id="height" name="height" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Long</label>
                                     </fieldset>
                                 </div>
@@ -330,13 +330,11 @@
                                 <div class="line"></div>
                             </div>
                             <legend>Show me your inspiration and/or placement.</legend>
-                            <fieldset class="field">
-                                <div class="file_input">
-                                    <input type="file" name="file" id="file" data-multiple-caption="{count} files selected" accept="image/*,.pdf" multiple required>
-                                    <label for="file"><span class="black">Choose a file</span><span class="drag-and-drop"> or drag it here</span></label>
-                                </div>
-                                <div class="uploading">Uploading…</div>
-                                <div class="success">Done!</div>
+                            <fieldset class="field file_input">
+                                <input type="file" name="file" id="file" data-multiple-caption="{count} files selected" accept="image/*,.pdf" multiple required>
+                                <label for="file"><span class="black">Choose a file</span><span class="drag-and-drop"> or drag it here</span></label>
+                                <p class="uploading">Uploading…</p>
+                                <p class="success">Done!</p>
                             </fieldset>
                         </div>
                         <div class="form-navigation">
