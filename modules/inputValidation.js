@@ -52,7 +52,8 @@ const inputRules = {
         required: true,
         max: 5,
         sizeMax: 10485760, // in bytes
-        fileTypeErrorMessage: 'Please upload image or PDF files.',
+        formatRegex: /^(image\/.*|.*pdf)/,
+        formatErrorMessage: 'Please upload image or PDF files.',
         sizeErrorMessage: 'Files must be less than 10 MB each.'
     },
     'idea': {
@@ -152,6 +153,7 @@ function validateRadioCheckbox(input, type = input.type, id = input.id, name = i
 
 function validateFile(input, files = input.files) {
     const length = files.length;
+    const regex = inputRules[input.name].formatRegex;
 
     if (length === 0) {
         return 'Please upload your reference photos';
@@ -162,8 +164,9 @@ function validateFile(input, files = input.files) {
     }
 
     for (const file of files) {
-        if (!inputRules[input.name].allowedFileTypes.some((type) => file.type === type)) {
-            return inputRules[input.name].fileTypeErrorMessage;
+        console.log(file.type);
+        if (!regex.test(file.type)) {
+            return inputRules[input.name].formatErrorMessage;
         }
 
         if (file.size >= inputRules[input.name].sizeMax) {
@@ -228,6 +231,7 @@ function toggleInputUI(input) {
         input.classList.add('success');
         input.classList.remove('error');
     } else {
+        console.log(isValid, errorMessage, "i see an error");
         input.classList.remove('success');
         input.classList.add('error');
     }
