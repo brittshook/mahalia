@@ -18,6 +18,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    border: none;
 }
 
 /* add fallbacks -- complete for b/w only */
@@ -53,44 +54,92 @@ html {
 body {
     margin: 0 auto;
     max-width: 1600px;
-    flex-direction: column;
     gap: 84px;
 }
 
+.answer,
+.modal-window,
+.form-page,
+.success-page,
+.box-dragndrop,
+.box-uploading,
+.box.success,
+.box.error,
+.circle, 
+.checkmark {
+   display: none;
+}
+
 body,
-#navbar,
-#nav-links,
-#details,
-#tattoos,
-#tattoos .row,
-#about, 
-#faqs, 
-#book,
-#header-with-img,
-.question,
-.question-with-icon,
-#footer,
-#socials, 
-#other,
-.close-modal,
-.start-page,
+body > *:not(#hero):not(.modal-window):not(script),
+footer,
+footer > *:not(#copyright),
+.flex,
 fieldset,
-.form-fields,
-#pronoun-options,
-.form-navigation,
-.progress,
-.header-with-line,
+.field,
 label,
+.form-fields,
 .col,
 .row,
 .btns,
-#custom-checkbox-text
-{
+.checkbox,
+.radio {
     display: flex;
 }
 
-.row {
+body,
+section:not(#hero),
+#socials,
+#other,
+.card,
+.question,
+.start-page,
+.form-page,
+.form-fields,
+.field,
+.col,
+.box-input,
+label:not(.row) {
+    flex-direction: column;
+}
+
+nav,
+#socials,
+#other,
+.btns,
+.row,
+.question-with-icon,
+.modal-window,
+.close-modal,
+.header-with-line,
+.form-navigation,
+.box-input,
+.box label,
+.checkbox,
+.radio {
     align-items: center;
+}
+
+nav > ul,
+#tattoos .row, 
+footer,
+fieldset,
+.col,
+.progress,
+#size-fields > div,
+#pronoun-options,
+#custom-option {
+    align-items: flex-start;
+}
+
+nav,
+footer,
+#details,
+#tattoo .row,
+#header-with-img,
+.question-with-icon,
+.form-navigation {
+    justify-content: space-between;
 }
 
 body, 
@@ -135,24 +184,18 @@ h4 {
     font-weight: 400;
 }
 
-#hero,  
-#tattoos, 
-#about, 
-#faqs, 
-#book {
+section {
     padding: 0 100px;
 }
 
-#navbar, 
+nav, 
 .modal-window {
     position: fixed; 
 }
 
-#navbar {
+nav {
     max-width: 1400px;
     padding: 24px 100px;
-    justify-content: space-between;
-    align-items: center;
     z-index: 10;
     background: linear-gradient(180deg, var(--black, #121212) 0%, transparent 100%);
 }
@@ -161,8 +204,7 @@ ul {
     list-style: none;
 }
 
-#nav-links {
-    align-items: flex-start;
+nav > ul {
     gap: 30px;
 }
 
@@ -208,7 +250,8 @@ a:hover {
 
 button:not(button:disabled), 
 .close-modal,
-.open-modal {
+.open-modal,
+.box-input {
     cursor: pointer;
 }
 
@@ -216,7 +259,6 @@ button {
     width: fit-content;
     padding: 12px 30px;
     border-radius: 11px;
-    border: 0;
     font-size: 16px;
     font-weight: 500;
 }
@@ -275,7 +317,7 @@ button.secondary:disabled {
     to {transform: translateY(0px);}
 }
 
-#navbar, 
+nav, 
 #hero-img img, 
 .fill-img,
 #faqs,
@@ -295,26 +337,20 @@ fieldset:not(#custom-pronoun-field),
 }
 
 #details {
-    justify-content: space-between;
     padding: 12px 0;
 }
 
 #tattoos {
     margin-bottom: 40px;
-    flex-direction: column;
-    gap: 14px;
 }
 
-#tattoos .row {
-    justify-content: space-between;
-    align-items: flex-start;
+#tattoos, #tattoos .row, .header-with-line {
     gap: 14px;
 }
 
 .card {
     display: inline-flex;
     padding: 8px 8px 16px;
-    flex-direction: column;
     flex: 1 0 0;
     gap: 16px 0;
     border-radius: 18px;
@@ -336,8 +372,6 @@ fieldset:not(#custom-pronoun-field),
     margin: 0 auto;
     padding: 40px 0;
     max-width: 850px;
-    flex-direction: column;
-    gap: 80px;
 }
 
 #about p {
@@ -346,7 +380,6 @@ fieldset:not(#custom-pronoun-field),
 
 #header-with-img {
     flex-wrap: nowrap;
-    justify-content: space-between;
     align-items: end;
 }
 
@@ -409,7 +442,6 @@ h5 {
 
 .question {
     border-radius: 20px;
-    flex-direction: column;
     padding: 32px 24px;
     gap: 32px;
 }
@@ -423,17 +455,8 @@ h5 {
     background-color: var(--translucent-white);
 }
 
-.question-with-icon {
-    justify-content: space-between;
-    align-items: center
-}
-
 i.revealed {
     transform: rotate(-45deg);
-}
-
-.answer {
-   display: none;
 }
 
 .answer.revealed {
@@ -473,11 +496,8 @@ i.revealed {
     font-size: 18px;
 }
 
-#footer {
+footer {
     padding: 0;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
 }
 
 #copyright {
@@ -490,10 +510,7 @@ i.revealed {
 #socials, 
 #other {
     padding: 24px 0px;
-    flex-direction: column;
-    align-items: center;
     justify-content: start;
-    gap: 20px;
     flex: 1 0 0;
     text-align: center;
 }
@@ -517,11 +534,8 @@ p:not(p:last-of-type) {
 .modal-window {
     top: 0;
     left: 0;
-    height: 100%;
     background-color: var(--translucent-gray);
-    display: none;
     justify-content: center;
-    align-items: center;
     z-index: 100;
 }
 
@@ -545,7 +559,6 @@ p:not(p:last-of-type) {
     width: 50px;
     height: 50px;
     justify-content: center;
-    align-items: center;
     transform: translate(25%, -25%);
 }
 
@@ -554,19 +567,8 @@ p:not(p:last-of-type) {
 }
 
 .start-page {
-    gap: 20px;
     padding: 35px 0;
     text-align: center;
-}
-
-.start-page,
-.form-page {
-    flex-direction: column;
-}
-
-.form-page,
-.success-page {
-    display: none;
 }
 
 .form-page {
@@ -575,24 +577,12 @@ p:not(p:last-of-type) {
     height: 480px;
 }
 
-.form-fields {
-    flex-direction: column;
-    height: 100%;
-    gap: 20px;
-}
-
 #start-btn {
     margin-top: 30px;
 }
 
-fieldset {
-    border: none;
-    align-items: flex-start;
+fieldset, .field {
     gap: 10px;
-}
-
-.field {
-    flex-direction: column;
 }
 
 .no-gap {
@@ -600,8 +590,6 @@ fieldset {
 }
 
 .header-with-line {
-    align-items: center;
-    gap: 14px;
     align-self: stretch;
     margin-bottom: 10px;
 }
@@ -611,8 +599,8 @@ fieldset {
     flex: 1 0 0;
 }
 
+label, 
 .progress {
-    align-items: flex-start;
     gap: 12px;
 }
 .progress .active {
@@ -629,43 +617,19 @@ fieldset {
     height: 14px;
 }
 
-.form-navigation {
-    justify-content: space-between;
-    align-items: center;
-}
-
 label:not(.row) {
     flex: 1 0 0;
-    flex-direction: column;
-}
-
-label {
-    gap: 12px
-}
-
-legend {
-    margin-bottom: 15px;
 }
 
 legend#size {
     margin-bottom: 12px;
 }
 
-#size-fields > div {
-    align-items: flex-start;
-}
-
-#pronoun-options {
+#about, #faqs, #book, #pronoun-options {
     gap: 80px;
-    align-items: flex-start;
 }
 
-.col {
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-#pronoun-options .col {
+#socials, #other, .start-page, .form-fields, #pronoun-options .col {
     gap: 20px;
 }
 
@@ -679,9 +643,8 @@ legend#size {
     font-size: 16px;
 }
 
-#custom-option {
-    transform: translateY(-10px);
-    align-items: flex-start;
+#pronoun-options .col:nth-of-type(2) {
+    gap: 10px;
 }
 
 #custom-option label {
@@ -694,11 +657,15 @@ legend#size {
 
 .options {
     gap: 60px;
+    padding: 5px 2px 0;
+}
+
+#coverup-field {
+    padding-bottom: 4px;
 }
 
 .btns {
     justify-content: end;
-    align-items: center;
     gap: 15px;
 }
 
@@ -724,6 +691,14 @@ textarea {
     border: 4px solid var(--black);
 }
 
+input[type="text"]:not(#custom-pronoun), 
+input[type="tel"], 
+input[type="email"], 
+input[type="number"], 
+textarea {
+    transform: translateX(-4px);
+}
+
 input[type="text"], 
 input[type="tel"], 
 input[type="email"],
@@ -731,21 +706,16 @@ input[type="number"] {
     padding: 8px 14px;
 }
 
-#upload {
-    outline: 2px dashed #E2E6EA;
-    border-radius: 20px;
-    padding: 30px;
-    text-align: center;
-}
-
-#upload,
 textarea {
     height: 275px;
 }
 
+.modal-window,
+.form-fields,
 fieldset.box, 
 div.box, 
-.box-input {
+.box-input,
+#file-field {
     height: 100%;
 }
 
@@ -757,27 +727,15 @@ div.box {
 
 .box-input {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
     border: 2px dashed var(--white, #ffffff);
     border-radius: 4px;
 }
 
 .box label {
-    flex-direction: row;
     gap: 4px;
-    align-items: center;
     justify-content: center;
 }
-
-.box-dragndrop,
-.box-uploading,
-.box.success,
-.box.error {
-    display: none;
-}
-
 
 input[type="checkbox"], 
 input[type="radio"] {
@@ -786,8 +744,6 @@ input[type="radio"] {
 
 .checkbox,
 .radio {
-    display: flex;
-    align-items: center;
     justify-content: center;
     outline: 2px solid var(--White, #fff);
     width: 24px;
@@ -808,7 +764,6 @@ input[type="radio"] {
 
 .circle, 
 .checkmark {
-    display: none;
     width: 15px;
     height: 15px;
 }

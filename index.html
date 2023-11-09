@@ -17,8 +17,8 @@
         <script type="module" src="./modules/toggleOptionUI.js"></script>
     </head>
     <body>
-        <nav id="navbar">
-            <ul id="nav-links">
+        <nav>
+            <ul class="flex">
                 <li><a class="nav-link ui-text" href="#tattoos">Tattoos</a></li>
                 <li><a class="nav-link ui-text" href="#about">About</a></li>
                 <li><a class="nav-link ui-text" href="#faqs">FAQs</a></li>
@@ -31,13 +31,13 @@
             <div id="hero-img">
                 <img class="fit-img sr-hidden" src="./imgs/hero.svg" alt="Mahalia Xiaoqi">
             </div>
-            <div id="details">
+            <div id="details" class="flex">
                 <p class="p1">Illustrative Tattoos</p>
                 <p class="p1">Brooklyn / NYC</p>
             </div>
         </section>
         <section id="tattoos">
-            <div class="row">
+            <div class="row flex">
                 <div class="card">
                     <img class="fill-img" src="./imgs/sample-tattoo1.jpg" alt="">
                     <p class="p1">Tattoo Description</p>
@@ -51,7 +51,7 @@
                     <p class="p1">Tattoo Description</p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row flex">
                 <div class="card">
                     <img class="fill-img" src="./imgs/sample-tattoo4.jpg" alt="">
                     <p class="p1">Tattoo Description</p>
@@ -67,7 +67,7 @@
             </div>
         </section>
         <section id="about">
-            <div id="header-with-img">
+            <div id="header-with-img" class="flex">
                 <h2>About</br>Mahalia</h2>
                 <img class="fill-img" src="./imgs/mahalia.jpg" alt="Mahalia sitting in a cozy, green room">
             </div>
@@ -79,8 +79,8 @@
         <section id="faqs">
             <h2>FAQs</h2>
             <div id="faq-questions">
-                <div class="question">
-                    <div class="question-with-icon">
+                <div class="question flex">
+                    <div class="question-with-icon flex">
                         <p class="p1">What is your availability?</p>
                         <i class="fa-solid fa-plus fa-xl"></i>
                     </div>
@@ -88,8 +88,8 @@
                         <p class="p2">I am currently booking 4-8 weeks out.</p>
                     </div>
                 </div>
-                <div class="question">
-                    <div class="question-with-icon">
+                <div class="question flex">
+                    <div class="question-with-icon flex">
                         <p class="p1">What is your deposit policy?</p>
                         <i class="fa-solid fa-plus fa-xl"></i>
                     </div>
@@ -98,8 +98,8 @@
                         <p class="p2">This deposit is non-refundable in the case of no-shows and cancellations less than 48 hours in advance of your appointment.</p>
                     </div>
                 </div>
-                <div class="question">
-                    <div class="question-with-icon">
+                <div class="question flex">
+                    <div class="question-with-icon flex">
                         <p class="p1">Where is your studio?</p>
                         <i class="fa-solid fa-plus fa-xl"></i>
                     </div>
@@ -107,8 +107,8 @@
                         <p class="p2">My home studio is located in the Williamsburg neighborhood of Brooklyn, New York City.</p>
                     </div>
                 </div>
-                <div class="question">
-                    <div class="question-with-icon">
+                <div class="question flex">
+                    <div class="question-with-icon flex">
                         <p class="p1">How do I book an appointment?</p>
                         <i class="fa-solid fa-plus fa-xl"></i>
                     </div>
@@ -116,8 +116,8 @@
                         <p class="p2">You may <a class="open-modal">book a tattoo consultation here</a>. If I feel I can bring your idea to life, we will discuss the concept further and set an appointment date during your consultation. </p>
                     </div>
                 </div>
-                <div class="question">
-                    <div class="question-with-icon">
+                <div class="question flex">
+                    <div class="question-with-icon flex">
                         <p class="p1">How do I take care of my tattoo?</p>
                         <i class="fa-solid fa-plus fa-xl"></i>
                     </div>
@@ -128,8 +128,8 @@
                         <p class="p2">You should also avoid exposing your tattoo to direct sunlight, swimming, or soaking in hot tubs/baths for 2 weeks after your tattoo.</p>    
                     </div>
                 </div>
-                <div class="question">
-                    <div class="question-with-icon">
+                <div class="question flex">
+                    <div class="question-with-icon flex">
                         <p class="p1">My tattoo is flaking, what do I do?</p>
                         <i class="fa-solid fa-plus fa-xl"></i>
                     </div>
@@ -149,10 +149,10 @@
         </section>
         <div class="modal-window">
             <div class="modal">
-                <div class="close-modal">
+                <div class="close-modal flex">
                     <i class="fa-regular fa-x fa-lg"></i>
                 </div>
-                <div class="start-page">
+                <div class="start-page flex">
                     <h4>Book a Consultation</h4>
                     <p class="p2">Got an idea? Tell me about it using this form and I’ll respond within 3 days.</p>
                     <button id="start-btn" type="button" class="next-page primary fill">Get Started</button>
@@ -160,24 +160,24 @@
                 <form action="https://submit-form.com/qcjYhXPT" method="post" enctype="multipart/form-data">
                     <div class="form-page" data-page="1">
                         <div class="form-fields">
-                            <div class="header-with-line">
+                            <div class="header-with-line flex">
                                 <h5>About You</h5>
                                 <div class="line"></div>
                             </div>
                             <fieldset id="name-fields">
-                                <fieldset class="field">
+                                <div class="field">
                                     <label for="first-name">First Name<input type="text" id="first-name" name="first-name" placeholder="Liana" minlength="1" maxlength="30" required></label>
-                                </fieldset>
-                                <fieldset class="field">
+                                </div>
+                                <div class="field">
                                     <label for="last-name">Last Name<input type="text" id="last-name" name="last-name" placeholder="Fulmer" minlength="1" maxlength="30" required></label>
-                                </fieldset>
+                                </div>
                             </fieldset>
-                            <fieldset id="pronoun-fields" class="field no-gap">
+                            <div id="pronoun-fields" class="field">
                                 <legend id="pronoun"> 
                                     <p class="reduced-spacing">Pronouns</p>
                                     <p class="small-text">Select all that apply.</p>
                                 </legend>
-                                <div id="pronoun-options" class="options">
+                                <div id="pronoun-options" class="options flex">
                                     <div class="col">
                                         <label class="row" for="she">
                                             <div class="checkbox">
@@ -216,20 +216,20 @@
                                         </div>
                                     </div>
                                 </div>
-                            </fieldset>
+                            </div>
                             <fieldset id="contact-fields">
-                                <fieldset class="field">
+                                <div class="field">
                                     <label for="email">Email Address<input type="email" id="email" name="email" placeholder="liana@gmail.com" maxlength="40" required></label>
                                     <span class="sr-only">Format: myname@example.com</span>
-                                </fieldset>
-                                <fieldset class="field">
+                                </div>
+                                <div class="field">
                                     <label for="phone">Phone Number<input type="tel" id="phone" name="phone" placeholder="555-555-5555" minlength="4" maxlength="20" required></label>
                                     <span class="sr-only">Format: 123-456-7890</span> 
-                                </fieldset>
+                                </div>
                             </fieldset>
                         </div>
-                        <div class="form-navigation">
-                            <div class="progress">
+                        <div class="form-navigation flex">
+                            <div class="progress flex">
                                 <div class="active"></div>
                                 <div class="inactive"></div>
                                 <div class="inactive"></div>
@@ -240,25 +240,25 @@
                     </div>
                     <div class="form-page" data-page="2">
                         <div class="form-fields">
-                            <div class="header-with-line">
+                            <div class="header-with-line flex">
                                 <h5>About Your Tattoo</h5>
                                 <div class="line"></div>
                             </div>
                             <fieldset class="field">
                                 <label for="placement" class="fill">Placement Area<input type="text" id="placement" name="placement" placeholder="Left arm" maxlength="50" required></label>
                             </fieldset>
-                            <fieldset id="size-fields" class="no-gap">
+                            <div id="size-fields">
                                 <legend id="size">Approximate Size</legend>
                                 <div class="row fill">
-                                    <fieldset class="field fill">
+                                    <div class="field fill">
                                         <label class="row small-text" for="width"><input type="number" id="width" name="width" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Wide</label>
-                                    </fieldset>
-                                    <fieldset class="field fill">
+                                    </div>
+                                    <div class="field fill">
                                         <label class="row small-text" for="height"><input type="number" id="height" name="height" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Long</label>
-                                    </fieldset>
+                                    </div>
                                 </div>
-                            </fieldset>
-                            <fieldset id="coverup-field" class="field no-gap">
+                            </div>
+                            <div id="coverup-field" class="field ">
                                 <legend>Is this a coverup?</legend>
                                 <div id="coverup-options" class="options row fill">
                                     <label class="row" for="yes-coverup">
@@ -276,8 +276,8 @@
                                         No
                                     </label>
                                 </div>
-                            </fieldset>
-                            <fieldset id="color-field" class="field no-gap">
+                            </div>
+                            <div id="color-field" class="field ">
                                 <legend>Will there be color?</legend>
                                 <div id="color-options" class="options row fill">
                                     <label class="row" for="yes-color">
@@ -302,10 +302,10 @@
                                         Not Sure
                                     </label>
                                 </div>
-                            </fieldset>
+                            </div>
                         </div>
-                        <div class="form-navigation">
-                            <div class="progress">
+                        <div class="form-navigation flex">
+                            <div class="progress flex">
                                 <div class="inactive"></div>
                                 <div class="active"></div>
                                 <div class="inactive"></div>
@@ -319,14 +319,14 @@
                     </div>
                     <div class="form-page" data-page="3">
                         <div class="form-fields">
-                            <div class="header-with-line">
+                            <div class="header-with-line flex">
                                 <h5>Upload Reference Photos</h5>
                                 <div class="line"></div>
                             </div>
-                            <fieldset class="box field">
+                            <div id="file-field" class="field">
                                 <legend>Show me your inspiration and/or placement.</legend>
                                 <div class="box">
-                                    <div class="box-input">
+                                    <div class="box-input field">
                                         <input class="box-file" type="file" name="file" id="file" data-multiple-caption="{count} files selected" multiple />
                                         <label for="file"><span class="bold">Choose a file</span><span class="box-dragndrop"> or drag it here</span></label>
                                         <button class="box-button" type="submit">Upload</button> <!-- should this be submit?-->
@@ -335,10 +335,10 @@
                                         <div class="box error">Error! <span class="error"></span></div>
                                     </div>
                                 </div>
-                            </fieldset>
+                            </div>
                         </div>
-                        <div class="form-navigation">
-                            <div class="progress">
+                        <div class="form-navigation flex">
+                            <div class="progress flex">
                                 <div class="inactive"></div>
                                 <div class="inactive"></div>
                                 <div class="active"></div>
@@ -352,7 +352,7 @@
                     </div>
                     <div class="form-page" data-page="4">
                         <div class="form-fields">
-                            <div class="header-with-line">
+                            <div class="header-with-line flex">
                                 <h5>Your Idea</h5>
                                 <div class="line"></div>
                             </div>
@@ -360,8 +360,8 @@
                                 <label for="idea">Tell me a bit about your tattoo idea.<textarea id="idea" name="idea" rows="10" cols="50" placeholder="I want a..." minlength="20" maxlength="1000" required></textarea></label>
                             </fieldset>
                         </div>
-                        <div class="form-navigation">
-                            <div class="progress">
+                        <div class="form-navigation flex">
+                            <div class="progress flex">
                                 <div class="inactive"></div>
                                 <div class="inactive"></div>
                                 <div class="inactive"></div>
@@ -381,7 +381,7 @@
             </div>
         </div>
     </body>
-    <footer id="footer">
+    <footer>
         <div id="copyright">
             <p class="sr-only">© Mahalia Xiaoqi Smith 2023</p>
             <p class="sr-hidden p2">© M<span class="black">a</span>halia Xiao<span class="black">q</span>i <span class="black">S</span>mith 2023</p>

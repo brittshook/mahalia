@@ -183,7 +183,7 @@ function updateErrorMessage(input, errorMessage) {
     const type = input.type;
     const id = input.id;
 
-    let container = input.closest('fieldset');
+    let container = input.closest('.field');
     console.log(input);
     console.log(container);
     let errorMessageElement = container.querySelectorAll('p[class="error"], span[class="error"]')[0];
