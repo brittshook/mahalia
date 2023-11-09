@@ -26,7 +26,7 @@
             <a href="#top"><img id="logo" class="fit-img" src="./imgs/logo.svg" alt="logo"></a>
             <button type="button" class="open-modal primary small">Book</button>
         </nav>
-        <div id="hero">
+        <section id="hero">
             <h1 class="sr-only">Mahalia Xiaoqi</h1>
             <div id="hero-img">
                 <img class="fit-img sr-hidden" src="./imgs/hero.svg" alt="Mahalia Xiaoqi">
@@ -35,8 +35,8 @@
                 <p class="p1">Illustrative Tattoos</p>
                 <p class="p1">Brooklyn / NYC</p>
             </div>
-        </div>
-        <div id="tattoos">
+        </section>
+        <section id="tattoos">
             <div class="row">
                 <div class="card">
                     <img class="fill-img" src="./imgs/sample-tattoo1.jpg" alt="">
@@ -65,8 +65,8 @@
                     <p class="p1">Tattoo Description</p>
                 </div>
             </div>
-        </div>
-        <div id="about">
+        </section>
+        <section id="about">
             <div id="header-with-img">
                 <h2>About</br>Mahalia</h2>
                 <img class="fill-img" src="./imgs/mahalia.jpg" alt="Mahalia sitting in a cozy, green room">
@@ -75,8 +75,8 @@
                 <p class="p2">I am Mahalia, a tattoo artist based in Brooklyn, New York. I specialize in illustrative and fineline tattoos. My work is inspired by my training in impressionist oil and mixed medium painting. I enjoy tattooing animal imagery, large florals, and abstract concepts.</p>
                 <p class="p2">I believe that tattooing is a form of body liberation and am committed to a trauma-aware, justice-centered tattoo practice.</p>
             </div>
-        </div>
-        <div id="faqs">
+        </section>
+        <section id="faqs">
             <h2>FAQs</h2>
             <div id="faq-questions">
                 <div class="question">
@@ -138,15 +138,15 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="book">
+        </section>
+        <section id="book">
             <div id="header-with-subtitle">
                 <h2>Ready for a tattoo?</h2>
                 <p class="p1">Book a consultation for your next tattoo.</p>    
             </div>
             <button type="button" class="open-modal primary large">Book Now</button>
             <img class="fit-img" src="./imgs/sample-highlight.jpg" alt="">
-        </div>
+        </section>
         <div class="modal-window">
             <div class="modal">
                 <div class="close-modal">
@@ -323,12 +323,18 @@
                                 <h5>Upload Reference Photos</h5>
                                 <div class="line"></div>
                             </div>
-                            <legend>Show me your inspiration and/or placement.</legend>
-                            <fieldset class="field file_input">
-                                <input type="file" name="file" id="file" data-multiple-caption="{count} files selected" accept="image/*,.pdf" multiple required>
-                                <label for="file"><span class="black">Choose a file</span><span class="drag-and-drop"> or drag it here</span></label>
-                                <p class="uploading">Uploading…</p>
-                                <p class="success">Done!</p>
+                            <fieldset class="box field">
+                                <legend>Show me your inspiration and/or placement.</legend>
+                                <div class="box">
+                                    <div class="box-input">
+                                        <input class="box-file" type="file" name="file" id="file" data-multiple-caption="{count} files selected" multiple />
+                                        <label for="file"><span class="bold">Choose a file</span><span class="box-dragndrop"> or drag it here</span></label>
+                                        <button class="box-button" type="submit">Upload</button> <!-- should this be submit?-->
+                                        <div class="box-uploading">Uploading…</div>
+                                        <div class="box success">Done!</div>
+                                        <div class="box error">Error! <span class="error"></span></div>
+                                    </div>
+                                </div>
                             </fieldset>
                         </div>
                         <div class="form-navigation">

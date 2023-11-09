@@ -143,9 +143,12 @@ h4 {
     padding: 0 100px;
 }
 
+#navbar, 
+.modal-window {
+    position: fixed; 
+}
+
 #navbar {
-    position: fixed;
-    width: 100%;
     max-width: 1400px;
     padding: 24px 100px;
     justify-content: space-between;
@@ -272,12 +275,14 @@ button.secondary:disabled {
     to {transform: translateY(0px);}
 }
 
+#navbar, 
 #hero-img img, 
 .fill-img,
 #faqs,
 .fill,
 fieldset:not(#custom-pronoun-field),
-.modal-window {
+.modal-window,
+.box {
     width: 100%;
 }
 
@@ -510,7 +515,6 @@ p:not(p:last-of-type) {
 }
 
 .modal-window {
-    position: fixed;
     top: 0;
     left: 0;
     height: 100%;
@@ -550,6 +554,7 @@ p:not(p:last-of-type) {
 }
 
 .start-page {
+    gap: 20px;
     padding: 35px 0;
     text-align: center;
 }
@@ -557,7 +562,6 @@ p:not(p:last-of-type) {
 .start-page,
 .form-page {
     flex-direction: column;
-    gap: 20px;
 }
 
 .form-page,
@@ -566,12 +570,14 @@ p:not(p:last-of-type) {
 }
 
 .form-page {
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 39px;
     height: 480px;
 }
 
 .form-fields {
     flex-direction: column;
+    height: 100%;
     gap: 20px;
 }
 
@@ -737,12 +743,41 @@ textarea {
     height: 275px;
 }
 
-.file_input label {
+fieldset.box, 
+div.box, 
+.box-input {
+    height: 100%;
+}
+
+div.box {
+    background-color: var(--translucent-white);
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.box-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--white, #ffffff);
+    border-radius: 4px;
+}
+
+.box label {
     flex-direction: row;
     gap: 4px;
     align-items: center;
     justify-content: center;
 }
+
+.box-dragndrop,
+.box-uploading,
+.box.success,
+.box.error {
+    display: none;
+}
+
 
 input[type="checkbox"], 
 input[type="radio"] {

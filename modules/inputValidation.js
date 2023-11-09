@@ -186,7 +186,7 @@ function updateErrorMessage(input, errorMessage) {
     let container = input.closest('fieldset');
     console.log(input);
     console.log(container);
-    let errorMessageElement = container.querySelector('p[class="error"]');
+    let errorMessageElement = container.querySelectorAll('p[class="error"], span[class="error"]')[0];
 
     if (errorMessage) {
         console.log('There is an error message to display');
