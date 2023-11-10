@@ -165,29 +165,29 @@
                                 <h5>About You</h5>
                                 <div class="line"></div>
                             </div>
-                            <fieldset id="name-fields">
+                            <fieldset id="name-fields" class="flex">
                                 <div class="field">
-                                    <label for="first-name">First Name<input type="text" id="first-name" name="first-name" placeholder="Liana" minlength="1" maxlength="30" required></label>
+                                    <label class="flex" for="first-name">First Name<input type="text" id="first-name" name="first-name" placeholder="Liana" minlength="1" maxlength="30" required></label>
                                 </div>
                                 <div class="field">
-                                    <label for="last-name">Last Name<input type="text" id="last-name" name="last-name" placeholder="Fulmer" minlength="1" maxlength="30" required></label>
+                                    <label class="flex" for="last-name">Last Name<input type="text" id="last-name" name="last-name" placeholder="Fulmer" minlength="1" maxlength="30" required></label>
                                 </div>
                             </fieldset>
-                            <div id="pronoun-fields" class="field">
+                            <div id="pronoun-fields" class="field flex">
                                 <legend id="pronoun"> 
                                     <p class="reduced-spacing">Pronouns</p>
                                     <p class="small-text">Select all that apply.</p>
                                 </legend>
                                 <div id="pronoun-options" class="options flex">
                                     <div class="col">
-                                        <label class="row" for="she">
+                                        <label class="row flex" for="she">
                                             <div class="checkbox">
                                                 <img class="checkmark fit-img" src="./imgs/checkmark.svg">
                                             </div>
                                             <input type="checkbox" id="she" name="pronouns" value="she/her">
                                             She/Her
                                         </label>
-                                        <label class="row" for="he">
+                                        <label class="row flex" for="he">
                                             <div class="checkbox">
                                                 <img class="checkmark fit-img" src="./imgs/checkmark.svg">
                                             </div>
@@ -196,7 +196,7 @@
                                         </label>
                                     </div>
                                     <div class="col">
-                                        <label class="row" for="they">
+                                        <label class="row flex" for="they">
                                             <div class="checkbox">
                                                 <img class="checkmark fit-img" src="./imgs/checkmark.svg">
                                             </div>
@@ -204,7 +204,7 @@
                                             They/Them
                                         </label>
                                         <div id="custom-option" class="row">
-                                            <label class="row" for="custom">
+                                            <label class="row flex" for="custom">
                                                 <div class="checkbox">
                                                     <img class="checkmark fit-img" src="./imgs/checkmark.svg">
                                                 </div>
@@ -218,13 +218,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <fieldset id="contact-fields">
+                            <fieldset id="contact-fields" class="flex">
                                 <div class="field">
-                                    <label for="email">Email Address<input type="email" id="email" name="email" placeholder="liana@gmail.com" maxlength="40" required></label>
+                                    <label class="flex" for="email">Email Address<input type="email" id="email" name="email" placeholder="liana@gmail.com" maxlength="40" required></label>
                                     <span class="sr-only">Format: myname@example.com</span>
                                 </div>
                                 <div class="field">
-                                    <label for="phone">Phone Number<input type="tel" id="phone" name="phone" placeholder="555-555-5555" minlength="4" maxlength="20" required></label>
+                                    <label class="flex" for="phone">Phone Number<input type="tel" id="phone" name="phone" placeholder="555-555-5555" minlength="4" maxlength="20" required></label>
                                     <span class="sr-only">Format: 123-456-7890</span> 
                                 </div>
                             </fieldset>
@@ -245,31 +245,31 @@
                                 <h5>About Your Tattoo</h5>
                                 <div class="line"></div>
                             </div>
-                            <fieldset class="field">
-                                <label for="placement" class="fill">Placement Area<input type="text" id="placement" name="placement" placeholder="Left arm" maxlength="50" required></label>
+                            <fieldset class="field flex">
+                                <label class="flex" for="placement" class="fill">Placement Area<input type="text" id="placement" name="placement" placeholder="Left arm" maxlength="50" required></label>
                             </fieldset>
                             <div id="size-fields">
                                 <legend id="size">Approximate Size</legend>
                                 <div class="row fill">
                                     <div class="field fill">
-                                        <label class="row small-text" for="width"><input type="number" id="width" name="width" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Wide</label>
+                                        <label class="row flex small-text" for="width"><input type="number" id="width" name="width" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Wide</label>
                                     </div>
                                     <div class="field fill">
-                                        <label class="row small-text" for="height"><input type="number" id="height" name="height" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Long</label>
+                                        <label class="row flex small-text" for="height"><input type="number" id="height" name="height" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Long</label>
                                     </div>
                                 </div>
                             </div>
-                            <div id="coverup-field" class="field ">
+                            <div id="coverup-field" class="field flex">
                                 <legend>Is this a coverup?</legend>
                                 <div id="coverup-options" class="options row fill">
-                                    <label class="row" for="yes-coverup">
+                                    <label class="row flex" for="yes-coverup">
                                         <div class="radio" name="coverup">
                                             <div class="circle"></div>
                                         </div>
                                         <input type="radio" id="yes-coverup" name="coverup" value="yes">
                                         Yes
                                     </label>
-                                    <label class="row" for="no-coverup">
+                                    <label class="row flex" for="no-coverup">
                                         <div class="radio" name="coverup"> 
                                             <div class="circle"></div>
                                         </div>
@@ -278,24 +278,24 @@
                                     </label>
                                 </div>
                             </div>
-                            <div id="color-field" class="field ">
+                            <div id="color-field" class="field flex">
                                 <legend>Will there be color?</legend>
                                 <div id="color-options" class="options row fill">
-                                    <label class="row" for="yes-color">
+                                    <label class="row flex" for="yes-color">
                                         <div class="radio" name="color">
                                             <div class="circle"></div>
                                         </div>
                                         <input type="radio" id="yes-color" name="color" value="yes">
                                         Yes
                                     </label>
-                                    <label class="row" for="no-color">
+                                    <label class="row flex" for="no-color">
                                         <div class="radio" name="color">
                                             <div class="circle"></div>
                                         </div>
                                         <input type="radio" id="no-color" name="color" value="no">
                                         No
                                     </label>
-                                    <label class="row fill" for="not-sure-color">
+                                    <label class="row flex fill" for="not-sure-color">
                                         <div class="radio" name="color">
                                             <div class="circle"></div>
                                         </div>
@@ -324,11 +324,11 @@
                                 <h5>Upload Reference Photos</h5>
                                 <div class="line"></div>
                             </div>
-                            <div id="file-field" class="field">
+                            <div id="file-field" class="field flex">
                                 <legend>Show me your inspiration and/or placement.</legend>
-                                <div id="file-upload-box" class="box field">
+                                <div id="file-upload-box" class="box field flex">
                                     <input class="box-file" type="file" name="file" id="file" accept="image/*,.pdf" data-multiple-caption="{count} files selected" multiple />
-                                    <label class="row" for="file"><span class="black">Choose a file</span><span class="box-dragndrop"> or drag it here</span></label>
+                                    <label class="row flex" for="file"><span class="black">Choose a file</span><span class="box-dragndrop"> or drag it here</span></label>
                                     <div class="box-uploading">Uploading…</div>
                                     <div class="box success">Done!</div>
                                     <div class="box error">Error! <span class="error"></span></div>
@@ -354,8 +354,8 @@
                                 <h5>Your Idea</h5>
                                 <div class="line"></div>
                             </div>
-                            <fieldset class="field">
-                                <label for="idea">Tell me a bit about your tattoo idea.<textarea id="idea" name="idea" rows="10" cols="50" placeholder="I want a..." minlength="20" maxlength="1000" required></textarea></label>
+                            <fieldset class="field flex">
+                                <label class="flex" for="idea">Tell me a bit about your tattoo idea.<textarea id="idea" name="idea" rows="10" cols="50" placeholder="I want a..." minlength="20" maxlength="1000" required></textarea></label>
                             </fieldset>
                         </div>
                         <div class="form-navigation flex">
