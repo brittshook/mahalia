@@ -9,12 +9,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
         <title>Mahalia Xiaoqi Tattoos</title>
         <script src="https://kit.fontawesome.com/c08bc4236f.js" crossorigin="anonymous"></script>
-        <script type="module" src="./modules/openModal.js"></script>
-        <script type="module" src="./modules/closeModal.js"></script>
-        <script type="module" src="./modules/modalNavigation.js"></script>
-        <script type="module" src="./modules/faqToggle.js"></script>
-        <script type="module" src="./modules/showLogo.js"></script>
-        <script type="module" src="./modules/toggleOptionUI.js"></script>
+        <script type="module" src="modules/openModal.js"></script>
+        <script type="module" src="modules/closeModal.js"></script>
+        <script type="module" src="modules/modalNavigation.js"></script>
+        <script type="module" src="modules/faqToggle.js"></script>
+        <script type="module" src="modules/showLogo.js"></script>
+        <script type="module" src="modules/toggleOptionUI.js"></script>
+        <script type="module" src="modules/fileDragAndDrop.js"></script>
     </head>
     <body>
         <nav>
@@ -325,15 +326,12 @@
                             </div>
                             <div id="file-field" class="field">
                                 <legend>Show me your inspiration and/or placement.</legend>
-                                <div class="box">
-                                    <div class="box-input field">
-                                        <input class="box-file" type="file" name="file" id="file" data-multiple-caption="{count} files selected" multiple />
-                                        <label for="file"><span class="bold">Choose a file</span><span class="box-dragndrop"> or drag it here</span></label>
-                                        <button class="box-button" type="submit">Upload</button> <!-- should this be submit?-->
-                                        <div class="box-uploading">Uploading…</div>
-                                        <div class="box success">Done!</div>
-                                        <div class="box error">Error! <span class="error"></span></div>
-                                    </div>
+                                <div id="file-upload-box" class="box field">
+                                    <input class="box-file" type="file" name="file" id="file" accept="image/*,.pdf" data-multiple-caption="{count} files selected" multiple />
+                                    <label class="row" for="file"><span class="black">Choose a file</span><span class="box-dragndrop"> or drag it here</span></label>
+                                    <div class="box-uploading">Uploading…</div>
+                                    <div class="box success">Done!</div>
+                                    <div class="box error">Error! <span class="error"></span></div>
                                 </div>
                             </div>
                         </div>

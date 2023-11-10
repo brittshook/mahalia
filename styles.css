@@ -24,9 +24,10 @@
 /* add fallbacks -- complete for b/w only */
 :root {
     --black: #121212;
-    --white: #ffffff;
     --off-white: #dcdcdc;
-    --translucent-white: #ffffff33;
+    --white100: #ffffff;
+    --white50: #ffffff80;
+    --white20: #ffffff33;
     --gray: #313131;
     --light-gray: #444141;
     --dark-gray: #2D2D2D;
@@ -98,7 +99,6 @@ section:not(#hero),
 .form-fields,
 .field,
 .col,
-.box-input,
 label:not(.row) {
     flex-direction: column;
 }
@@ -113,7 +113,7 @@ nav,
 .close-modal,
 .header-with-line,
 .form-navigation,
-.box-input,
+#file-upload-box,
 .box label,
 .checkbox,
 .radio {
@@ -147,7 +147,7 @@ body,
 button.primary:hover:not(button:disabled), 
 button.primary:active:not(button:disabled), 
 button.secondary {
-    color: var(--white, #fff);
+    color: var(--white100, #fff);
 }
 
 body,
@@ -251,7 +251,7 @@ a:hover {
 button:not(button:disabled), 
 .close-modal,
 .open-modal,
-.box-input {
+#file-upload-box.has-advanced-upload {
     cursor: pointer;
 }
 
@@ -272,7 +272,7 @@ button.secondary:hover:not(button:disabled),
 button.primary:hover:not(button:disabled), 
 button.primary:active:not(button:disabled), 
 button.secondary {
-    outline: 1px solid var(--white, #fff);
+    outline: 1px solid var(--white100, #fff);
 }
 
 button.secondary:hover:not(button:disabled) {
@@ -324,7 +324,8 @@ nav,
 .fill,
 fieldset:not(#custom-pronoun-field),
 .modal-window,
-.box {
+.box,
+.field {
     width: 100%;
 }
 
@@ -452,7 +453,7 @@ h5 {
 
 .question:hover,
 .question.revealed {
-    background-color: var(--translucent-white);
+    background-color: var(--white20);
 }
 
 i.revealed {
@@ -563,7 +564,7 @@ p:not(p:last-of-type) {
 }
 
 .close-modal:hover {
-    color: var(--white, #fff);
+    color: var(--white100, #fff);
 }
 
 .start-page {
@@ -675,7 +676,7 @@ input, textarea {
 
 textarea {
     resize: none;
-    padding: 16px;
+    padding: 16px 42px 16px 16px;
 }
 
 input[type="file"] {
@@ -707,30 +708,29 @@ input[type="number"] {
 }
 
 textarea {
+    width: 100%;
     height: 275px;
 }
 
 .modal-window,
 .form-fields,
 fieldset.box, 
-div.box, 
-.box-input,
+#file-upload-box,
 #file-field {
     height: 100%;
 }
 
-div.box {
-    background-color: var(--translucent-white);
+#file-upload-box {
     padding: 12px;
     border-radius: 10px;
 }
 
-.box-input {
+/* .box-input {
     display: flex;
     justify-content: center;
     border: 2px dashed var(--white, #ffffff);
     border-radius: 4px;
-}
+} */
 
 .box label {
     gap: 4px;
@@ -794,8 +794,6 @@ input[type="number"].error,
 textarea.error {
     outline: 2px solid var(--red, #D83939);
     background-image: url('./imgs/error.svg');
-    background-repeat: no-repeat;
-    background-position: right 8px center;
 }
 
 input[type="text"].success, 
@@ -804,11 +802,52 @@ input[type="email"].success,
 input[type="number"].success,
 textarea.success {
     background-image: url('./imgs/success.svg');
-    background-repeat: no-repeat;
+}
+
+input[type="text"].success, 
+input[type="tel"].success, 
+input[type="email"].success,
+input[type="number"].success,
+input[type="text"].error, 
+input[type="tel"].error, 
+input[type="email"].error,
+input[type="number"].error {
     background-position: right 8px center;
+}
+
+textarea.success,
+textarea.error {
+    background-position: right 14.5px top 14.5px;
+}
+
+input[type="text"].success, 
+input[type="tel"].success, 
+input[type="email"].success,
+input[type="number"].success,
+textarea.success,
+input[type="text"].error, 
+input[type="tel"].error, 
+input[type="email"].error,
+input[type="number"].error,
+textarea.error {
+    background-repeat: no-repeat;
 }
 
 p.error {
     font-size: 14px;
     color: var(--off-white, #eaeaea);
+}
+
+#file-upload-box.is-dragover {
+    background-color: var(--white50) !important;
+}
+
+#file-upload-box.has-advanced-upload {
+    background-color: var(--white20);
+    outline: 2px dashed var(--off-white);
+    outline-offset: -10px;
+}
+
+#file-upload-box.has-advanced-upload .box-dragndrop {
+    display: inline;
 }

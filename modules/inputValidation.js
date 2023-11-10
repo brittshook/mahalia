@@ -64,7 +64,12 @@ const inputRules = {
 
 function validateText(input, value = input.value) {
     const length = value.length;
-    const label = input.name === 'custom-pronoun' ? 'own pronouns' : input.closest('label').innerText;
+    const label =
+        input.name === 'custom-pronoun'
+            ? 'own pronouns'
+            : input.name === 'idea'
+            ? 'tattoo idea'
+            : input.closest('label').innerText;
     const regex = inputRules[input.name].formatRegex;
 
     if (inputRules[input.name].required) {
@@ -118,7 +123,6 @@ function validateRadioCheckbox(input, type = input.type, id = input.id, name = i
         const customTextField = document.querySelector('#custom-pronoun');
 
         if (!isChecked) {
-            console.log('I am running code for when the custom pronouns is unchecked');
             // Do not require custom pronoun text field
             inputRules['custom-pronoun'].required = false;
             customTextField.removeAttribute('required');
@@ -130,8 +134,6 @@ function validateRadioCheckbox(input, type = input.type, id = input.id, name = i
 
             toggleInputUI(customTextField);
         } else if (isChecked) {
-            console.log('I am running code for when the custom pronouns is checked');
-
              // Require custom pronoun text field
              inputRules['custom-pronoun'].required = true;
              customTextField.setAttribute('required', 'true');
@@ -166,7 +168,6 @@ function validateFile(input, files = input.files) {
     }
 
     for (const file of files) {
-        console.log(file.type);
         if (!regex.test(file.type)) {
             return inputRules[input.name].formatErrorMessage;
         }
@@ -184,24 +185,26 @@ function updateErrorMessage(input, errorMessage) {
     const id = input.id;
 
     let container = input.closest('.field');
-    console.log(input);
-    console.log(container);
-    let errorMessageElement = container.querySelectorAll('p[class="error"], span[class="error"]')[0];
+    let errorMessageElement = container.querySelectorAll('p.error, span.error')[0];
 
     if (errorMessage) {
-        console.log('There is an error message to display');
         if (!errorMessageElement) {
-            console.log('There is NOT an existing error message element');
-            const newErrorMessageElement = document.createElement('p');
+            let newErrorMessageElement;
+
+            if (type === file) {
+                container = container.querySelector('div.error');
+                newErrorMessageElement = document.createElement('span');
+            } else {
+                newErrorMessageElement = document.createElement('p');
+            }
+    
             newErrorMessageElement.classList.add('error');
             newErrorMessageElement.textContent = errorMessage;
             container.appendChild(newErrorMessageElement);
         } else {
-            console.log('There is an existing error message element');
             errorMessageElement.textContent = errorMessage;
         }
     } else if (errorMessageElement) {
-        console.log('There is NO error message to display');
         errorMessageElement.textContent = ''; // Clear the error message
         errorMessageElement.remove();
     }
