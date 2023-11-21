@@ -63,15 +63,17 @@ const inputRules = {
 }
 
 // 
-function cleanInput(input) {
+function trimInput(input) {
     input.value = input.value.trim();
+}
 
-    if (input.type === 'number') {
-        input.value = input.value.toFixed(1);
-    }
+function cleanNumInput(input) {
+    input.value = parseFloat(input.value).toFixed(1);
 }
 
 function validateText(input, value = input.value) {
+    trimInput(input);
+
     const length = value.length;
     const label =
         input.name === 'custom-pronoun'
@@ -102,9 +104,10 @@ function validateText(input, value = input.value) {
     return null;
 }
 
-
 function validateNumber(input, value = input.value) {
+    trimInput(input);
     cleanNumInput(input);
+
     const label = input.closest('label').innerText;
 
     if (inputRules[input.name].required) {
@@ -193,7 +196,6 @@ function validateFile(input, files = input.files) {
 
 function updateErrorMessage(input, errorMessage) {
     const type = input.type;
-    const id = input.id;
 
     let container = input.closest('.field');
     let errorMessageElement = container.querySelectorAll('p.error, span.error')[0];
