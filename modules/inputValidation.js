@@ -50,7 +50,7 @@ const inputRules = {
     'file': {
         required: true,
         max: 5,
-        sizeMax: 10485760, // in bytes
+        sizeMaxInBytes: 10485760,
         formatRegex: /^(image\/.*|.*pdf)/,
         formatErrorMessage: 'Please upload image or PDF files.',
         sizeErrorMessage: 'Files must be less than 10 MB each.'
@@ -59,6 +59,15 @@ const inputRules = {
         required: true,
         min: 20,
         max: 1000
+    }
+}
+
+// 
+function cleanInput(input) {
+    input.value = input.value.trim();
+
+    if (input.type === 'number') {
+        input.value = input.value.toFixed(1);
     }
 }
 
@@ -95,6 +104,7 @@ function validateText(input, value = input.value) {
 
 
 function validateNumber(input, value = input.value) {
+    cleanNumInput(input);
     const label = input.closest('label').innerText;
 
     if (inputRules[input.name].required) {
@@ -129,6 +139,7 @@ function validateRadioCheckbox(input, type = input.type, id = input.id, name = i
 
             // Reset & disable if filled
             inputRules['custom-pronoun'].unset = true;
+            customTextField.value = '';
             customTextField.setAttribute('placeholder', 'Write My Own')
             customTextField.setAttribute('disabled', 'true');
 
@@ -172,7 +183,7 @@ function validateFile(input, files = input.files) {
             return inputRules[input.name].formatErrorMessage;
         }
 
-        if (file.size >= inputRules[input.name].sizeMax) {
+        if (file.size >= inputRules[input.name].sizeMaxInBytes) {
             return inputRules[input.name].sizeErrorMessage;
         }
     }
@@ -242,7 +253,6 @@ function toggleInputUI(input) {
         input.classList.add('success');
         input.classList.remove('error');
     } else {
-        console.log(isValid, errorMessage, "i see an error");
         input.classList.remove('success');
         input.classList.add('error');
     }
