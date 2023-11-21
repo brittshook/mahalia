@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         if (scrolledTo(tattoos)) {
             logo.classList.add('revealed');
-            console.log('Scrolled to #tattoos');
         }
     });
 });

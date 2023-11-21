@@ -32,8 +32,6 @@ function enableNextButton() {
         }
     });
 
-    console.log(validInputs, pageInputElements.length);
-
     if (validInputs === pageInputElements.length) {
         nextPageButton.removeAttribute('disabled');
         return true;
@@ -49,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     inputElements.forEach(input => {
         input.addEventListener('change', () => {
-            console.log(`event listener sensed change to ${input.id}`)
             toggleInputUI(input);
             enableNextButton();
         });

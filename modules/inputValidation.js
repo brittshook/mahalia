@@ -152,7 +152,6 @@ function validateRadioCheckbox(input, type = input.type, id = input.id, name = i
              inputRules['custom-pronoun'].required = true;
              customTextField.setAttribute('required', 'true');
 
-             // TODO: Enable field *** ERROR IN THIS CODE
              inputRules['custom-pronoun'].unset = false;
              customTextField.removeAttribute('disabled');
         }

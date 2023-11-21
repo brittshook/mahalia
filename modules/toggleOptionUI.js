@@ -1,7 +1,5 @@
 function changeOptionInput(input, action) {
     const optionUI = input.previousElementSibling.querySelectorAll('.circle, .checkmark')[0];
-    console.log(input);
-    console.log(optionUI);
 
     if (action === 'toggle') {
         optionUI.classList.toggle('checked');
