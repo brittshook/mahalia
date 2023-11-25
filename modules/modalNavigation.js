@@ -33,11 +33,31 @@ function enableNextButton() {
     });
 
     if (validInputs === pageInputElements.length) {
-        nextPageButton.removeAttribute('disabled');
-        return true;
+        nextPageButton.classList.remove('disabled');
     } else {
-        nextPageButton.setAttribute('disabled', 'true');
+        nextPageButton.classList.add('disabled');
     }
+}
+
+function wiggleOnError(button) {
+    if (button.classList.contains('disabled')) {
+        pageInputElements = inputs(currentPage);
+        console.log(pageInputElements);
+
+        pageInputElements.forEach(input => {
+            const { isValid } = inputValidation(input);
+
+            if (!isValid) {
+                toggleInputUI(input);
+
+                input.classList.add('wiggle');
+
+                setTimeout(() => {
+                    input.classList.remove('wiggle');
+                },1000);
+            };
+        });
+    };
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -50,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleInputUI(input);
             enableNextButton();
         });
-    })
+    });
 
     inputElements.forEach(input => {
         input.addEventListener('autocompletechange', () => {
@@ -62,7 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextPageButtons = document.querySelectorAll('.next-page');
     nextPageButtons.forEach(button => {
         button.addEventListener('click', () => {
-            showPage(currentPage + 1);
+            console.log('button was clicked');
+            if (button.classList.contains('disabled')) {
+                wiggleOnError(button);
+            } else {
+                showPage(currentPage + 1);
+            }
         });
     });
 

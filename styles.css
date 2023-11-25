@@ -78,9 +78,6 @@ body {
 .flex-col,
 .card,
 .question,
-.start-page,
-.form-page,
-.form-fields,
 .field,
 .col,
 label:not(.row) {
@@ -126,17 +123,42 @@ footer,
     justify-content: space-between;
 }
 
+.form-navigation, .header-with-line {
+    position: absolute;
+    width: 465px;
+    z-index: 10;
+}
+
+.header-with-line {
+    top: 50px;
+    align-self: stretch;
+    padding-bottom: 30px;
+    background: linear-gradient(var(--black, #121212) 65%, transparent 100%);
+}
+
+.form-navigation {
+    bottom: 50px;
+    padding-top: 20px;
+    background: linear-gradient(0deg, var(--black, #121212) 65%, transparent 100%);
+    ;
+}
+
+.form-fields {
+    overflow-y: scroll;
+    padding: 60px 10px 75px;
+}
+
 body, 
 .nav-link,
-button.primary:hover:not(button:disabled), 
-button.primary:active:not(button:disabled), 
+button.primary:hover:not(button.disabled), 
+button.primary:active:not(button.disabled), 
 button.secondary {
     color: var(--white100, #fff);
 }
 
 body,
-button.primary:hover:not(button:disabled), 
-button.primary:active:not(button:disabled), 
+button.primary:hover:not(button.disabled), 
+button.primary:active:not(button.disabled), 
 button.secondary,
 .modal,
 input[type="checkbox"], 
@@ -232,7 +254,7 @@ a:hover {
     to {opacity: 1;}
 }
 
-button:not(button:disabled), 
+button:not(button.disabled), 
 .close-modal,
 .open-modal,
 #file-upload-box.has-advanced-upload {
@@ -248,35 +270,35 @@ button {
 }
 
 button.primary, 
-button.secondary:hover:not(button:disabled),
+button.secondary:hover:not(button.disabled),
 .line {
     background-color: var(--White, #fff);
 }
 
-button.primary:hover:not(button:disabled), 
-button.primary:active:not(button:disabled), 
+button.primary:hover:not(button.disabled), 
+button.primary:active:not(button.disabled), 
 button.secondary {
     outline: 1px solid var(--white100, #fff);
 }
 
-button.secondary:hover:not(button:disabled) {
+button.secondary:hover:not(button.disabled) {
     color: var(--black, #121212);
 }
 
-button.primary:active:not(button:disabled) {
+button.primary:active:not(button.disabled) {
     box-shadow: 0px 4px 10px 0px #fff8f840 inset;
 }
 
-button.secondary:active:not(button:disabled) {
+button.secondary:active:not(button.disabled) {
     box-shadow: 0px 4px 10px 0px #00000040 inset;
 }
 
-button.primary:disabled {
+button.primary.disabled {
     background-color: #444141;
     color: var(--black, #121212);
 }
 
-button.secondary:disabled {
+button.secondary.disabled {
     color: #444141;
     outline-color: #444141;
 }
@@ -527,7 +549,7 @@ p:not(p:last-of-type) {
 .modal {
     position: relative;
     padding: 50px 65px;
-    width: 575px;
+    width: 595px;
     height: fit-content;
     border-radius: 30px;
     border: 1px solid var(--light-gray);
@@ -558,8 +580,8 @@ p:not(p:last-of-type) {
 
 .form-page {
     justify-content: flex-start;
-    gap: 39px;
     height: 480px;
+    overflow-y: scroll;
 }
 
 #start-btn {
@@ -572,11 +594,6 @@ fieldset, .field {
 
 .no-gap {
     gap: 0;
-}
-
-.header-with-line {
-    align-self: stretch;
-    margin-bottom: 10px;
 }
 
 .line {
@@ -841,16 +858,16 @@ p.error {
 }
 
 @keyframes wiggle {
-  0% { transform: translateX(0); }
-  9% { transform: translateX(-1px); }
-  18% { transform: translateX(1px); }
-  27% { transform: translateX(-1px); }
-  36% { transform: translateX(1px); }
-  45% { transform: translateX(-1px); }
-  54% { transform: translateX(1px); }
-  63% { transform: translateX(-1px); }
-  72% { transform: translateX(1px); }
-  81% { transform: translateX(-1px); }
-  90% { transform: translateX(1px); }
-  100% { transform: translateX(0px); }
+  0% { transform: translateX(-4px); }
+  9% { transform: translateX(-5px); }
+  18% { transform: translateX(-3px); }
+  27% { transform: translateX(-5px); }
+  36% { transform: translateX(-3px); }
+  45% { transform: translateX(-5px); }
+  54% { transform: translateX(-3px); }
+  63% { transform: translateX(-5px); }
+  72% { transform: translateX(-3px); }
+  81% { transform: translateX(-5px); }
+  90% { transform: translateX(-3px); }
+  100% { transform: translateX(-4px); }
 }

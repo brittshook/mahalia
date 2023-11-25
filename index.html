@@ -18,7 +18,7 @@
         <script type="module" src="modules/fileDragAndDrop.js"></script>
     </head>
     <body class="flex flex-col">
-        <nav>
+        <nav class="flex">
             <ul class="flex">
                 <li><a class="nav-link ui-text" href="#tattoos">Tattoos</a></li>
                 <li><a class="nav-link ui-text" href="#about">About</a></li>
@@ -153,18 +153,18 @@
                 <div class="close-modal flex">
                     <i class="fa-regular fa-x fa-lg"></i>
                 </div>
-                <div class="start-page flex">
+                <div class="start-page flex flex-col">
                     <h4>Book a Consultation</h4>
                     <p class="p2">Got an idea? Tell me about it using this form and I’ll respond within 3 days.</p>
                     <button id="start-btn" type="button" class="next-page primary fill">Get Started</button>
                 </div>
                 <form action="https://submit-form.com/qcjYhXPT" method="post" enctype="multipart/form-data">
-                    <div class="form-page" data-page="1">
-                        <div class="form-fields flex">
-                            <div class="header-with-line flex">
-                                <h5>About You</h5>
-                                <div class="line"></div>
-                            </div>
+                    <div class="form-page flex flex-col" data-page="1">
+                        <div class="header-with-line flex">
+                            <h5>About You</h5>
+                            <div class="line"></div>
+                        </div>
+                        <div class="form-fields flex flex-col">
                             <fieldset id="name-fields" class="flex">
                                 <div class="field flex">
                                     <label class="flex" for="first-name">First Name<input type="text" id="first-name" name="first-name" placeholder="Liana" minlength="1" maxlength="30" required></label>
@@ -237,12 +237,12 @@
                                 <div class="inactive"></div>
                             </div>
                             <span class="next-page-button-container">
-                                <button type="button" class="next-page primary" disabled>Next</button>
+                                <button type="button" class="next-page primary disabled">Next</button>
                             </span>
                         </div>
                     </div>
-                    <div class="form-page" data-page="2">
-                        <div class="form-fields flex">
+                    <div class="form-page flex flex-col" data-page="2">
+                        <div class="form-fields flex flex-col">
                             <div class="header-with-line flex">
                                 <h5>About Your Tattoo</h5>
                                 <div class="line"></div>
@@ -317,13 +317,13 @@
                             <div class="btns flex">
                                 <button type="button" class="prev-page secondary">Back</button>
                                 <div class="next-page-button-container">
-                                    <button type="button" class="next-page primary" disabled>Next</button>
+                                    <button type="button" class="next-page primary disabled">Next</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="form-page" data-page="3">
-                        <div class="form-fields flex">
+                    <div class="form-page flex flex-col" data-page="3">
+                        <div class="form-fields flex flex-col">
                             <div class="header-with-line flex">
                                 <h5>Upload Reference Photos</h5>
                                 <div class="line"></div>
@@ -349,13 +349,13 @@
                             <div class="btns flex">
                                 <button type="button" class="prev-page secondary">Back</button>
                                 <div class="next-page-button-container">
-                                    <button type="button" class="next-page primary" disabled>Next</button>
+                                    <button type="button" class="next-page primary disabled">Next</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="form-page" data-page="4">
-                        <div class="form-fields flex">
+                    <div class="form-page flex flex-col" data-page="4">
+                        <div class="form-fields flex flex-col">
                             <div class="header-with-line flex">
                                 <h5>Your Idea</h5>
                                 <div class="line"></div>
@@ -374,7 +374,7 @@
                             <div class="btns flex">
                                 <button type="button" class="prev-page secondary">Back</button>
                                 <div class="next-page-button-container">
-                                    <button type="submit" class="next-page primary" disabled>Submit</button>
+                                    <button type="submit" class="next-page primary disabled">Submit</button>
                                 </div>
                             </div>
                         </div>
