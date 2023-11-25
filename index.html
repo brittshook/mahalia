@@ -17,7 +17,7 @@
         <script type="module" src="modules/toggleOptionUI.js"></script>
         <script type="module" src="modules/fileDragAndDrop.js"></script>
     </head>
-    <body>
+    <body class="flex flex-col">
         <nav>
             <ul class="flex">
                 <li><a class="nav-link ui-text" href="#tattoos">Tattoos</a></li>
@@ -37,9 +37,9 @@
                 <p class="p1">Brooklyn / NYC</p>
             </div>
         </section>
-        <section id="tattoos">
+        <section id="tattoos" class="flex flex-col">
             <div class="row flex">
-                <div class="card">
+                <div class="card flex flex-col">
                     <img class="fill-img" src="./imgs/sample-tattoo1.jpg" alt="">
                     <p class="p1">Tattoo Description</p>
                 </div>
@@ -67,7 +67,7 @@
                 </div>
             </div>
         </section>
-        <section id="about">
+        <section id="about" class="flex flex-col">
             <div id="header-with-img" class="flex">
                 <h2>About</br>Mahalia</h2>
                 <img class="fill-img" src="./imgs/mahalia.jpg" alt="Mahalia sitting in a cozy, green room">
@@ -77,7 +77,7 @@
                 <p class="p2">I believe that tattooing is a form of body liberation and am committed to a trauma-aware, justice-centered tattoo practice.</p>
             </div>
         </section>
-        <section id="faqs">
+        <section id="faqs" class="flex flex-col">
             <h2>FAQs</h2>
             <div id="faq-questions">
                 <div class="question flex">
@@ -140,7 +140,7 @@
                 </div>
             </div>
         </section>
-        <section id="book">
+        <section id="book" class="flex flex-col">
             <div id="header-with-subtitle">
                 <h2>Ready for a tattoo?</h2>
                 <p class="p1">Book a consultation for your next tattoo.</p>    
@@ -160,7 +160,7 @@
                 </div>
                 <form action="https://submit-form.com/qcjYhXPT" method="post" enctype="multipart/form-data">
                     <div class="form-page" data-page="1">
-                        <div class="form-fields">
+                        <div class="form-fields flex">
                             <div class="header-with-line flex">
                                 <h5>About You</h5>
                                 <div class="line"></div>
@@ -179,33 +179,33 @@
                                     <p class="small-text">Select all that apply.</p>
                                 </legend>
                                 <div id="pronoun-options" class="options flex">
-                                    <div class="col">
+                                    <div class="col flex">
                                         <label class="row flex" for="she">
-                                            <div class="checkbox">
+                                            <div class="checkbox flex">
                                                 <img class="checkmark fit-img" src="./imgs/checkmark.svg">
                                             </div>
                                             <input type="checkbox" id="she" name="pronouns" value="she/her">
                                             She/Her
                                         </label>
                                         <label class="row flex" for="he">
-                                            <div class="checkbox">
+                                            <div class="checkbox flex">
                                                 <img class="checkmark fit-img" src="./imgs/checkmark.svg">
                                             </div>
                                             <input type="checkbox" id="he" name="pronouns" value="he/him">
                                             He/Him
                                         </label>
                                     </div>
-                                    <div class="col">
+                                    <div class="col flex">
                                         <label class="row flex" for="they">
-                                            <div class="checkbox">
+                                            <div class="checkbox flex">
                                                 <img class="checkmark fit-img" src="./imgs/checkmark.svg">
                                             </div>
                                             <input type="checkbox" id="they" name="pronouns" value="they/them">
                                             They/Them
                                         </label>
-                                        <div id="custom-option" class="row">
+                                        <div id="custom-option" class="row flex">
                                             <label class="row flex" for="custom">
-                                                <div class="checkbox">
+                                                <div class="checkbox flex">
                                                     <img class="checkmark fit-img" src="./imgs/checkmark.svg">
                                                 </div>
                                                 <input type="checkbox" id="custom" name="pronouns" value="custom">
@@ -236,11 +236,13 @@
                                 <div class="inactive"></div>
                                 <div class="inactive"></div>
                             </div>
-                            <button type="button" class="next-page primary" disabled>Next</button>
+                            <span class="next-page-button-container">
+                                <button type="button" class="next-page primary" disabled>Next</button>
+                            </span>
                         </div>
                     </div>
                     <div class="form-page" data-page="2">
-                        <div class="form-fields">
+                        <div class="form-fields flex">
                             <div class="header-with-line flex">
                                 <h5>About Your Tattoo</h5>
                                 <div class="line"></div>
@@ -250,7 +252,7 @@
                             </fieldset>
                             <div id="size-fields">
                                 <legend id="size">Approximate Size</legend>
-                                <div class="row fill">
+                                <div class="row flex fill">
                                     <div class="field fill flex">
                                         <label class="row flex small-text" for="width"><input type="number" id="width" name="width" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Wide</label>
                                     </div>
@@ -261,16 +263,16 @@
                             </div>
                             <div id="coverup-field" class="field flex">
                                 <legend>Is this a coverup?</legend>
-                                <div id="coverup-options" class="options row fill">
+                                <div id="coverup-options" class="options row flex fill">
                                     <label class="row flex" for="yes-coverup">
-                                        <div class="radio" name="coverup">
+                                        <div class="radio flex" name="coverup">
                                             <div class="circle"></div>
                                         </div>
                                         <input type="radio" id="yes-coverup" name="coverup" value="yes">
                                         Yes
                                     </label>
                                     <label class="row flex" for="no-coverup">
-                                        <div class="radio" name="coverup"> 
+                                        <div class="radio flex" name="coverup"> 
                                             <div class="circle"></div>
                                         </div>
                                         <input type="radio" id="no-coverup" name="coverup" value="no">
@@ -280,23 +282,23 @@
                             </div>
                             <div id="color-field" class="field flex">
                                 <legend>Will there be color?</legend>
-                                <div id="color-options" class="options row fill">
+                                <div id="color-options" class="options row flex fill">
                                     <label class="row flex" for="yes-color">
-                                        <div class="radio" name="color">
+                                        <div class="radio flex" name="color">
                                             <div class="circle"></div>
                                         </div>
                                         <input type="radio" id="yes-color" name="color" value="yes">
                                         Yes
                                     </label>
                                     <label class="row flex" for="no-color">
-                                        <div class="radio" name="color">
+                                        <div class="radio flex" name="color">
                                             <div class="circle"></div>
                                         </div>
                                         <input type="radio" id="no-color" name="color" value="no">
                                         No
                                     </label>
                                     <label class="row flex fill" for="not-sure-color">
-                                        <div class="radio" name="color">
+                                        <div class="radio flex" name="color">
                                             <div class="circle"></div>
                                         </div>
                                         <input type="radio" id="not-sure-color" name="color" value="not sure">
@@ -312,14 +314,16 @@
                                 <div class="inactive"></div>
                                 <div class="inactive"></div>
                             </div>
-                            <div class="btns">
+                            <div class="btns flex">
                                 <button type="button" class="prev-page secondary">Back</button>
-                                <button type="button" class="next-page primary" disabled>Next</button>
+                                <div class="next-page-button-container">
+                                    <button type="button" class="next-page primary" disabled>Next</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-page" data-page="3">
-                        <div class="form-fields">
+                        <div class="form-fields flex">
                             <div class="header-with-line flex">
                                 <h5>Upload Reference Photos</h5>
                                 <div class="line"></div>
@@ -342,14 +346,16 @@
                                 <div class="active"></div>
                                 <div class="inactive"></div>
                             </div>
-                            <div class="btns">
+                            <div class="btns flex">
                                 <button type="button" class="prev-page secondary">Back</button>
-                                <button type="button" class="next-page primary" disabled>Next</button>
+                                <div class="next-page-button-container">
+                                    <button type="button" class="next-page primary" disabled>Next</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-page" data-page="4">
-                        <div class="form-fields">
+                        <div class="form-fields flex">
                             <div class="header-with-line flex">
                                 <h5>Your Idea</h5>
                                 <div class="line"></div>
@@ -365,9 +371,11 @@
                                 <div class="inactive"></div>
                                 <div class="active"></div>
                             </div>
-                            <div class="btns">
+                            <div class="btns flex">
                                 <button type="button" class="prev-page secondary">Back</button>
-                                <button type="submit" class="next-page primary" disabled>Submit</button>
+                                <div class="next-page-button-container">
+                                    <button type="submit" class="next-page primary" disabled>Submit</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -379,13 +387,13 @@
             </div>
         </div>
     </body>
-    <footer>
+    <footer class="flex">
         <div id="copyright">
             <p class="sr-only">© Mahalia Xiaoqi Smith 2023</p>
             <p class="sr-hidden p2">© M<span class="black">a</span>halia Xiao<span class="black">q</span>i <span class="black">S</span>mith 2023</p>
             <p class="p2 bold">Imagined by <a href="https://brittshook.com">Britt</a></p>
         </div>
-        <div id="socials">
+        <div id="socials" class="flex flex-col">
             <h3 class="sr-only">Follow</h3>
             <h3 class="sr-hidden"><span class="black">F</span>ollow</h3>
             <ul>
@@ -393,7 +401,7 @@
                 <li class="footer-link ui-text"><a href="mailto:" target="_blank">Email</a></li> <!-- TODO: add email -->
             </ul>
         </div>
-        <div id="other">
+        <div id="other" class="flex flex-col">
             <h3 class="sr-only">Other Work</h3>
             <h3 class="sr-hidden"><span class="black">O</span>ther Wor<span class="black">k</span></h3>
             <ul>
