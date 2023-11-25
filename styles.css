@@ -71,25 +71,11 @@ body {
    display: none;
 }
 
-body,
-body > *:not(#hero):not(.modal-window):not(script),
-footer,
-footer > *:not(#copyright),
-.flex,
-label,
-.form-fields,
-.col,
-.row,
-.btns,
-.checkbox,
-.radio {
+.flex {
     display: flex;
 }
 
-body,
-section:not(#hero),
-#socials,
-#other,
+.flex-col,
 .card,
 .question,
 .start-page,
@@ -848,4 +834,23 @@ p.error {
 
 #file-upload-box.has-advanced-upload .box-dragndrop {
     display: inline;
+}
+
+.wiggle {
+    animation: 500ms wiggle linear;
+}
+
+@keyframes wiggle {
+  0% { transform: translateX(0); }
+  9% { transform: translateX(-1px); }
+  18% { transform: translateX(1px); }
+  27% { transform: translateX(-1px); }
+  36% { transform: translateX(1px); }
+  45% { transform: translateX(-1px); }
+  54% { transform: translateX(1px); }
+  63% { transform: translateX(-1px); }
+  72% { transform: translateX(1px); }
+  81% { transform: translateX(-1px); }
+  90% { transform: translateX(1px); }
+  100% { transform: translateX(0px); }
 }
