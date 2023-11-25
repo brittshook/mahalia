@@ -18,8 +18,8 @@
         <script type="module" src="modules/fileDragAndDrop.js"></script>
     </head>
     <body class="flex flex-col">
-        <nav class="flex">
-            <ul class="flex">
+        <nav class="flex align-center space-btw fixed fill">
+            <ul class="flex align-start">
                 <li><a class="nav-link ui-text" href="#tattoos">Tattoos</a></li>
                 <li><a class="nav-link ui-text" href="#about">About</a></li>
                 <li><a class="nav-link ui-text" href="#faqs">FAQs</a></li>
@@ -30,111 +30,111 @@
         <section id="hero">
             <h1 class="sr-only">Mahalia Xiaoqi</h1>
             <div id="hero-img">
-                <img class="fit-img sr-hidden" src="./imgs/hero.svg" alt="Mahalia Xiaoqi">
+                <img class="fit-img sr-hidden fill" src="./imgs/hero.svg" alt="Mahalia Xiaoqi">
             </div>
-            <div id="details" class="flex">
+            <div id="details" class="flex space-btw">
                 <p class="p1">Illustrative Tattoos</p>
                 <p class="p1">Brooklyn / NYC</p>
             </div>
         </section>
         <section id="tattoos" class="flex flex-col">
-            <div class="row flex">
+            <div class="flex row align-center">
                 <div class="card flex flex-col">
-                    <img class="fill-img" src="./imgs/sample-tattoo1.jpg" alt="">
+                    <img class="fill" src="./imgs/sample-tattoo1.jpg" alt="">
                     <p class="p1">Tattoo Description</p>
                 </div>
-                <div class="card">
-                    <img class="fill-img" src="./imgs/sample-tattoo2.jpg" alt="">
+                <div class="card flex flex-col">
+                    <img class="fill" src="./imgs/sample-tattoo2.jpg" alt="">
                     <p class="p1">Tattoo Description</p>
                 </div>
-                <div class="card">
-                    <img class="fill-img" src="./imgs/sample-tattoo3.jpg" alt="">
+                <div class="card flex flex-col">
+                    <img class="fill" src="./imgs/sample-tattoo3.jpg" alt="">
                     <p class="p1">Tattoo Description</p>
                 </div>
             </div>
-            <div class="row flex">
-                <div class="card">
-                    <img class="fill-img" src="./imgs/sample-tattoo4.jpg" alt="">
+            <div class="flex row align-center">
+                <div class="card flex flex-col">
+                    <img class="fill" src="./imgs/sample-tattoo4.jpg" alt="">
                     <p class="p1">Tattoo Description</p>
                 </div>
-                <div class="card">
-                    <img class="fill-img" src="./imgs/sample-tattoo5.jpg" alt="">
+                <div class="card flex flex-col">
+                    <img class="fill" src="./imgs/sample-tattoo5.jpg" alt="">
                     <p class="p1">Tattoo Description</p>
                 </div>
-                <div class="card">
-                    <img class="fill-img" src="./imgs/sample-tattoo6.jpg" alt="">
+                <div class="card flex flex-col">
+                    <img class="fill" src="./imgs/sample-tattoo6.jpg" alt="">
                     <p class="p1">Tattoo Description</p>
                 </div>
             </div>
         </section>
         <section id="about" class="flex flex-col">
-            <div id="header-with-img" class="flex">
+            <div id="header-with-img" class="flex space-btw">
                 <h2>About</br>Mahalia</h2>
-                <img class="fill-img" src="./imgs/mahalia.jpg" alt="Mahalia sitting in a cozy, green room">
+                <img class="fill" src="./imgs/mahalia.jpg" alt="Mahalia sitting in a cozy, green room">
             </div>
             <div id="about-description">
                 <p class="p2">I am Mahalia, a tattoo artist based in Brooklyn, New York. I specialize in illustrative and fineline tattoos. My work is inspired by my training in impressionist oil and mixed medium painting. I enjoy tattooing animal imagery, large florals, and abstract concepts.</p>
                 <p class="p2">I believe that tattooing is a form of body liberation and am committed to a trauma-aware, justice-centered tattoo practice.</p>
             </div>
         </section>
-        <section id="faqs" class="flex flex-col">
+        <section id="faqs" class="flex flex-col fill">
             <h2>FAQs</h2>
             <div id="faq-questions">
-                <div class="question flex">
-                    <div class="question-with-icon flex">
+                <div class="question flex flex-col">
+                    <div class="flex align-center space-btw">
                         <p class="p1">What is your availability?</p>
                         <i class="fa-solid fa-plus fa-xl"></i>
                     </div>
-                    <div class="answer">
+                    <div class="answer hidden">
                         <p class="p2">I am currently booking 4-8 weeks out.</p>
                     </div>
                 </div>
-                <div class="question flex">
-                    <div class="question-with-icon flex">
+                <div class="question flex flex-col">
+                    <div class="flex align-center space-btw">
                         <p class="p1">What is your deposit policy?</p>
                         <i class="fa-solid fa-plus fa-xl"></i>
                     </div>
-                    <div class="answer">
+                    <div class="answer hidden">
                         <p class="p2">A one-time deposit of $250 is required after the consultation in order to reserve your tattoo appointment. This deposit goes towards the final cost of your tattoo.</p>
                         <p class="p2">This deposit is non-refundable in the case of no-shows and cancellations less than 48 hours in advance of your appointment.</p>
                     </div>
                 </div>
-                <div class="question flex">
-                    <div class="question-with-icon flex">
+                <div class="question flex flex-col">
+                    <div class="flex align-center space-btw">
                         <p class="p1">Where is your studio?</p>
                         <i class="fa-solid fa-plus fa-xl"></i>
                     </div>
-                    <div class="answer">
+                    <div class="answer hidden">
                         <p class="p2">My home studio is located in the Williamsburg neighborhood of Brooklyn, New York City.</p>
                     </div>
                 </div>
-                <div class="question flex">
-                    <div class="question-with-icon flex">
+                <div class="question flex flex-col">
+                    <div class="flex align-center space-btw">
                         <p class="p1">How do I book an appointment?</p>
                         <i class="fa-solid fa-plus fa-xl"></i>
                     </div>
-                    <div class="answer">
+                    <div class="answer hidden">
                         <p class="p2">You may <a class="open-modal">book a tattoo consultation here</a>. If I feel I can bring your idea to life, we will discuss the concept further and set an appointment date during your consultation. </p>
                     </div>
                 </div>
-                <div class="question flex">
-                    <div class="question-with-icon flex">
+                <div class="question flex flex-col">
+                    <div class="flex align-center space-btw">
                         <p class="p1">How do I take care of my tattoo?</p>
                         <i class="fa-solid fa-plus fa-xl"></i>
                     </div>
-                    <div class="answer">
+                    <div class="answer hidden">
                         <p class="p2">After your tattoo is finished, I will apply a Saniderm bandage. You should keep this bandage on for 3 days, and avoid getting it wet as much as possible.</p>
                         <p class="p2">It's best to remove the Saniderm with warm water, such as in the shower. After removing the bandage, wash your tattoo gently with unscented soap. Continue to wash it daily for 7 days.</p>
                         <p class="p2">In addition to washing your tattoo, you should moisturize it 2x daily with unscented lotion for at least 7 days. Do NOT use any petroleum-based products, like Vaseline.
                         <p class="p2">You should also avoid exposing your tattoo to direct sunlight, swimming, or soaking in hot tubs/baths for 2 weeks after your tattoo.</p>    
                     </div>
                 </div>
-                <div class="question flex">
-                    <div class="question-with-icon flex">
+                <div class="question flex flex-col">
+                    <div class="flex align-center space-btw">
                         <p class="p1">My tattoo is flaking, what do I do?</p>
                         <i class="fa-solid fa-plus fa-xl"></i>
                     </div>
-                    <div class="answer">
+                    <div class="answer hidden">
                         <p class="p2">It is normal for your tattoo to peel and scab for up to 2 weeks after your session. It is important NOT to pick or peel this skin.</p>
                     </div>
                 </div>
@@ -148,69 +148,69 @@
             <button type="button" class="open-modal primary large">Book Now</button>
             <img class="fit-img" src="./imgs/sample-highlight.jpg" alt="">
         </section>
-        <div class="modal-window">
+        <div class="modal-window hidden align-center fixed fill">
             <div class="modal">
-                <div class="close-modal flex">
+                <div class="close-modal flex align-center">
                     <i class="fa-regular fa-x fa-lg"></i>
                 </div>
-                <div class="start-page flex flex-col">
+                <div class="start-page flex-col">
                     <h4>Book a Consultation</h4>
                     <p class="p2">Got an idea? Tell me about it using this form and I’ll respond within 3 days.</p>
                     <button id="start-btn" type="button" class="next-page primary fill">Get Started</button>
                 </div>
                 <form action="https://submit-form.com/qcjYhXPT" method="post" enctype="multipart/form-data">
-                    <div class="form-page flex flex-col" data-page="1">
-                        <div class="header-with-line flex">
+                    <div class="form-page flex-col" data-page="1">
+                        <div class="header-with-line flex align-center">
                             <h5>About You</h5>
                             <div class="line"></div>
                         </div>
                         <div class="form-fields flex flex-col">
-                            <fieldset id="name-fields" class="flex">
-                                <div class="field flex">
-                                    <label class="flex" for="first-name">First Name<input type="text" id="first-name" name="first-name" placeholder="Liana" minlength="1" maxlength="30" required></label>
+                            <fieldset id="name-fields" class="flex align-start fill">
+                                <div class="field flex flex-col fill">
+                                    <label class="flex flex-col" for="first-name">First Name<input type="text" id="first-name" name="first-name" placeholder="Liana" minlength="1" maxlength="30" required></label>
                                 </div>
-                                <div class="field flex">
-                                    <label class="flex" for="last-name">Last Name<input type="text" id="last-name" name="last-name" placeholder="Fulmer" minlength="1" maxlength="30" required></label>
+                                <div class="field flex flex-col fill">
+                                    <label class="flex flex-col" for="last-name">Last Name<input type="text" id="last-name" name="last-name" placeholder="Fulmer" minlength="1" maxlength="30" required></label>
                                 </div>
                             </fieldset>
-                            <div id="pronoun-fields" class="field flex">
+                            <div id="pronoun-fields" class="field flex flex-col fill">
                                 <legend id="pronoun"> 
                                     <p class="reduced-spacing">Pronouns</p>
                                     <p class="small-text">Select all that apply.</p>
                                 </legend>
-                                <div id="pronoun-options" class="options flex">
-                                    <div class="col flex">
-                                        <label class="row flex" for="she">
-                                            <div class="checkbox flex">
+                                <div id="pronoun-options" class="options flex align-start">
+                                    <div class="flex flex-col align-start">
+                                        <label class="flex row align-center" for="she">
+                                            <div class="checkbox flex align-center">
                                                 <img class="checkmark fit-img" src="./imgs/checkmark.svg">
                                             </div>
                                             <input type="checkbox" id="she" name="pronouns" value="she/her">
                                             She/Her
                                         </label>
-                                        <label class="row flex" for="he">
-                                            <div class="checkbox flex">
+                                        <label class="flex row align-center" for="he">
+                                            <div class="checkbox flex align-center">
                                                 <img class="checkmark fit-img" src="./imgs/checkmark.svg">
                                             </div>
                                             <input type="checkbox" id="he" name="pronouns" value="he/him">
                                             He/Him
                                         </label>
                                     </div>
-                                    <div class="col flex">
-                                        <label class="row flex" for="they">
-                                            <div class="checkbox flex">
+                                    <div class="flex flex-col align-start">
+                                        <label class="flex row align-center" for="they">
+                                            <div class="checkbox flex align-center">
                                                 <img class="checkmark fit-img" src="./imgs/checkmark.svg">
                                             </div>
                                             <input type="checkbox" id="they" name="pronouns" value="they/them">
                                             They/Them
                                         </label>
-                                        <div id="custom-option" class="row flex">
-                                            <label class="row flex" for="custom">
-                                                <div class="checkbox flex">
+                                        <div id="custom-option" class="flex row align-start">
+                                            <label class="flex row align-center" for="custom">
+                                                <div class="checkbox flex align-center">
                                                     <img class="checkmark fit-img" src="./imgs/checkmark.svg">
                                                 </div>
                                                 <input type="checkbox" id="custom" name="pronouns" value="custom">
                                             </label>
-                                            <fieldset id="custom-pronoun-field" class="field">
+                                            <fieldset id="custom-pronoun-field" class="field flex flex-col fill">
                                                 <label for="custom-pronoun" class="sr-only">Write my own pronouns.</label>
                                                 <input type="text" id="custom-pronoun" name="custom-pronoun" placeholder="Write My Own" maxlength="15" size="15" disabled>
                                             </fieldset>
@@ -218,19 +218,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <fieldset id="contact-fields" class="flex">
-                                <div class="field flex">
-                                    <label class="flex" for="email">Email Address<input type="email" id="email" name="email" placeholder="liana@gmail.com" maxlength="40" required></label>
+                            <fieldset id="contact-fields" class="flex align-start fill">
+                                <div class="field flex flex-col fill">
+                                    <label class="flex flex-col" for="email">Email Address<input type="email" id="email" name="email" placeholder="liana@gmail.com" maxlength="40" required></label>
                                     <span class="sr-only">Format: myname@example.com</span>
                                 </div>
-                                <div class="field flex">
-                                    <label class="flex" for="phone">Phone Number<input type="tel" id="phone" name="phone" placeholder="555-555-5555" minlength="4" maxlength="20" required></label>
+                                <div class="field flex flex-col fill">
+                                    <label class="flex flex-col" for="phone">Phone Number<input type="tel" id="phone" name="phone" placeholder="555-555-5555" minlength="4" maxlength="20" required></label>
                                     <span class="sr-only">Format: 123-456-7890</span> 
                                 </div>
                             </fieldset>
                         </div>
-                        <div class="form-navigation flex">
-                            <div class="progress flex">
+                        <div class="form-navigation flex align-center space-btw">
+                            <div class="progress flex align-start">
                                 <div class="active"></div>
                                 <div class="inactive"></div>
                                 <div class="inactive"></div>
@@ -241,38 +241,38 @@
                             </span>
                         </div>
                     </div>
-                    <div class="form-page flex flex-col" data-page="2">
+                    <div class="form-page flex-col" data-page="2">
                         <div class="form-fields flex flex-col">
-                            <div class="header-with-line flex">
+                            <div class="header-with-line flex align-center">
                                 <h5>About Your Tattoo</h5>
                                 <div class="line"></div>
                             </div>
-                            <fieldset class="field flex">
-                                <label class="flex fill" for="placement">Placement Area<input type="text" id="placement" name="placement" placeholder="Left arm" maxlength="50" required></label>
+                            <fieldset class="field flex flex-col align-start fill">
+                                <label class="flex flex-col fill" for="placement">Placement Area<input type="text" id="placement" name="placement" placeholder="Left arm" maxlength="50" required></label>
                             </fieldset>
                             <div id="size-fields">
                                 <legend id="size">Approximate Size</legend>
-                                <div class="row flex fill">
-                                    <div class="field fill flex">
-                                        <label class="row flex small-text" for="width"><input type="number" id="width" name="width" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Wide</label>
+                                <div class="row flex fill align-center">
+                                    <div class="field fill flex flex-col fill">
+                                        <label class="flex row align-center small-text" for="width"><input type="number" id="width" name="width" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Wide</label>
                                     </div>
-                                    <div class="field fill flex">
-                                        <label class="row flex small-text" for="height"><input type="number" id="height" name="height" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Long</label>
+                                    <div class="field fill flex flex-col fill">
+                                        <label class="flex row align-center small-text" for="height"><input type="number" id="height" name="height" placeholder="1" step="0.5" min="0.5" max="50" size="3" required>Inches Long</label>
                                     </div>
                                 </div>
                             </div>
-                            <div id="coverup-field" class="field flex">
+                            <div id="coverup-field" class="field flex flex-col fill">
                                 <legend>Is this a coverup?</legend>
-                                <div id="coverup-options" class="options row flex fill">
-                                    <label class="row flex" for="yes-coverup">
-                                        <div class="radio flex" name="coverup">
+                                <div id="coverup-options" class="options flex row align-center fill">
+                                    <label class="flex row align-center" for="yes-coverup">
+                                        <div class="radio flex align-center" name="coverup">
                                             <div class="circle"></div>
                                         </div>
                                         <input type="radio" id="yes-coverup" name="coverup" value="yes">
                                         Yes
                                     </label>
-                                    <label class="row flex" for="no-coverup">
-                                        <div class="radio flex" name="coverup"> 
+                                    <label class="flex row align-center" for="no-coverup">
+                                        <div class="radio flex align-center" name="coverup"> 
                                             <div class="circle"></div>
                                         </div>
                                         <input type="radio" id="no-coverup" name="coverup" value="no">
@@ -280,25 +280,25 @@
                                     </label>
                                 </div>
                             </div>
-                            <div id="color-field" class="field flex">
+                            <div id="color-field" class="field flex flex-col fill">
                                 <legend>Will there be color?</legend>
-                                <div id="color-options" class="options row flex fill">
-                                    <label class="row flex" for="yes-color">
-                                        <div class="radio flex" name="color">
+                                <div id="color-options" class="options flex row align-center fill">
+                                    <label class="flex row align-center" for="yes-color">
+                                        <div class="radio flex align-center" name="color">
                                             <div class="circle"></div>
                                         </div>
                                         <input type="radio" id="yes-color" name="color" value="yes">
                                         Yes
                                     </label>
-                                    <label class="row flex" for="no-color">
-                                        <div class="radio flex" name="color">
+                                    <label class="flex row align-center" for="no-color">
+                                        <div class="radio flex align-center" name="color">
                                             <div class="circle"></div>
                                         </div>
                                         <input type="radio" id="no-color" name="color" value="no">
                                         No
                                     </label>
-                                    <label class="row flex fill" for="not-sure-color">
-                                        <div class="radio flex" name="color">
+                                    <label class="flex row align-center fill" for="not-sure-color">
+                                        <div class="radio flex align-center" name="color">
                                             <div class="circle"></div>
                                         </div>
                                         <input type="radio" id="not-sure-color" name="color" value="not sure">
@@ -307,14 +307,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-navigation flex">
-                            <div class="progress flex">
+                        <div class="form-navigation flex align-center space-btw">
+                            <div class="progress flex align-start">
                                 <div class="inactive"></div>
                                 <div class="active"></div>
                                 <div class="inactive"></div>
                                 <div class="inactive"></div>
                             </div>
-                            <div class="btns flex">
+                            <div class="btns flex align-center">
                                 <button type="button" class="prev-page secondary">Back</button>
                                 <div class="next-page-button-container">
                                     <button type="button" class="next-page primary disabled">Next</button>
@@ -322,31 +322,31 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-page flex flex-col" data-page="3">
+                    <div class="form-page flex-col" data-page="3">
                         <div class="form-fields flex flex-col">
-                            <div class="header-with-line flex">
+                            <div class="header-with-line flex align-center">
                                 <h5>Upload Reference Photos</h5>
                                 <div class="line"></div>
                             </div>
-                            <div id="file-field" class="field flex">
+                            <div id="file-field" class="field flex flex-col fill">
                                 <legend>Show me your inspiration and/or placement.</legend>
-                                <div id="file-upload-box" class="box field flex">
+                                <div id="file-upload-box" class="box field flex flex-col align-center fill">
                                     <input class="box-file" type="file" name="file" id="file" accept="image/*,.pdf" data-multiple-caption="{count} files selected" multiple />
-                                    <label class="row flex" for="file"><span class="black">Choose a file</span><span class="box-dragndrop"> or drag it here</span></label>
-                                    <div class="box-uploading">Uploading…</div>
-                                    <div class="box success">Done!</div>
-                                    <div class="box error">Error! <span class="error"></span></div>
+                                    <label class="flex row align-center" for="file"><span class="black">Choose a file</span><span class="box-dragndrop"> or drag it here</span></label>
+                                    <div class="box-uploading hidden fill">Uploading…</div>
+                                    <div class="box success hidden fill">Done!</div>
+                                    <div class="box error hidden fill">Error! <span class="error"></span></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-navigation flex">
-                            <div class="progress flex">
+                        <div class="form-navigation flex align-center space-btw">
+                            <div class="progress flex align-start">
                                 <div class="inactive"></div>
                                 <div class="inactive"></div>
                                 <div class="active"></div>
                                 <div class="inactive"></div>
                             </div>
-                            <div class="btns flex">
+                            <div class="btns flex align-center">
                                 <button type="button" class="prev-page secondary">Back</button>
                                 <div class="next-page-button-container">
                                     <button type="button" class="next-page primary disabled">Next</button>
@@ -354,24 +354,24 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-page flex flex-col" data-page="4">
+                    <div class="form-page flex-col" data-page="4">
                         <div class="form-fields flex flex-col">
-                            <div class="header-with-line flex">
+                            <div class="header-with-line flex align-center">
                                 <h5>Your Idea</h5>
                                 <div class="line"></div>
                             </div>
-                            <fieldset class="field flex">
-                                <label class="flex" for="idea">Tell me a bit about your tattoo idea.<textarea id="idea" name="idea" rows="10" cols="50" placeholder="I want a..." minlength="20" maxlength="1000" required></textarea></label>
+                            <fieldset class="field flex flex-col align-start fill">
+                                <label class="flex flex-col" for="idea">Tell me a bit about your tattoo idea.<textarea id="idea" name="idea" rows="10" cols="50" placeholder="I want a..." minlength="20" maxlength="1000" required></textarea></label>
                             </fieldset>
                         </div>
-                        <div class="form-navigation flex">
-                            <div class="progress flex">
+                        <div class="form-navigation flex align-center space-btw">
+                            <div class="progress flex align-start">
                                 <div class="inactive"></div>
                                 <div class="inactive"></div>
                                 <div class="inactive"></div>
                                 <div class="active"></div>
                             </div>
-                            <div class="btns flex">
+                            <div class="btns flex align-center">
                                 <button type="button" class="prev-page secondary">Back</button>
                                 <div class="next-page-button-container">
                                     <button type="submit" class="next-page primary disabled">Submit</button>
@@ -387,13 +387,13 @@
             </div>
         </div>
     </body>
-    <footer class="flex">
+    <footer class="flex align-start space-btw">
         <div id="copyright">
             <p class="sr-only">© Mahalia Xiaoqi Smith 2023</p>
             <p class="sr-hidden p2">© M<span class="black">a</span>halia Xiao<span class="black">q</span>i <span class="black">S</span>mith 2023</p>
             <p class="p2 bold">Imagined by <a href="https://brittshook.com">Britt</a></p>
         </div>
-        <div id="socials" class="flex flex-col">
+        <div id="socials" class="flex flex-col align-center">
             <h3 class="sr-only">Follow</h3>
             <h3 class="sr-hidden"><span class="black">F</span>ollow</h3>
             <ul>
@@ -401,7 +401,7 @@
                 <li class="footer-link ui-text"><a href="mailto:" target="_blank">Email</a></li> <!-- TODO: add email -->
             </ul>
         </div>
-        <div id="other" class="flex flex-col">
+        <div id="other" class="flex flex-col align-center">
             <h3 class="sr-only">Other Work</h3>
             <h3 class="sr-hidden"><span class="black">O</span>ther Wor<span class="black">k</span></h3>
             <ul>

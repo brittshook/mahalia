@@ -58,16 +58,7 @@ body {
     gap: 84px;
 }
 
-.answer,
-.modal-window,
-.form-page,
-.success-page,
-.box-dragndrop,
-.box-uploading,
-.box.success,
-.box.error,
-.circle, 
-.checkmark {
+.hidden, .circle, .checkmark {
    display: none;
 }
 
@@ -75,51 +66,19 @@ body {
     display: flex;
 }
 
-.flex-col,
-.card,
-.question,
-.field,
-.col,
-label:not(.row) {
+.flex-col {
     flex-direction: column;
 }
 
-nav,
-#socials,
-#other,
-.btns,
-.row,
-.question-with-icon,
-.modal-window,
-.close-modal,
-.header-with-line,
-.form-navigation,
-#file-upload-box,
-.box label,
-.checkbox,
-.radio {
+.align-center {
     align-items: center;
 }
 
-nav > ul,
-#tattoos .row, 
-footer,
-fieldset,
-.col,
-.progress,
-#size-fields > div,
-#pronoun-options,
-#custom-option {
+.align-start {
     align-items: flex-start;
 }
 
-nav,
-footer,
-#details,
-#tattoo .row,
-#header-with-img,
-.question-with-icon,
-.form-navigation {
+.space-btw {
     justify-content: space-between;
 }
 
@@ -148,45 +107,24 @@ footer,
     padding: 60px 10px 75px;
 }
 
-body, 
-.nav-link,
-button.primary:hover:not(button.disabled), 
-button.primary:active:not(button.disabled), 
-button.secondary {
+body, .nav-link, button.primary:hover:not(button.disabled), button.primary:active:not(button.disabled), button.secondary {
     color: var(--white100, #fff);
 }
 
-body,
-button.primary:hover:not(button.disabled), 
-button.primary:active:not(button.disabled), 
-button.secondary,
-.modal,
-input[type="checkbox"], 
-input[type="radio"] {
+body, button.primary:hover:not(button.disabled), button.primary:active:not(button.disabled), button.secondary, .modal, input[type="checkbox"], input[type="radio"] {
     background-color: var(--black, #121212);
 }
 
-body,
-input,
-textarea,
-input::placeholder,
-textarea::placeholder {
+body, input, textarea, input::placeholder, textarea::placeholder {
     font-family: 'Schibsted Grotesk', sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-#copyright * {
+h1, h2, h3, h4, #copyright * {
     font-family: 'ED Manteca', sans-serif;
 }
 
 
-h1, 
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
     font-weight: 400;
 }
 
@@ -194,8 +132,7 @@ section {
     padding: 0 100px;
 }
 
-nav, 
-.modal-window {
+.fixed {
     position: fixed; 
 }
 
@@ -214,15 +151,7 @@ nav > ul {
     gap: 30px;
 }
 
-.nav-link, 
-.footer-link, 
-button, 
-#details, 
-h1, 
-h2, 
-h3, 
-h4, 
-#copyright {
+.nav-link, .footer-link, button, #details, h1, h2, h3, h4, #copyright {
     text-transform: uppercase;
 }
 
@@ -254,10 +183,7 @@ a:hover {
     to {opacity: 1;}
 }
 
-button:not(button.disabled), 
-.close-modal,
-.open-modal,
-#file-upload-box.has-advanced-upload {
+button:not(button.disabled), .close-modal, .open-modal, #file-upload-box.has-advanced-upload {
     cursor: pointer;
 }
 
@@ -269,15 +195,11 @@ button {
     font-weight: 500;
 }
 
-button.primary, 
-button.secondary:hover:not(button.disabled),
-.line {
+button.primary, button.secondary:hover:not(button.disabled), .line {
     background-color: var(--White, #fff);
 }
 
-button.primary:hover:not(button.disabled), 
-button.primary:active:not(button.disabled), 
-button.secondary {
+button.primary:hover:not(button.disabled), button.primary:active:not(button.disabled), button.secondary {
     outline: 1px solid var(--white100, #fff);
 }
 
@@ -323,24 +245,12 @@ button.secondary.disabled {
     to {transform: translateY(0px);}
 }
 
-nav, 
-#hero-img img, 
-.fill-img,
-#faqs,
-.fill,
-fieldset:not(#custom-pronoun-field),
-.modal-window,
-.box,
-.field {
+.fill, .fill-img {
     width: 100%;
 }
 
 .fit-img {
     object-fit: contain;
-}
-
-.fill-img {
-    object-fit: fill;
 }
 
 #details {
@@ -369,9 +279,7 @@ fieldset:not(#custom-pronoun-field),
     color: var(--black, #121212);
 }
 
-.card img, 
-#header-with-img img, 
-#book img {
+.card img, #header-with-img img, #book img {
     border-radius: 10px;
 }
 
@@ -433,8 +341,7 @@ h5 {
     font-size: 15px;
 }
 
-.bold, 
-.ui-text {
+.bold, .ui-text {
     font-weight: 500;
 }
 
@@ -442,8 +349,7 @@ h5 {
     font-weight: 900;
 }
 
-#faqs h2,
-#book * {
+#faqs h2, #book * {
     text-align: center;
 }
 
@@ -457,8 +363,7 @@ h5 {
     margin-bottom: 10px;
 }
 
-.question:hover,
-.question.revealed {
+.question:hover, .question.revealed {
     background-color: var(--white20);
 }
 
@@ -514,8 +419,7 @@ footer {
     padding: 60px 130px 60px 100px;
 }
 
-#socials, 
-#other {
+#socials, #other {
     padding: 24px 0px;
     justify-content: start;
     flex: 1 0 0;
@@ -601,8 +505,7 @@ fieldset, .field {
     flex: 1 0 0;
 }
 
-label, 
-.progress {
+label, .progress {
     gap: 12px;
 }
 .progress .active {
@@ -631,7 +534,7 @@ legend#size {
     gap: 80px;
 }
 
-#socials, #other, .start-page, .form-fields, #pronoun-options .col {
+#socials, #other, .start-page, .form-fields, #pronoun-options .flex-col {
     gap: 20px;
 }
 
@@ -640,12 +543,11 @@ legend#size {
     justify-content: flex-start;
 }
 
-.row label, 
-.col label {
+.row label, .flex-col label {
     font-size: 16px;
 }
 
-#pronoun-options .col:nth-of-type(2) {
+#pronoun-options .flex-col:last-child {
     gap: 10px;
 }
 
@@ -684,27 +586,16 @@ input[type="file"] {
     margin-top: 10px;
 }
 
-input[type="text"], 
-input[type="tel"], 
-input[type="email"], 
-input[type="number"], 
-textarea {
+input[type="text"], input[type="tel"], input[type="email"], input[type="number"], textarea {
     border-radius: 11px;
     border: 4px solid var(--black);
 }
 
-input[type="text"]:not(#custom-pronoun), 
-input[type="tel"], 
-input[type="email"], 
-input[type="number"], 
-textarea {
+input[type="text"]:not(#custom-pronoun), input[type="tel"], input[type="email"], input[type="number"], textarea {
     transform: translateX(-4px);
 }
 
-input[type="text"], 
-input[type="tel"], 
-input[type="email"],
-input[type="number"] {
+input[type="text"], input[type="tel"], input[type="email"], input[type="number"] {
     padding: 8px 14px;
 }
 
@@ -713,11 +604,7 @@ textarea {
     height: 275px;
 }
 
-.modal-window,
-.form-fields,
-fieldset.box, 
-#file-upload-box,
-#file-field {
+.modal-window, .form-fields, fieldset.box, #file-upload-box, #file-field {
     height: 100%;
 }
 
@@ -738,13 +625,11 @@ fieldset.box,
     justify-content: center;
 }
 
-input[type="checkbox"], 
-input[type="radio"] {
+input[type="checkbox"], input[type="radio"] {
     appearance: unset;
 }
 
-.checkbox,
-.radio {
+.checkbox, .radio {
     justify-content: center;
     outline: 2px solid var(--White, #fff);
     width: 24px;
@@ -763,8 +648,7 @@ input[type="radio"] {
     display: block !important;
 }
 
-.circle, 
-.checkmark {
+.circle, .checkmark {
     width: 15px;
     height: 15px;
 }
@@ -774,63 +658,33 @@ input[type="radio"] {
     background-color: var(--lime-green, #D8D339);
 }
 
-.close-modal,
-.progress *,
-input[type="radio"] {
+.close-modal, .progress *, input[type="radio"] {
     border-radius: 1000px;
 }
 
-input[type="text"]:focus, 
-input[type="tel"]:focus, 
-input[type="email"]:focus,
-input[type="number"]:focus,
-textarea:focus {
+input[type="text"]:focus, input[type="tel"]:focus, input[type="email"]:focus, input[type="number"]:focus, textarea:focus {
     outline: 2px solid rgba(255, 255, 255, 0.60) !important;
 }
 
-input[type="text"].error, 
-input[type="tel"].error, 
-input[type="email"].error,
-input[type="number"].error,
-textarea.error {
+input[type="text"].error, input[type="tel"].error, input[type="email"].error, input[type="number"].error, textarea.error {
     outline: 2px solid var(--red, #D83939);
     background-image: url('./imgs/error.svg');
 }
 
-input[type="text"].success, 
-input[type="tel"].success, 
-input[type="email"].success,
-input[type="number"].success,
-textarea.success {
+input[type="text"].success, input[type="tel"].success, input[type="email"].success, input[type="number"].success, textarea.success {
     background-image: url('./imgs/success.svg');
 }
 
-input[type="text"].success, 
-input[type="tel"].success, 
-input[type="email"].success,
-input[type="number"].success,
-input[type="text"].error, 
-input[type="tel"].error, 
-input[type="email"].error,
-input[type="number"].error {
+input[type="text"].success, input[type="tel"].success, input[type="email"].success, input[type="number"].success, input[type="text"].error, input[type="tel"].error, input[type="email"].error, input[type="number"].error {
     background-position: right 8px center;
 }
 
-textarea.success,
-textarea.error {
+textarea.success, textarea.error {
     background-position: right 14.5px top 14.5px;
 }
 
-input[type="text"].success, 
-input[type="tel"].success, 
-input[type="email"].success,
-input[type="number"].success,
-textarea.success,
-input[type="text"].error, 
-input[type="tel"].error, 
-input[type="email"].error,
-input[type="number"].error,
-textarea.error {
+input[type="text"].success, input[type="tel"].success, input[type="email"].success, input[type="number"].success,
+textarea.success, input[type="text"].error, input[type="tel"].error, input[type="email"].error, input[type="number"].error, textarea.error {
     background-repeat: no-repeat;
 }
 
