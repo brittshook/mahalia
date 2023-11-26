@@ -54,11 +54,11 @@ html {
 
 body {
     margin: 0 auto;
-    max-width: 1600px;
-    gap: 84px;
 }
 
-.hidden, .circle, .checkmark {
+.hidden, 
+.circle, 
+.checkmark {
    display: none;
 }
 
@@ -82,54 +82,47 @@ body {
     justify-content: space-between;
 }
 
-.form-navigation, .header-with-line {
-    position: absolute;
-    width: 465px;
-    z-index: 10;
-}
-
-.header-with-line {
-    top: 50px;
-    align-self: stretch;
-    padding-bottom: 30px;
-    background: linear-gradient(var(--black, #121212) 65%, transparent 100%);
-}
-
-.form-navigation {
-    bottom: 50px;
-    padding-top: 20px;
-    background: linear-gradient(0deg, var(--black, #121212) 65%, transparent 100%);
-    ;
-}
-
-.form-fields {
-    overflow-y: scroll;
-    padding: 60px 10px 75px;
-}
-
-body, .nav-link, button.primary:hover:not(button.disabled), button.primary:active:not(button.disabled), button.secondary {
+body, 
+.nav-link, 
+button.primary:hover:not(button.disabled), 
+button.primary:active:not(button.disabled), 
+button.secondary,
+.close-modal:hover {
     color: var(--white100, #fff);
 }
 
-body, button.primary:hover:not(button.disabled), button.primary:active:not(button.disabled), button.secondary, .modal, input[type="checkbox"], input[type="radio"] {
+body, 
+button.primary:hover:not(button.disabled), 
+button.primary:active:not(button.disabled), 
+button.secondary, 
+.modal, 
+input[type="checkbox"], 
+input[type="radio"] {
     background-color: var(--black, #121212);
 }
 
-body, input, textarea, input::placeholder, textarea::placeholder {
+body, 
+input, 
+textarea, 
+input::placeholder, 
+textarea::placeholder {
     font-family: 'Schibsted Grotesk', sans-serif;
 }
 
-h1, h2, h3, h4, #copyright * {
+h1, 
+h2, 
+h3, 
+h4, 
+#copyright * {
     font-family: 'ED Manteca', sans-serif;
 }
 
 
-h1, h2, h3, h4 {
+h1, 
+h2, 
+h3, 
+h4 {
     font-weight: 400;
-}
-
-section {
-    padding: 0 100px;
 }
 
 .fixed {
@@ -137,8 +130,6 @@ section {
 }
 
 nav {
-    max-width: 1400px;
-    padding: 24px 100px;
     z-index: 10;
     background: linear-gradient(180deg, var(--black, #121212) 0%, transparent 100%);
 }
@@ -147,11 +138,16 @@ ul {
     list-style: none;
 }
 
-nav > ul {
-    gap: 30px;
-}
 
-.nav-link, .footer-link, button, #details, h1, h2, h3, h4, #copyright {
+.nav-link, 
+.footer-link, 
+button, 
+#details, 
+h1, 
+h2, 
+h3, 
+h4, 
+#copyright {
     text-transform: uppercase;
 }
 
@@ -165,10 +161,7 @@ a:hover {
 }
 
 #logo {
-    height: 30px;
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
     opacity: 0;
 }
 
@@ -183,23 +176,28 @@ a:hover {
     to {opacity: 1;}
 }
 
-button:not(button.disabled), .close-modal, .open-modal, #file-upload-box.has-advanced-upload {
+button:not(button.disabled), 
+.close-modal, 
+.open-modal, 
+#file-upload-box.has-advanced-upload {
     cursor: pointer;
 }
 
 button {
     width: fit-content;
-    padding: 12px 30px;
     border-radius: 11px;
-    font-size: 16px;
     font-weight: 500;
 }
 
-button.primary, button.secondary:hover:not(button.disabled), .line {
-    background-color: var(--White, #fff);
+button.primary, 
+button.secondary:hover:not(button.disabled), 
+.line {
+    background-color: var(--white100, #fff);
 }
 
-button.primary:hover:not(button.disabled), button.primary:active:not(button.disabled), button.secondary {
+button.primary:hover:not(button.disabled), 
+button.primary:active:not(button.disabled), 
+button.secondary {
     outline: 1px solid var(--white100, #fff);
 }
 
@@ -223,10 +221,6 @@ button.primary.disabled {
 button.secondary.disabled {
     color: #444141;
     outline-color: #444141;
-}
-
-#hero {
-    margin-top: 100px;
 }
 
 #hero-img {
@@ -253,22 +247,22 @@ button.secondary.disabled {
     object-fit: contain;
 }
 
-#details {
-    padding: 12px 0;
-}
-
 #tattoos {
+    display: grid;
     margin-bottom: 40px;
 }
 
-#tattoos, #tattoos .row, .header-with-line {
+#tattoos .card {
+    margin-bottom: 14px;
+}
+
+.header-with-line {
     gap: 14px;
 }
 
 .card {
     display: inline-flex;
     padding: 8px 8px 16px;
-    flex: 1 0 0;
     gap: 16px 0;
     border-radius: 18px;
     background: var(--dark-gray);
@@ -279,20 +273,21 @@ button.secondary.disabled {
     color: var(--black, #121212);
 }
 
-.card img, #header-with-img img, #book img {
+.card img, 
+#header-with-img img, 
+#book img {
     border-radius: 10px;
 }
 
-#about, #faqs, #book {
+#about, 
+#faqs, 
+#book {
     margin: 0 auto;
     padding: 40px 0;
     max-width: 850px;
 }
 
-#about p {
-    width: 85%;
-}
-
+/* should prob move to more selective css sheet*/
 #header-with-img {
     flex-wrap: nowrap;
     align-items: end;
@@ -302,46 +297,17 @@ button.secondary.disabled {
     width: 350px;
 }
 
-h2 {
-    font-size: 72px;
-    line-height: 68px;
-}
-
 h3 {
     font-size: 32px;
 }
-
-h4 {
-    font-size: 48px;
-    line-height: 44px;
-}
-
-h5 {
-    font-size: 24px;
-    font-weight: 400;
-}
-
-.p1 {
-    font-size: 22px;
-}
-
-.p2 {
-    font-size: 20px;
-}
-
-.p3, label, legend {
-    font-size: 18px;
-}
+/**/
 
 .ui-text {
     font-size: 16px;
 }
 
-.small-text {
-    font-size: 15px;
-}
-
-.bold, .ui-text {
+.bold, 
+.ui-text {
     font-weight: 500;
 }
 
@@ -349,13 +315,15 @@ h5 {
     font-weight: 900;
 }
 
-#faqs h2, #book * {
+#faqs h2, 
+#book *,
+.start-page,
+#socials,
+#other {
     text-align: center;
 }
 
 .question {
-    border-radius: 20px;
-    padding: 32px 24px;
     gap: 32px;
 }
 
@@ -363,7 +331,8 @@ h5 {
     margin-bottom: 10px;
 }
 
-.question:hover, .question.revealed {
+.question:hover, 
+.question.revealed {
     background-color: var(--white20);
 }
 
@@ -375,20 +344,11 @@ i.revealed {
     display: block;
 }
 
-#book {
-    position: relative;
-    padding-bottom: 370px;
-    gap: 42px;
-}
-
 #book *  {
     margin: 0 auto;
 }
 
-#book h2 {
-    margin-bottom: 18px;
-}
-
+/* some need to move to specific css sheet */
 #book img {
     position: absolute;
     top: 13%;
@@ -408,24 +368,7 @@ i.revealed {
     font-size: 18px;
 }
 
-footer {
-    padding: 0;
-}
-
-#copyright {
-    background-color: var(--lime-green);
-    color: var(--black, #121212);
-    border-radius: 0 30px 0 0;
-    padding: 60px 130px 60px 100px;
-}
-
-#socials, #other {
-    padding: 24px 0px;
-    justify-content: start;
-    flex: 1 0 0;
-    text-align: center;
-}
-
+#copyright,
 #copyright a {
     color: var(--black, #121212);
 }
@@ -445,54 +388,29 @@ p:not(p:last-of-type) {
 .modal-window {
     top: 0;
     left: 0;
-    background-color: var(--translucent-gray);
-    justify-content: center;
     z-index: 100;
-}
-
-.modal {
-    position: relative;
-    padding: 50px 65px;
-    width: 595px;
-    height: fit-content;
-    border-radius: 30px;
-    border: 1px solid var(--light-gray);
-    box-shadow: 0px 4px 10px 0px #00000040;
 }
 
 .close-modal {
     position: absolute;
-    top: 0;
-    right: 0;
     color: #858585;
     border: 1px solid var(--light-gray);
     background: var(--black, #121212);
     width: 50px;
     height: 50px;
     justify-content: center;
-    transform: translate(25%, -25%);
-}
-
-.close-modal:hover {
-    color: var(--white100, #fff);
-}
-
-.start-page {
-    padding: 35px 0;
-    text-align: center;
 }
 
 .form-page {
     justify-content: flex-start;
-    height: 480px;
-    overflow-y: scroll;
 }
 
 #start-btn {
     margin-top: 30px;
 }
 
-fieldset, .field {
+fieldset, 
+.field {
     gap: 10px;
 }
 
@@ -500,14 +418,26 @@ fieldset, .field {
     gap: 0;
 }
 
+.header-with-line {
+    align-self: stretch;
+}
+
 .line {
     height: 1.5px;
+}
+
+.line,
+label:not(.row),
+.card,
+#socials, 
+#other {
     flex: 1 0 0;
 }
 
 label, .progress {
     gap: 12px;
 }
+
 .progress .active {
     width: 60px;
     background: linear-gradient(180deg, #00000066 0%, #00000052 36.41%, #00000000 100%), var(--lime-green);
@@ -522,29 +452,21 @@ label, .progress {
     height: 14px;
 }
 
-label:not(.row) {
-    flex: 1 0 0;
-}
-
 legend#size {
     margin-bottom: 12px;
 }
 
-#about, #faqs, #book, #pronoun-options {
-    gap: 80px;
-}
-
-#socials, #other, .start-page, .form-fields, #pronoun-options .flex-col {
+#socials, 
+#other, 
+.start-page, 
+.form-fields, 
+#pronoun-options .flex-col {
     gap: 20px;
 }
 
 .row {
     gap: 9px;
     justify-content: flex-start;
-}
-
-.row label, .flex-col label {
-    font-size: 16px;
 }
 
 #pronoun-options .flex-col:last-child {
@@ -555,12 +477,8 @@ legend#size {
     height: 42.5px;
 }
 
-#custom-pronoun-field {
-    transform: translateX(-7px);
-}
-
 .options {
-    gap: 60px;
+    gap: 60px; /* might be poblematic*/
     padding: 5px 2px 0;
 }
 
@@ -569,12 +487,7 @@ legend#size {
 }
 
 .btns {
-    justify-content: end;
     gap: 15px;
-}
-
-input, textarea {
-    font-size: 15px;
 }
 
 textarea {
@@ -586,16 +499,27 @@ input[type="file"] {
     margin-top: 10px;
 }
 
-input[type="text"], input[type="tel"], input[type="email"], input[type="number"], textarea {
+input[type="text"], 
+input[type="tel"], 
+input[type="email"], 
+input[type="number"], 
+textarea {
     border-radius: 11px;
     border: 4px solid var(--black);
 }
 
-input[type="text"]:not(#custom-pronoun), input[type="tel"], input[type="email"], input[type="number"], textarea {
+input[type="text"]:not(#custom-pronoun), 
+input[type="tel"], 
+input[type="email"], 
+input[type="number"], 
+textarea {
     transform: translateX(-4px);
 }
 
-input[type="text"], input[type="tel"], input[type="email"], input[type="number"] {
+input[type="text"], 
+input[type="tel"], 
+input[type="email"], 
+input[type="number"] {
     padding: 8px 14px;
 }
 
@@ -604,7 +528,7 @@ textarea {
     height: 275px;
 }
 
-.modal-window, .form-fields, fieldset.box, #file-upload-box, #file-field {
+.modal-window {
     height: 100%;
 }
 
@@ -625,11 +549,13 @@ textarea {
     justify-content: center;
 }
 
-input[type="checkbox"], input[type="radio"] {
+input[type="checkbox"], 
+input[type="radio"] {
     appearance: unset;
 }
 
-.checkbox, .radio {
+.checkbox, 
+.radio {
     justify-content: center;
     outline: 2px solid var(--White, #fff);
     width: 24px;
@@ -640,7 +566,11 @@ input[type="checkbox"], input[type="radio"] {
     border-radius: 6px;
 }
 
-.radio {
+.radio, 
+.circle,
+.close-modal, 
+.progress *, 
+input[type="radio"] {
     border-radius: 1000px;
 }
 
@@ -648,48 +578,72 @@ input[type="checkbox"], input[type="radio"] {
     display: block !important;
 }
 
-.circle, .checkmark {
+.circle, 
+.checkmark {
     width: 15px;
     height: 15px;
 }
 
-.circle {
-    border-radius: 1000px;
+.circle,
+#copyright {
     background-color: var(--lime-green, #D8D339);
 }
 
-.close-modal, .progress *, input[type="radio"] {
-    border-radius: 1000px;
-}
-
-input[type="text"]:focus, input[type="tel"]:focus, input[type="email"]:focus, input[type="number"]:focus, textarea:focus {
+input[type="text"]:focus, 
+input[type="tel"]:focus, 
+input[type="email"]:focus, 
+input[type="number"]:focus, 
+textarea:focus {
     outline: 2px solid rgba(255, 255, 255, 0.60) !important;
 }
 
-input[type="text"].error, input[type="tel"].error, input[type="email"].error, input[type="number"].error, textarea.error {
+input[type="text"].error, 
+input[type="tel"].error, 
+input[type="email"].error, 
+input[type="number"].error, 
+textarea.error {
     outline: 2px solid var(--red, #D83939);
     background-image: url('./imgs/error.svg');
 }
 
-input[type="text"].success, input[type="tel"].success, input[type="email"].success, input[type="number"].success, textarea.success {
+input[type="text"].success, 
+input[type="tel"].success, 
+input[type="email"].success, 
+input[type="number"].success, 
+textarea.success {
     background-image: url('./imgs/success.svg');
 }
 
-input[type="text"].success, input[type="tel"].success, input[type="email"].success, input[type="number"].success, input[type="text"].error, input[type="tel"].error, input[type="email"].error, input[type="number"].error {
+input[type="text"].success, 
+input[type="tel"].success, 
+input[type="email"].success, 
+input[type="number"].success, 
+input[type="text"].error, 
+input[type="tel"].error, 
+input[type="email"].error,
+input[type="number"].error {
     background-position: right 8px center;
 }
 
-textarea.success, textarea.error {
+textarea.success, 
+textarea.error {
     background-position: right 14.5px top 14.5px;
 }
 
-input[type="text"].success, input[type="tel"].success, input[type="email"].success, input[type="number"].success,
-textarea.success, input[type="text"].error, input[type="tel"].error, input[type="email"].error, input[type="number"].error, textarea.error {
+input[type="text"].success, 
+input[type="tel"].success, 
+input[type="email"].success, 
+input[type="number"].success,
+textarea.success, 
+input[type="text"].error, 
+input[type="tel"].error, 
+input[type="email"].error, 
+input[type="number"].error, 
+textarea.error {
     background-repeat: no-repeat;
 }
 
 p.error {
-    font-size: 14px;
     color: var(--off-white, #eaeaea);
 }
 
