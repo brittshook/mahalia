@@ -492,6 +492,17 @@ legend#size {
     gap: 10px;
 }
 
+#custom-pronoun:disabled,
+#custom-pronoun[disabled="true"] {
+    background-color: #555555;
+}
+
+input::placeholder,
+input::-moz-placeholder,
+input::-webkit-input-placeholder {
+    color: #757575;
+}
+
 #custom-option label {
     height: 42.5px;
 }
