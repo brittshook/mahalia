@@ -629,7 +629,7 @@ input[type="email"].error,
 input[type="number"].error, 
 textarea.error {
     outline: 2px solid var(--red, #D83939);
-    background-image: url('./imgs/error.svg');
+    background-image: url('../imgs/error.svg');
 }
 
 input[type="text"].success, 
@@ -637,7 +637,7 @@ input[type="tel"].success,
 input[type="email"].success, 
 input[type="number"].success, 
 textarea.success {
-    background-image: url('./imgs/success.svg');
+    background-image: url('../imgs/success.svg');
 }
 
 input[type="text"].success, 
