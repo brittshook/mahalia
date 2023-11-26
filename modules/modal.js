@@ -1,10 +1,22 @@
-import { currentPage, pages } from "./modalNavigation.js";
+import { currentPage, pages, showPage } from "./modalNavigation.js";
 import { changeOptionInput } from "./toggleOptionUI.js";
+
+document.addEventListener('DOMContentLoaded', () => {
+    const openModalBtns = document.querySelectorAll('.open-modal');
+
+    openModalBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelector('#modal-window').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            showPage(0);
+        });
+    });
+});
 
 // TODO, add all custom states once set in code
 function closeModal() {
     // Do not show modal, and unlock the background page
-    document.querySelector('.modal-window').style.display = 'none';
+    document.querySelector('#modal-window').style.display = 'none';
     document.body.style.overflow = 'visible';
 
     // Reset form fields
