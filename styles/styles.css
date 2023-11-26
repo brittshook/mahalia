@@ -52,7 +52,9 @@ html {
     scroll-padding-top: 60px;
 }
 
-body {
+body, 
+section,
+#book * {
     margin: 0 auto;
 }
 
@@ -130,6 +132,7 @@ h4 {
 }
 
 nav {
+    justify-content: center;
     z-index: 10;
     background: linear-gradient(180deg, var(--black, #121212) 0%, transparent 100%);
 }
@@ -347,10 +350,6 @@ i.revealed {
 
 #book {
     position: relative;
-}
-
-#book *  {
-    margin: 0 auto;
 }
 
 #book h2 {

@@ -7,8 +7,8 @@
         font-size: 18px;
     }
 
-    nav > ul,
-    nav > ul > li {
+    nav ul,
+    nav li {
         display: none;
     }
     
@@ -68,10 +68,10 @@
 
 @media screen and (min-width: 650px) and (max-width: 899px) {
     section {
-        margin: 30px 40px;
+        padding: 30px 40px;
     }
 
-    nav {
+    #nav-content {
         padding: 24px 40px;
     }
 
@@ -100,7 +100,7 @@
 
 @media screen and (max-width: 649px) {
     section {
-        margin: 30px 22px;
+        padding: 30px 22px;
     }
     
     h2 {
@@ -108,7 +108,7 @@
         line-height: 50px;
     }    
 
-    nav {
+    #nav-content {
         padding: 24px 22px;
     }
 

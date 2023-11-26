@@ -1,16 +1,19 @@
 @media screen and (min-width: 1200px) {
     body {
-        max-width: 1600px;
         gap: 84px;
     }
 
+    #nav-content,
     section {
-        margin-left: 100px;
-        margin-right: 100px;
+        max-width: 1600px;
     }
 
-    nav {
-        max-width: 1400px;
+    section {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    #nav-content {
         padding: 24px 100px;
     }
 
@@ -44,7 +47,7 @@
 }
 
 @media screen and (min-width: 900px) {
-    nav > ul {
+    nav ul {
         gap: 30px;
     }
 
@@ -103,13 +106,13 @@
 }
 
 @media screen and (min-width: 900px) and (max-width: 1199px) {
-    nav {
+    #nav-content {
         padding: 24px 60px;
     }
 
     section {
-        margin-left: 60px;
-        margin-right: 60px;
+        padding-left: 60px;
+        padding-right: 60px;
     }
 
     #copyright {

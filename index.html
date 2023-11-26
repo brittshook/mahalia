@@ -20,17 +20,19 @@
         <script type="module" src="modules/fileDragAndDrop.js"></script>
     </head>
     <body class="flex flex-col">
-        <nav class="flex align-center space-btw fixed fill">
-            <ul class="flex align-start">
-                <li><a class="nav-link ui-text" href="#tattoos">Tattoos</a></li>
-                <li><a class="nav-link ui-text" href="#about">About</a></li>
-                <li><a class="nav-link ui-text" href="#faqs">FAQs</a></li>
-            </ul>
-            <a href="#top"><img id="logo" class="fit-img" src="./imgs/logo.svg" alt="logo"></a>
-            <button type="button" class="open-modal primary small">Book</button>
-            <button type="button" class="open-menu secondary large hidden">Menu</button>
+        <nav class="flex align-center fixed fill">
+            <div id="nav-content" class="flex align-center space-btw fill">
+                <ul class="flex align-start">
+                    <li><a class="nav-link ui-text" href="#tattoos">Tattoos</a></li>
+                    <li><a class="nav-link ui-text" href="#about">About</a></li>
+                    <li><a class="nav-link ui-text" href="#faqs">FAQs</a></li>
+                </ul>
+                <a href="#top"><img id="logo" class="fit-img" src="./imgs/logo.svg" alt="logo"></a>
+                <button type="button" class="open-modal primary small">Book</button>
+                <button type="button" class="open-menu secondary large hidden">Menu</button>
+            </div>
         </nav>
-        <section id="hero">
+        <section id="hero" class="fill">
             <h1 class="sr-only">Mahalia Xiaoqi</h1>
             <div id="hero-img">
                 <img class="fit-img sr-hidden fill" src="./imgs/hero.svg" alt="Mahalia Xiaoqi">
