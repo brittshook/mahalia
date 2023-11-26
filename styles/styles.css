@@ -187,6 +187,7 @@ button {
     width: fit-content;
     border-radius: 11px;
     font-weight: 500;
+    padding: 12px 30px;
 }
 
 button.primary, 
@@ -344,18 +345,24 @@ i.revealed {
     display: block;
 }
 
+#book {
+    position: relative;
+}
+
 #book *  {
     margin: 0 auto;
 }
 
-/* some need to move to specific css sheet */
+#book h2 {
+    margin-bottom: 18px;
+}
+
 #book img {
     position: absolute;
-    top: 13%;
     left: 50%;
     transform: translate(-50%, 0%);
     opacity: 40%;
-    width: 325px;
+    max-width: 325px;
     z-index: -1;
 }
 
