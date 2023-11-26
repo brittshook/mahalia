@@ -227,6 +227,13 @@ button.secondary.disabled {
     outline-color: #444141;
 }
 
+#about, 
+#faqs,
+#book {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
 #hero-img {
     overflow: hidden;
 }
@@ -287,8 +294,8 @@ button.secondary.disabled {
 #about, 
 #faqs, 
 #book {
-    padding: 40px 0;
-    max-width: 850px;
+    width: 100%;
+    max-width: 1050px;
 }
 
 /* should prob move to more selective css sheet*/

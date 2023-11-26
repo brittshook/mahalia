@@ -1,6 +1,6 @@
 @media screen and (min-width: 1200px) {
     body {
-        gap: 84px;
+        gap: 80px;
     }
 
     #nav-content,
@@ -70,12 +70,8 @@
         width: 85%;
     }
 
-    #about, 
-    #faqs,
-    #book {
-        margin: 0 auto;
-        width: 90%;
-        max-width: 850px;
+    #faqs {
+        gap: 80px;
     }
 
     #book {
@@ -106,14 +102,17 @@
 }
 
 @media screen and (min-width: 900px) and (max-width: 1199px) {
+    body {
+        gap: 60px;
+    }
+
     #nav-content {
         padding: 24px 60px;
     }
 
     section {
         padding-left: 60px;
-        padding-right: 60px;
-    }
+        padding-right: 60px;    }
 
     #copyright {
         padding-left: 60px;
@@ -213,7 +212,6 @@
     }
 
     #about, 
-    #faqs,
     #pronoun-options {
         gap: 80px;
     }
