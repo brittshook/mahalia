@@ -135,6 +135,8 @@ h4 {
 nav {
     justify-content: center;
     z-index: 10;
+    background: -moz-linear-gradient(180deg, var(--black, #121212) 0%, transparent 100%);
+    background: -webkit-linear-gradient(180deg, var(--black, #121212) 0%, transparent 100%);
     background: linear-gradient(180deg, var(--black, #121212) 0%, transparent 100%);
 }
 
@@ -455,6 +457,8 @@ label, .progress {
 
 .progress .active {
     width: 60px;
+    background: -moz-linear-gradient(180deg, #00000066 0%, #00000052 36.41%, #00000000 100%), var(--lime-green);
+    background: -webkit-linear-gradient(180deg, #00000066 0%, #00000052 36.41%, #00000000 100%), var(--lime-green);
     background: linear-gradient(180deg, #00000066 0%, #00000052 36.41%, #00000000 100%), var(--lime-green);
 }
 

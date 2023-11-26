@@ -21,6 +21,8 @@
     }
 
     #menu-window {
+        background: -moz-linear-gradient(0deg, var(--lime-green, #D8D339) -60%, transparent 80%), var(--black, #121212);
+        background: -webkit-linear-gradient(0deg, var(--lime-green, #D8D339) -60%, transparent 80%), var(--black, #121212);
         background: linear-gradient(0deg, var(--lime-green, #D8D339) -60%, transparent 80%), var(--black, #121212);
         justify-content: center;
         text-align: center;

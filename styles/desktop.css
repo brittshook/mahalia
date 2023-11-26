@@ -165,8 +165,8 @@
 
     .modal {
         position: relative;
-        padding: 50px 65px;
-        width: 595px;
+        padding: 50px 55px;
+        width: 600px;
         height: fit-content;
         border-radius: 30px;
         border: 1px solid var(--light-gray);
@@ -185,24 +185,30 @@
 
     .form-page {
         height: 480px;
+        overflow-x: visible;
         overflow-y: scroll;
     }
 
     .form-navigation, .header-with-line {
         position: absolute;
-        width: 465px;
+        width: 490px;
+        padding: 0 15px 0 5px;
         z-index: 10;
     }
 
     .header-with-line {
         top: 50px;
         padding-bottom: 30px;
+        background: -moz-linear-gradient(var(--black, #121212) 65%, transparent 100%);
+        background: -webkit-linear-gradient(var(--black, #121212) 65%, transparent 100%);
         background: linear-gradient(var(--black, #121212) 65%, transparent 100%);
     }
 
     .form-navigation {
         bottom: 50px;
         padding-top: 20px;
+        background: -moz-linear-gradient(0deg, var(--black, #121212) 65%, transparent 100%);
+        background: -webkit-linear-gradient(0deg, var(--black, #121212) 65%, transparent 100%);
         background: linear-gradient(0deg, var(--black, #121212) 65%, transparent 100%);
     }
 
@@ -221,8 +227,19 @@
       font-size: 16px;
     }
 
+    #name-fields > div,
+    #contact-fields > div {
+        width: 50%;
+        max-width: 229px;
+    }
+
     #custom-pronoun-field {
         transform: translateX(-7px);
+    }
+
+    #custom-pronoun {
+        width: 100%;
+        max-width: 169px;
     }
 
     .btns {
