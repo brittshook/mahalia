@@ -252,28 +252,29 @@ button.secondary.disabled {
     margin-bottom: 40px;
 }
 
-#tattoos .card {
-    margin-bottom: 14px;
-}
-
 .header-with-line {
     gap: 14px;
 }
 
-.card {
+#tattoos .card {
     display: inline-flex;
     padding: 8px 8px 16px;
+    margin-bottom: 14px;
     gap: 16px 0;
     border-radius: 18px;
     background: var(--dark-gray);
 }
 
-.card:hover {
+#tattoos .card:hover {
     background-color: var(--light-green);
     color: var(--black, #121212);
 }
 
-.card img, 
+#tattoos .card img {
+    flex: 1 0 0;
+}
+
+#tattoos .card img, 
 #header-with-img img, 
 #book img {
     border-radius: 10px;
@@ -282,7 +283,6 @@ button.secondary.disabled {
 #about, 
 #faqs, 
 #book {
-    margin: 0 auto;
     padding: 40px 0;
     max-width: 850px;
 }
@@ -428,7 +428,7 @@ fieldset,
 
 .line,
 label:not(.row),
-.card,
+#tattoos .card,
 #socials, 
 #other {
     flex: 1 0 0;
