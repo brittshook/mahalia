@@ -20,6 +20,26 @@
         display: block;
     }
 
+    #menu-window {
+        background: linear-gradient(0deg, var(--lime-green, #D8D339) -60%, transparent 80%), var(--black, #121212);
+        justify-content: center;
+        text-align: center;
+        padding-top: 40px;
+    }
+
+    #menu-window button {
+        position: absolute;
+        top: 24px;
+    }
+
+    #menu-window .nav-link {
+        font-size: 82px;
+    }
+
+    #menu-window li.open-modal:hover {
+        text-decoration: underline;
+    }
+
     #hero {
         margin-top: 120px;
     }
@@ -93,6 +113,10 @@
         padding-left: 40px;
         padding-right: 60px;
     } 
+
+    #menu-window button {
+        right: 40px;
+    }
 }
 
 @media screen and (min-width: 650px) and (max-width: 999px) {
@@ -163,5 +187,9 @@
     .question {
         border-radius: 14px;
         padding: 20px;
+    }
+
+    #menu-window button {
+        right: 22px;
     }
 }
