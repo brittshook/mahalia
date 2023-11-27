@@ -259,4 +259,10 @@ function toggleInputUI(input) {
     }
 }
 
-export { inputRules, inputValidation, toggleInputUI };
+function resetFormUI(input) {
+    updateErrorMessage(input, '');
+    input.classList.remove('success');
+    input.classList.remove('error');
+}
+
+export { inputRules, inputValidation, toggleInputUI, resetFormUI };
