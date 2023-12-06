@@ -1,10 +1,10 @@
 @media screen and (max-width: 899px) {
     p {
-        font-size: 20px;
+        font-size: 22px;
     }
 
-    .p3, label, legend {
-        font-size: 18px;
+    .p3, label, legend, button {
+        font-size: 20px;
     }
 
     nav ul,
@@ -137,7 +137,8 @@
         gap: 40px;
     }
 
-    section {
+    section, 
+    .modal {
         padding-left: 22px;
         padding-right: 22px;
     }
@@ -167,11 +168,6 @@
         margin-bottom: 0;
     }
 
-    #details,
-    #header-with-img {
-        flex-direction: column;
-    }
-
     #about {
         align-items: flex-start;
     }
@@ -193,5 +189,128 @@
 
     #menu-window button {
         right: 22px;
+    }
+
+    .field,
+    .modal, 
+    .start-page,
+    .form-page,
+    #pronoun-options > div,
+    #custom-option,
+    .form-page button,
+    .form-page .btns {
+        width: 100%;
+    }
+
+    .modal, 
+    .start-page,
+    .form-page {
+        height: 100%;
+    }
+
+    .close-modal {
+        top: 24px;
+        right: 22px;
+    }
+
+    .modal {
+        overflow-y: scroll;
+    }
+
+    .start-page {
+        justify-content: center;
+    }
+
+    .form-page {
+        padding-top: 86px;
+        padding-bottom: 66px;
+        gap: 30px;
+    }
+
+    h4 {
+        font-size: 50px;
+        line-height: 48px;
+    }
+
+    h5 {
+        font-size: 28px;
+        font-weight: 500;
+    }
+
+    #pronoun-options label {
+        font-size: 18px;
+    }
+
+    input[type="text"], 
+    input[type="tel"], 
+    input[type="email"], 
+    input[type="number"] {
+        padding-top: 11.5px;
+        padding-bottom: 11.5px;
+        font-size: 17px;
+    }
+
+    .radio, 
+    .checkbox {
+        width: 28px;
+        height: 28px;
+    }
+
+    .circle, 
+    .checkmark {
+        width: 17px;
+        height: 17px;
+    }
+
+    .small-text {
+        font-size: 16px;
+    }
+
+    #details,
+    #header-with-img,
+    #name-fields,
+    #pronoun-options,
+    #contact-fields, 
+    #size-fields > div {
+        flex-direction: column;
+    }
+
+    .form-page .btns {
+        flex-direction: column-reverse;
+    }
+
+    .form-fields,
+    #details,
+    #header-with-img,
+    #name-fields,
+    #pronoun-options,
+    #contact-fields, 
+    #size-fields > div {
+        gap: 24px;
+    }
+
+    #custom-pronoun {
+        max-width: 100%;
+    }
+
+    .progress {
+        display: none;
+    }
+
+    #pronoun-options .flex-col {
+        gap: 24px;
+    }
+
+    #pronoun-options .flex-col:last-child {
+        gap: 12px;
+    }
+
+    button.secondary {
+        outline: none;    
+    }
+
+    p.error, 
+    span.error {
+        font-size: 17px;
     }
 }

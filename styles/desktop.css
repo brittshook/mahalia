@@ -58,10 +58,6 @@
         transform: translate(-50%, -50%);
     }
 
-    button {
-        font-size: 16px;
-    }
-
     #hero {
         margin-top: 100px;
     }
@@ -146,6 +142,10 @@
 
     .small-text {
         font-size: 15px;
+    }
+
+    button {
+        font-size: 16px;
     }
 
     .question {
