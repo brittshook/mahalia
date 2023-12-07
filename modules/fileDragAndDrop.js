@@ -12,19 +12,18 @@ function isAdvancedUpload() {
 
 console.log(isAdvancedUpload());
 
-if (isAdvancedUpload) {
-    const uploadBox = document.querySelector('#file-upload-box');
-    let droppedFiles = false;
+const uploadBox = document.querySelector('#file-upload-box');
 
-    // Style form as drag n drop 
+if (isAdvancedUpload) {
     uploadBox.classList.add('has-advanced-upload');
 
     const preventDefaults = (e) => {
         e.preventDefault();
-        e.stopPropagation();
     };
 
     // Listen for drag n drop-related events 
+    const dragEvents = ['drag', 'dragstart', 'dragend', 'dragover', 'dragenter', 'dragleave', 'drop'];
+    
     uploadBox.addEventListener('drag', preventDefaults);
     uploadBox.addEventListener('dragstart', preventDefaults);
     uploadBox.addEventListener('dragend', preventDefaults);
@@ -45,7 +44,14 @@ if (isAdvancedUpload) {
     uploadBox.addEventListener('drop', (e) => {
         preventDefaults(e);
         uploadBox.classList.remove('is-dragover');
-        droppedFiles = e.dataTransfer.files;
+        handleDrop(e);
+
     });
-  }
-  
+}
+
+function handleDrop(e) {
+    const fileInput = document.querySelector('#box-file');
+    const files = e.dataTransfer.files;
+    console.log(files);
+    fileInput.files = files;
+}

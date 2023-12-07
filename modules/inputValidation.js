@@ -51,8 +51,8 @@ const inputRules = {
         required: true,
         max: 5,
         sizeMaxInBytes: 10485760,
-        formatRegex: /^(image\/.*|.*pdf)/,
-        formatErrorMessage: 'Please upload image or PDF files.',
+        formatRegex: /^(image\/.*)/,
+        formatErrorMessage: 'Please upload image files only.',
         sizeErrorMessage: 'Files must be less than 10 MB each.'
     },
     'idea': {
@@ -203,7 +203,7 @@ function updateErrorMessage(input, errorMessage) {
         if (!errorMessageElement) {
             let newErrorMessageElement;
 
-            if (type === file) {
+            if (type === 'file') {
                 container = container.querySelector('div.error');
                 newErrorMessageElement = document.createElement('span');
             } else {
@@ -254,6 +254,7 @@ function toggleInputUI(input) {
         input.classList.add('success');
         input.classList.remove('error');
     } else {
+        console.log(errorMessage);
         input.classList.remove('success');
         input.classList.add('error');
     }

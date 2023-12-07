@@ -60,24 +60,32 @@ function wiggleOnError(button) {
     };
 }
 
+function isPageComplete(input) {
+    toggleInputUI(input);
+    enableNextButton();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     showPage(currentPage);
 
     const inputElements = document.querySelectorAll('input, textarea');
-
     inputElements.forEach(input => {
         input.addEventListener('change', () => {
-            toggleInputUI(input);
-            enableNextButton();
+            isPageComplete(input);
+        });
+
+        input.addEventListener('autocompletechange', () => {
+            isPageComplete(input);
         });
     });
 
-    inputElements.forEach(input => {
-        input.addEventListener('autocompletechange', () => {
-            toggleInputUI(input);
-            enableNextButton();
-        });
-    });
+    const uploadBox = document.querySelector('#file-upload-box');
+    uploadBox.addEventListener('drop', () => {
+        setTimeout(() => {
+            const input = uploadBox.querySelector('#box-file');
+            isPageComplete(input);
+        }, 0);
+    })
 
     const nextPageButtons = document.querySelectorAll('.next-page');
     nextPageButtons.forEach(button => {
