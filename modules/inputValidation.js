@@ -86,17 +86,11 @@ function validateText(input, value = input.value) {
     if (inputRules[input.name].required) {
         if (length === 0) {
             return `Enter your ${label.toLowerCase()}`;
-        }
-
-        if (inputRules[input.name].min && length < inputRules[input.name].min) {
+        } else if (inputRules[input.name].min && length < inputRules[input.name].min) {
             return `Enter at least ${inputRules[input.name].min} characters`;
-        }
-        
-        if (inputRules[input.name].max && length > inputRules[input.name].max) {
+        } else if (inputRules[input.name].max && length > inputRules[input.name].max) {
             return `Enter no more than ${inputRules[input.name].max} characters`;
-        }
-        
-        if (inputRules[input.name].formatRegex && !regex.test(value)) {
+        } else if (inputRules[input.name].formatRegex && !regex.test(value)) {
             return inputRules[input.name].formatErrorMessage;
         } 
     }
@@ -113,13 +107,9 @@ function validateNumber(input, value = input.value) {
     if (inputRules[input.name].required) {
         if(!value) {
             return `Select the number of ${label.toLowerCase()}`;
-        }
-
-        if (inputRules[input.name].min && value < inputRules[input.name].min) {
+        } else if (inputRules[input.name].min && value < inputRules[input.name].min) {
             return `Must be at least ${inputRules[input.name].min} inches`;
-        }
-
-        if (inputRules[input.name].max && value > inputRules[input.name].max) {
+        } else if (inputRules[input.name].max && value > inputRules[input.name].max) {
             return `Cannot be more than ${inputRules[input.name].max} inches`;
         }
     }
@@ -136,32 +126,24 @@ function validateRadioCheckbox(input, type = input.type, id = input.id, name = i
         const customTextField = document.querySelector('#custom-pronoun');
 
         if (!isChecked) {
-            // Do not require custom pronoun text field
             inputRules['custom-pronoun'].required = false;
-            customTextField.removeAttribute('required');
-
-            // Reset & disable if filled
             inputRules['custom-pronoun'].unset = true;
+            customTextField.required = false;
+            customTextField.disabled = true;
             customTextField.value = '';
-            customTextField.setAttribute('placeholder', 'Write My Own')
-            customTextField.setAttribute('disabled', 'true');
-
+            customTextField.placeholder = 'Write My Own';
             toggleInputUI(customTextField);
         } else if (isChecked) {
-             // Require custom pronoun text field
              inputRules['custom-pronoun'].required = true;
-             customTextField.setAttribute('required', 'true');
-
              inputRules['custom-pronoun'].unset = false;
-             customTextField.removeAttribute('disabled');
+             customTextField.required = true;
+             customTextField.disabled = false;
         }
     }
     
     if (type === 'radio' && checkedValues < 1) {
         return 'Please choose an option.';
-    }
-    
-    if (type === 'checkbox' && checkedValues < 1) {
+    } else if (type === 'checkbox' && checkedValues < 1) {
         return `Please select your ${name.toLowerCase()}`;
     }
 
@@ -174,18 +156,14 @@ function validateFile(input, files = input.files) {
 
     if (length === 0) {
         return 'Please upload your reference photos';
-    }
-
-    if (length > inputRules[input.name].max) {
+    } else if (length > inputRules[input.name].max) {
         return `Please upload no more than ${inputRules[input.name].max} photos`;
     }
 
     for (const file of files) {
         if (!regex.test(file.type)) {
             return inputRules[input.name].formatErrorMessage;
-        }
-
-        if (file.size >= inputRules[input.name].sizeMaxInBytes) {
+        } else if (file.size >= inputRules[input.name].sizeMaxInBytes) {
             return inputRules[input.name].sizeErrorMessage;
         }
     }
@@ -202,8 +180,7 @@ function updateErrorMessage(input, errorMessage) {
             errorMessageElement = document.createElement('p');
             errorMessageElement.classList.add('error');
             container.appendChild(errorMessageElement);
-        }
-        
+        }    
         errorMessageElement.textContent = errorMessage;
     } else if (!errorMessage && errorMessageElement) {
         errorMessageElement.textContent = '';

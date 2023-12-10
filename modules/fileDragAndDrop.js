@@ -1,5 +1,3 @@
-import { inputValidation, toggleInputUI } from "./inputValidation.js";
-
 function isAdvancedUpload() {
     return (
       window.File &&
@@ -12,20 +10,13 @@ function isAdvancedUpload() {
     );
   }
 
-console.log(isAdvancedUpload());
-
 const uploadBox = document.querySelector('#file-upload-box');
 
 if (isAdvancedUpload) {
     uploadBox.classList.add('has-advanced-upload');
 
-    const preventDefaults = (e) => {
-        e.preventDefault();
-    };
+    const preventDefaults = (e) => e.preventDefault();
 
-    // Listen for drag n drop-related events 
-    const dragEvents = ['drag', 'dragstart', 'dragend', 'dragover', 'dragenter', 'dragleave', 'drop'];
-    
     uploadBox.addEventListener('drag', preventDefaults);
     uploadBox.addEventListener('dragstart', preventDefaults);
     uploadBox.addEventListener('dragend', preventDefaults);
@@ -47,8 +38,8 @@ if (isAdvancedUpload) {
         preventDefaults(e);
         uploadBox.classList.remove('is-dragover');
         handleDrop(e);
-
     });
+    uploadBox.addEventListener('click', triggerFileInput);
 }
 
 function handleDrop(e) {
@@ -56,3 +47,7 @@ function handleDrop(e) {
     const files = e.dataTransfer.files;
     fileInput.files = files;
 }
+
+function triggerFileInput() {
+    document.querySelector('#box-file').click();
+  }
