@@ -1,3 +1,5 @@
+import { updateFileLabel } from "./fileDragAndDrop.js";
+
 const inputRules = {
     'first-name': {
         required: true,
@@ -227,6 +229,8 @@ function toggleInputUI(input) {
             input.value = '';
         }
     }
+
+    updateFileLabel();
 }
 
 function resetFormUI(input) {

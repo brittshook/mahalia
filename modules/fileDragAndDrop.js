@@ -21,12 +21,10 @@ if (isAdvancedUpload) {
     uploadBox.addEventListener('dragstart', preventDefaults);
     uploadBox.addEventListener('dragend', preventDefaults);
     uploadBox.addEventListener('dragover', (e) => {
-        console.log('is dragover');
         preventDefaults(e);
         uploadBox.classList.add('is-dragover');
     });
     uploadBox.addEventListener('dragenter', (e) => {
-        console.log('is dragover');
         preventDefaults(e);
         uploadBox.classList.add('is-dragover');
     });
@@ -51,3 +49,16 @@ function handleDrop(e) {
 function triggerFileInput() {
     document.querySelector('#box-file').click();
   }
+
+function updateFileLabel() {
+    const fileInput = document.querySelector('#box-file');
+    const fileLabel = document.querySelector('label[for="file"');
+    const numFiles = fileInput.files.length;
+    fileLabel.innerHTML = numFiles === 0 
+        ? '<span class="black">Choose files</span><span class="box-dragndrop"> or drag here</span>' 
+        : `<span class="black">${numFiles} file${numFiles !== 1 
+            ? 's'
+            : ''} uploaded</span>`
+}
+
+export { updateFileLabel };

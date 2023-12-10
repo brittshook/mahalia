@@ -674,6 +674,10 @@ p.error {
     color: var(--off-white, #eaeaea);
 }
 
+#file-upload-box {
+    justify-content: center;
+}
+
 #file-upload-box.is-dragover {
     background-color: var(--white50) !important;
 }
@@ -686,6 +690,10 @@ p.error {
 
 #file-upload-box.has-advanced-upload .box-dragndrop {
     display: inline;
+}
+
+#file-upload-box.has-advanced-upload #box-file {
+    display: none;
 }
 
 .wiggle {
