@@ -1,3 +1,5 @@
+import { inputValidation, toggleInputUI } from "./inputValidation.js";
+
 function isAdvancedUpload() {
     return (
       window.File &&
@@ -52,6 +54,5 @@ if (isAdvancedUpload) {
 function handleDrop(e) {
     const fileInput = document.querySelector('#box-file');
     const files = e.dataTransfer.files;
-    console.log(files);
     fileInput.files = files;
 }

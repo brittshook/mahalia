@@ -194,30 +194,19 @@ function validateFile(input, files = input.files) {
 }
 
 function updateErrorMessage(input, errorMessage) {
-    const type = input.type;
-
-    let container = input.closest('.field');
-    let errorMessageElement = container.querySelectorAll('p.error, span.error')[0];
+    const container = input.closest('.field');
+    let errorMessageElement = container.querySelector('p.error');
 
     if (errorMessage) {
         if (!errorMessageElement) {
-            let newErrorMessageElement;
-
-            if (type === 'file') {
-                container = container.querySelector('div.error');
-                newErrorMessageElement = document.createElement('span');
-            } else {
-                newErrorMessageElement = document.createElement('p');
-            }
-    
-            newErrorMessageElement.classList.add('error');
-            newErrorMessageElement.textContent = errorMessage;
-            container.appendChild(newErrorMessageElement);
-        } else {
-            errorMessageElement.textContent = errorMessage;
+            errorMessageElement = document.createElement('p');
+            errorMessageElement.classList.add('error');
+            container.appendChild(errorMessageElement);
         }
-    } else if (errorMessageElement) {
-        errorMessageElement.textContent = ''; // Clear the error message
+        
+        errorMessageElement.textContent = errorMessage;
+    } else if (!errorMessage && errorMessageElement) {
+        errorMessageElement.textContent = '';
         errorMessageElement.remove();
     }
 }
@@ -254,9 +243,12 @@ function toggleInputUI(input) {
         input.classList.add('success');
         input.classList.remove('error');
     } else {
-        console.log(errorMessage);
         input.classList.remove('success');
         input.classList.add('error');
+
+        if (input.type === 'file') {
+            input.value = '';
+        }
     }
 }
 
@@ -266,4 +258,4 @@ function resetFormUI(input) {
     input.classList.remove('error');
 }
 
-export { inputRules, inputValidation, toggleInputUI, resetFormUI };
+export { inputRules, inputValidation, toggleInputUI, resetFormUI, validateFile };
