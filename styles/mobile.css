@@ -333,9 +333,4 @@
     #file-upload-box {
         margin-top: 6px;
     }
-
-    #coverup-field label,
-    #color-field label {
-        gap: 6px;
-    }
 }

@@ -485,12 +485,21 @@ legend#size {
 }
 
 .row {
-    gap: 9px;
     justify-content: flex-start;
 }
 
 #pronoun-options .flex-col:last-child {
     gap: 10px;
+}
+
+#pronoun-options label,
+#coverup-field label,
+#color-field label {
+    gap: 16px;
+}
+
+#custom-pronoun {
+    transform: translateX(-4px);
 }
 
 #custom-pronoun:disabled,
@@ -579,6 +588,10 @@ textarea {
 input[type="checkbox"], 
 input[type="radio"] {
     appearance: unset;
+}
+
+#custom-pronoun {
+    transform: translateX(-4px);
 }
 
 .checkbox, 
