@@ -1,10 +1,10 @@
 @media screen and (max-width: 899px) {
     p {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .p3, label, legend, button {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     nav ul,
@@ -35,7 +35,7 @@
     }
 
     #menu-window .nav-link {
-        font-size: 82px;
+        font-size: 74px;
     }
 
     #menu-window li.open-modal:hover {
@@ -209,7 +209,7 @@
     }
 
     .close-modal {
-        top: 24px;
+        top: 13px;
         right: 22px;
     }
 
@@ -222,7 +222,7 @@
     }
 
     .form-page {
-        padding-top: 86px;
+        padding-top: 60px;
         padding-bottom: 66px;
         gap: 30px;
     }
@@ -233,7 +233,7 @@
     }
 
     h5 {
-        font-size: 28px;
+        font-size: 24px;
         font-weight: 500;
     }
 
@@ -245,21 +245,21 @@
     input[type="tel"], 
     input[type="email"], 
     input[type="number"] {
-        padding-top: 11.5px;
-        padding-bottom: 11.5px;
+        padding-top: 7px;
+        padding-bottom: 7px;
         font-size: 17px;
     }
 
     .radio, 
     .checkbox {
-        width: 28px;
-        height: 28px;
+        width: 26px;
+        height: 26px;
     }
 
     .circle, 
     .checkmark {
-        width: 17px;
-        height: 17px;
+        width: 16px;
+        height: 16px;
     }
 
     .small-text {
@@ -284,8 +284,7 @@
     #header-with-img,
     #name-fields,
     #pronoun-options,
-    #contact-fields, 
-    #size-fields > div {
+    #contact-fields {
         gap: 24px;
     }
 
@@ -302,15 +301,36 @@
     }
 
     #pronoun-options .flex-col:last-child {
-        gap: 12px;
+        gap: 15.5px;
     }
 
-    button.secondary {
+    form button.secondary {
         outline: none;    
     }
 
     p.error, 
     span.error {
         font-size: 17px;
+    }
+
+    .options {
+        gap: 30px;
+    }
+
+    input[type="number"] {
+        padding-right: 35px;
+    }
+
+    #size-fields > div {
+        gap: 12px;
+    }
+
+    #file-upload-box,
+    textarea {
+        height: 320px;
+    }
+
+    #file-upload-box {
+        margin-top: 6px;
     }
 }

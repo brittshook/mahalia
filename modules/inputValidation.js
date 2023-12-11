@@ -32,12 +32,12 @@ const inputRules = {
     },
     'width': {
         required: true,
-        min: 0.5,
+        min: 1,
         max: 50,
     },
     'height': {
         required: true,
-        min: 0.5,
+        min: 1,
         max: 50,
     },
     'pronouns': {
@@ -70,7 +70,7 @@ function trimInput(input) {
 }
 
 function cleanNumInput(input) {
-    input.value = parseFloat(input.value).toFixed(1);
+    input.value = parseFloat(input.value).toFixed(0);
 }
 
 function validateText(input, value = input.value) {
