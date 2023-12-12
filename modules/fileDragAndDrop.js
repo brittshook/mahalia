@@ -38,6 +38,19 @@ if (isAdvancedUpload) {
         handleDrop(e);
     });
     uploadBox.addEventListener('click', triggerFileInput);
+} else {
+    const uploadIcon = uploadBox.querySelector('i');
+    const label = uploadBox.querySelector('label');
+
+    uploadIcon.style.backgroundColor = 'var(--white100, #fff)';
+    uploadIcon.style.color = 'var(--black, #121212)';
+    uploadIcon.style.width = '115px';
+    uploadIcon.style.height = '115px';
+    uploadIcon.style.padding = '54px 0';
+    uploadIcon.style.marginBottom = '15px';
+
+    uploadIcon.addEventListener('click', triggerFileInput);
+    label.addEventListener('click', triggerFileInput);
 }
 
 function handleDrop(e) {
