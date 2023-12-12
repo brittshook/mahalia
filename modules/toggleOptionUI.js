@@ -1,5 +1,5 @@
 function changeOptionInput(input, action) {
-    const optionUI = input.previousElementSibling.querySelectorAll('.circle, .checkmark')[0];
+    const optionUI = input.previousElementSibling.querySelector('.circle, .checkmark');
 
     if (action === 'toggle') {
         optionUI.classList.toggle('checked');
@@ -23,10 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
     radioInputs.forEach(newInput => {
         newInput.addEventListener('click', () => {
             radioInputs.forEach(currentInput => {
-                if (currentInput !== newInput) {
-                    if (currentInput.name === newInput.name) {
+                if (currentInput !== newInput && currentInput.name === newInput.name) {
                         changeOptionInput(currentInput, 'remove');
-                    }
                 }
             })
             changeOptionInput(newInput, 'add');

@@ -1,5 +1,6 @@
-import { resetFormUI } from "./inputValidation.js";
 import { currentPage, pages, showPage } from "./modalNavigation.js";
+import { changeOptionInput } from "./toggleOptionUI.js";
+import { updateErrorMessage } from "./inputValidation.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     const openModalBtns = document.querySelectorAll('.open-modal');
@@ -18,10 +19,12 @@ function closeModal() {
     document.body.style.overflow = 'visible';
     document.querySelector('form').reset();
 
-    for (let i = currentPage; i > 0; i--) {
-        const nextPageButton = pages[i].querySelector('.next-page');
-        nextPageButton.setAttribute('disabled', 'true');
-    }
+    const nextPageButtons = document.querySelectorAll('.next-page');
+    nextPageButtons.forEach(button => {
+        if (!button.classList.contains('disabled') && button.id !== 'start-btn') {
+            button.classList.add('disabled');
+        }
+    });
 
     const inputElements = document.querySelectorAll('input, textarea');
     inputElements.forEach(input => {
@@ -42,3 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+function resetFormUI(input) {
+    if (input.type === 'checkbox' || input.type === 'radio') {
+        console.log('remove checkbox ui running');
+        changeOptionInput(input, 'remove');
+    }
+    updateErrorMessage(input, '');
+    input.classList.remove('success');
+    input.classList.remove('error');
+}

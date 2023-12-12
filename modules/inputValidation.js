@@ -233,10 +233,4 @@ function toggleInputUI(input) {
     updateFileLabel();
 }
 
-function resetFormUI(input) {
-    updateErrorMessage(input, '');
-    input.classList.remove('success');
-    input.classList.remove('error');
-}
-
-export { inputRules, inputValidation, toggleInputUI, resetFormUI, validateFile };
+export { inputRules, inputValidation, toggleInputUI, validateFile, updateErrorMessage };

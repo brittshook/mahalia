@@ -498,6 +498,7 @@ legend#size {
     gap: 16px;
 }
 
+/* not translating on mobile */
 #custom-pronoun {
     transform: translateX(-4px);
 }
