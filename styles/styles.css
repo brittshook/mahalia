@@ -212,7 +212,8 @@ button.secondary {
 }
 
 button.secondary:hover:not(button.disabled),
-button.primary.disabled,
+button.secondary:active,
+button.primary,
 #tattoos .card:hover,
 #copyright,
 #copyright a {
