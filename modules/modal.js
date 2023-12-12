@@ -48,9 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function resetFormUI(input) {
     if (input.type === 'checkbox' || input.type === 'radio') {
-        console.log('remove checkbox ui running');
         changeOptionInput(input, 'remove');
     }
+
+    if (input.id === 'custom' && !input.checked) {
+        document.querySelector('#custom-pronoun').disabled = true;
+    }
+    
     updateErrorMessage(input, '');
     input.classList.remove('success');
     input.classList.remove('error');
