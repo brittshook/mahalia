@@ -34,10 +34,6 @@
         top: 24px;
     }
 
-    #menu-window .nav-link {
-        font-size: 74px;
-    }
-
     #menu-window li.open-modal:hover {
         text-decoration: underline;
     }
@@ -119,6 +115,10 @@
     #menu-window button {
         right: 40px;
     }
+
+    #menu-window .nav-link {
+        font-size: 74px;
+    }
 }
 
 @media screen and (min-width: 650px) and (max-width: 999px) {
@@ -189,6 +189,10 @@
 
     #menu-window button {
         right: 22px;
+    }
+
+    #menu-window .nav-link {
+        font-size: 64px;
     }
 
     .field,
