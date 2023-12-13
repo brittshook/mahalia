@@ -1,9 +1,7 @@
 import { inputValidation, toggleInputUI } from './inputValidation.js';
 
 let currentPage = 0;
-
 const pages =  document.querySelectorAll('.start-page, .form-page, .success-page');
-
 let pageInputElements;
 let inputs = (pageNumber) => pages[pageNumber].querySelectorAll('input, textarea');
 
@@ -65,45 +63,43 @@ function isPageComplete(input) {
     enableNextButton();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    showPage(currentPage);
+showPage(currentPage);
 
-    const inputElements = document.querySelectorAll('input, textarea');
-    inputElements.forEach(input => {
-        input.addEventListener('change', () => {
-            isPageComplete(input);
-        });
-
-        input.addEventListener('autocompletechange', () => {
-            isPageComplete(input);
-        });
+const inputElements = document.querySelectorAll('input, textarea');
+inputElements.forEach(input => {
+    input.addEventListener('change', () => {
+        isPageComplete(input);
     });
 
-    const uploadBox = document.querySelector('#file-upload-box');
-    uploadBox.addEventListener('drop', () => {
-        setTimeout(() => {
-            const input = uploadBox.querySelector('#box-file');
-            isPageComplete(input);
-        }, 0);
-    })
-
-    const nextPageButtons = document.querySelectorAll('.next-page');
-    nextPageButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            console.log('button was clicked');
-            if (button.classList.contains('disabled')) {
-                wiggleOnError(button);
-            } else {
-                showPage(currentPage + 1);
-            }
-        });
+    input.addEventListener('autocompletechange', () => {
+        isPageComplete(input);
     });
+});
 
-    const prevPageButtons = document.querySelectorAll('.prev-page');
-    prevPageButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            showPage(currentPage - 1);
-        });
+const uploadBox = document.querySelector('#file-upload-box');
+uploadBox.addEventListener('drop', () => {
+    setTimeout(() => {
+        const input = uploadBox.querySelector('#box-file');
+        isPageComplete(input);
+    }, 0);
+})
+
+const nextPageButtons = document.querySelectorAll('.next-page');
+nextPageButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        console.log('button was clicked');
+        if (button.classList.contains('disabled')) {
+            wiggleOnError(button);
+        } else {
+            showPage(currentPage + 1);
+        }
+    });
+});
+
+const prevPageButtons = document.querySelectorAll('.prev-page');
+prevPageButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        showPage(currentPage - 1);
     });
 });
 

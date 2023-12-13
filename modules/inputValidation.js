@@ -64,7 +64,6 @@ const inputRules = {
     }
 }
 
-// 
 function trimInput(input) {
     input.value = input.value.trim();
 }

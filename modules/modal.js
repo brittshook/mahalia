@@ -2,15 +2,12 @@ import { currentPage, pages, showPage } from "./modalNavigation.js";
 import { changeOptionInput } from "./toggleOptionUI.js";
 import { updateErrorMessage } from "./inputValidation.js";
 
-document.addEventListener('DOMContentLoaded', () => {
-    const openModalBtns = document.querySelectorAll('.open-modal');
-
-    openModalBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelector('#modal-window').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            showPage(0);
-        });
+const openModalBtns = document.querySelectorAll('.open-modal');
+openModalBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelector('#modal-window').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        showPage(0);
     });
 });
 
@@ -32,19 +29,16 @@ function closeModal() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const closeModalButton = document.querySelector('.close-modal');
-
-    closeModalButton.addEventListener('click', () => {
-        if (currentPage !== 0) {
-            if (confirm("Your consultation request will not be submitted. Press OK to confirm close.")) {
-                closeModal();
-            };
-        } else {
+const closeModalButton = document.querySelector('.close-modal');
+closeModalButton.addEventListener('click', () => {
+    if (currentPage !== 0) {
+        if (confirm("Your consultation request will not be submitted. Press OK to confirm close.")) {
             closeModal();
-        }
+        };
+    } else {
+        closeModal();
+    }
     });
-});
 
 function resetFormUI(input) {
     if (input.type === 'checkbox' || input.type === 'radio') {

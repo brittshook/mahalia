@@ -10,25 +10,23 @@ function changeOptionInput(input, action) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const checkboxInputs = document.querySelectorAll('input[type="checkbox"]');
-    const radioInputs = document.querySelectorAll('input[type="radio"]');
+const checkboxInputs = document.querySelectorAll('input[type="checkbox"]');
+const radioInputs = document.querySelectorAll('input[type="radio"]');
 
-    checkboxInputs.forEach(input => {
-        input.addEventListener('click', () => {
-            changeOptionInput(input, 'toggle');
-        });
+checkboxInputs.forEach(input => {
+    input.addEventListener('click', () => {
+        changeOptionInput(input, 'toggle');
     });
+});
 
-    radioInputs.forEach(newInput => {
-        newInput.addEventListener('click', () => {
-            radioInputs.forEach(currentInput => {
-                if (currentInput !== newInput && currentInput.name === newInput.name) {
-                        changeOptionInput(currentInput, 'remove');
-                }
-            })
-            changeOptionInput(newInput, 'add');
-        });
+radioInputs.forEach(newInput => {
+    newInput.addEventListener('click', () => {
+        radioInputs.forEach(currentInput => {
+            if (currentInput !== newInput && currentInput.name === newInput.name) {
+                    changeOptionInput(currentInput, 'remove');
+            }
+        })
+        changeOptionInput(newInput, 'add');
     });
 });
 
