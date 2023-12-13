@@ -2,7 +2,6 @@ function toggleFAQ(question, answer) {
     question.classList.toggle('revealed');
     const icon = question.querySelector('i');
     icon.classList.toggle('revealed');
-
     answer.classList.toggle('revealed');
 }
 

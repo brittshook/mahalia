@@ -1,6 +1,5 @@
-import { currentPage, pages, showPage } from "./modalNavigation.js";
+import { currentPage, showPage } from "./modalNavigation.js";
 import { changeOptionInput } from "./toggleOptionUI.js";
-import { updateErrorMessage } from "./inputValidation.js";
 
 const openModalBtns = document.querySelectorAll('.open-modal');
 openModalBtns.forEach(btn => {
@@ -49,7 +48,7 @@ function resetFormUI(input) {
         document.querySelector('#custom-pronoun').disabled = true;
     }
     
-    updateErrorMessage(input, '');
+    input.setCustomValidity('');
     input.classList.remove('success');
     input.classList.remove('error');
 }

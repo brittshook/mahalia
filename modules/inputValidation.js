@@ -1,121 +1,84 @@
 import { updateFileLabel } from "./fileDragAndDrop.js";
 
-const inputRules = {
-    'first-name': {
-        required: true,
-        max: 30
-    },
-    'last-name': {
-        required: true,
-        max: 30
-    }, 
-    'custom-pronoun': {
-        required: false,
-        max: 15
-    },
+const customValidations = {
     'email': {
-        required: true,
-        max: 50,
-        formatRegex: /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/i,
+        regex: /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/i,
         formatErrorMessage: 'Enter your email address in the format: name@example.com'
     },
     'phone': {
-        required: true,
-        min: 4,
-        max: 20,
-        formatRegex: /^(?:[+\d()\s-]*\d[+\d()\s-]*)*(?:(?:\s?(?:ext|x)\.?\s?)?\d+)?$/,
+        regex: /^(?:[+\d()\s-]*\d[+\d()\s-]*)*(?:(?:\s?(?:ext|x)\.?\s?)?\d+)?$/,
         formatErrorMessage: 'Enter your phone number in the format: (123) 456-7890'
     },
-    'placement': {
-        required: true,
-        max: 50
-    },
-    'width': {
-        required: true,
-        min: 1,
-        max: 50,
-    },
-    'height': {
-        required: true,
-        min: 1,
-        max: 50,
-    },
-    'pronouns': {
-        required: true,
-    },
-    'coverup': {
-        required: true,
-    },
-    'color': {
-        required: true,
+    'custom-pronoun': {
+        unset: true
     },
     'file': {
-        required: true,
         max: 5,
         sizeMaxInBytes: 10485760,
         formatRegex: /^(image\/.*)/,
         formatErrorMessage: 'Please upload image files only.',
         sizeErrorMessage: 'Files must be less than 10 MB each.'
-    },
-    'idea': {
-        required: true,
-        min: 20,
-        max: 1000
     }
 }
 
-function trimInput(input) {
+function cleanInput(input, type = input.type) {
+    if (type === 'file') {
+        return;
+    }
+
     input.value = input.value.trim();
+
+    if (input.type === 'number' && input.value) {
+        input.value = parseFloat(input.value).toFixed(0);
+    }
 }
 
-function cleanNumInput(input) {
-    input.value = parseFloat(input.value).toFixed(0);
-}
-
-function validateText(input, value = input.value) {
-    trimInput(input);
-
-    const length = value.length;
+function validateText(input, value = input.value) {    
+    const validityState = input.validity;
     const label =
         input.name === 'custom-pronoun'
             ? 'own pronouns'
             : input.name === 'idea'
             ? 'tattoo idea'
             : input.closest('label').innerText;
-    const regex = inputRules[input.name].formatRegex;
+    const regex = (customValidations[input.name]?.regex !== undefined)
+        ? customValidations[input.name].regex
+        : null;
 
-    if (inputRules[input.name].required) {
-        if (length === 0) {
-            return `Enter your ${label.toLowerCase()}`;
-        } else if (inputRules[input.name].min && length < inputRules[input.name].min) {
-            return `Enter at least ${inputRules[input.name].min} characters`;
-        } else if (inputRules[input.name].max && length > inputRules[input.name].max) {
-            return `Enter no more than ${inputRules[input.name].max} characters`;
-        } else if (inputRules[input.name].formatRegex && !regex.test(value)) {
-            return inputRules[input.name].formatErrorMessage;
-        } 
-    }
-
-    return null;
-}
-
-function validateNumber(input, value = input.value) {
-    trimInput(input);
-    cleanNumInput(input);
-
-    const label = input.closest('label').innerText;
-
-    if (inputRules[input.name].required) {
-        if(!value) {
-            return `Select the number of ${label.toLowerCase()}`;
-        } else if (inputRules[input.name].min && value < inputRules[input.name].min) {
-            return `Must be at least ${inputRules[input.name].min} inches`;
-        } else if (inputRules[input.name].max && value > inputRules[input.name].max) {
-            return `Cannot be more than ${inputRules[input.name].max} inches`;
+    if (input.required) {
+        if (validityState.valueMissing) {
+            input.setCustomValidity(`Enter your ${label.toLowerCase()}`);
+        } else if (validityState.tooShort || value.length < input.minLength) {
+            input.setCustomValidity(`Enter at least ${input.minLength} characters`);
+        } else if (validityState.tooLong || value.length > input.maxLength) {
+            input.setCustomValidity(`Enter no more than ${input.maxLength} characters`);
+        } else if (validityState.typeMismatch || (regex && !regex.test(value))) {
+            input.setCustomValidity(customValidations[input.name].formatErrorMessage);
+        } else {
+            input.setCustomValidity('');
         }
     }
 
-    return null;
+    return input.checkValidity();
+}
+
+function validateNumber(input) {
+    const validityState = input.validity;
+    const label = input.closest('label').innerText;
+
+    if (input.required) {
+        if(validityState.valueMissing) {
+            input.setCustomValidity(`Enter number of ${label.toLowerCase()}`);
+        } else if (validityState.rangeUnderflow) {
+            input.setCustomValidity(`Must be at least ${input.min} inches`);
+        } else if (validityState.rangeOverflow) {
+            input.setCustomValidity(`Cannot be more than ${input.max} inches`);
+        } else {
+            input.setCustomValidity('');
+        }
+    }
+
+    return input.checkValidity();
 }
 
 function validateRadioCheckbox(input, type = input.type, id = input.id, name = input.name) {
@@ -127,92 +90,95 @@ function validateRadioCheckbox(input, type = input.type, id = input.id, name = i
         const customTextField = document.querySelector('#custom-pronoun');
 
         if (!isChecked) {
-            inputRules['custom-pronoun'].required = false;
-            inputRules['custom-pronoun'].unset = true;
+            customValidations['custom-pronoun'].unset = true;         
             customTextField.required = false;
             customTextField.disabled = true;
             customTextField.value = '';
             customTextField.placeholder = 'Write My Own';
             toggleInputUI(customTextField);
-        } else if (isChecked) {
-             inputRules['custom-pronoun'].required = true;
-             inputRules['custom-pronoun'].unset = false;
-             customTextField.required = true;
-             customTextField.disabled = false;
+        } else {
+            customValidations['custom-pronoun'].unset = false;
+            customTextField.required = true;
+            customTextField.disabled = false;
         }
     }
     
     if (type === 'radio' && checkedValues < 1) {
-        return 'Please choose an option.';
+        input.setCustomValidity('Please choose an option.');
     } else if (type === 'checkbox' && checkedValues < 1) {
-        return `Please select your ${name.toLowerCase()}`;
+        input.setCustomValidity(`Please select your ${name.toLowerCase()}`);
+    } else {
+        input.setCustomValidity('');
     }
 
-    return null;
+    return input.checkValidity();
 }
 
 function validateFile(input, files = input.files) {
-    const length = files.length;
-    const regex = inputRules[input.name].formatRegex;
+    const regex = customValidations[input.name].formatRegex;
+    const validityState = input.validity;
 
-    if (length === 0) {
-        return 'Please upload your reference photos';
-    } else if (length > inputRules[input.name].max) {
-        return `Please upload no more than ${inputRules[input.name].max} photos`;
+    if (validityState.valueMissing) {
+        input.setCustomValidity('Please upload your reference photos');
+    } else if (files.length > customValidations[input.name].max) {
+        input.value = '';
+        input.setCustomValidity(`Please upload no more than ${customValidations[input.name].max} photos`);
     }
 
     for (const file of files) {
         if (!regex.test(file.type)) {
-            return inputRules[input.name].formatErrorMessage;
-        } else if (file.size >= inputRules[input.name].sizeMaxInBytes) {
-            return inputRules[input.name].sizeErrorMessage;
+            input.value = '';
+            input.setCustomValidity(customValidations[input.name].formatErrorMessage);
+        } else if (file.size >= customValidations[input.name].sizeMaxInBytes) {
+            input.value = '';
+            input.setCustomValidity(customValidations[input.name].sizeErrorMessage);
+        } else {
+            input.setCustomValidity('');
         }
     }
 
-    return null;
+    updateFileLabel();
+    return input.checkValidity();
 }
 
-function updateErrorMessage(input, errorMessage) {
+function displayErrorMessage(input) {
     const container = input.closest('.field');
     let errorMessageElement = container.querySelector('p.error');
 
-    if (errorMessage) {
+    if (input.validationMessage) {
         if (!errorMessageElement) {
             errorMessageElement = document.createElement('p');
             errorMessageElement.classList.add('error');
             container.appendChild(errorMessageElement);
         }    
-        errorMessageElement.textContent = errorMessage;
-    } else if (!errorMessage && errorMessageElement) {
-        errorMessageElement.textContent = '';
+        errorMessageElement.textContent = input.validationMessage;
+    } else if (!input.validationMessage && errorMessageElement) {
         errorMessageElement.remove();
     }
 }
 
-function inputValidation(input, type = input.type, id = input.id) {
-    let errorMessage = null;
-
-    if (type === 'text' || type ===  'email' || type === 'tel' || id === 'idea') {
-        errorMessage = validateText(input);
-    } else if (type === 'number') {
-        errorMessage = validateNumber(input);
-    } else if (type === 'radio' || type === 'checkbox') {
-        errorMessage = validateRadioCheckbox(input);
-    } else if (type === 'file') {
-        errorMessage = validateFile(input);
+function inputValidation(input, type = input.type) {
+    const validationFuncs = {
+        text: validateText,
+        email: validateText,
+        tel: validateText,
+        textarea: validateText,
+        number: validateNumber,
+        radio: validateRadioCheckbox,
+        checkbox: validateRadioCheckbox,
+        file: validateFile
     }
 
-    if (errorMessage) {
-        return { isValid: false, errorMessage};
-    } else {
-        return { isValid: true };
-    }
+    cleanInput(input);
+    return validationFuncs[type ? type : 'textarea'](input);
 }
 
 function toggleInputUI(input) {
-    const { isValid, errorMessage } = inputValidation(input);
-    const unset = inputRules[input.name].unset;
-    updateErrorMessage(input, errorMessage);
+    const isValid = inputValidation(input);
+    const unset = (customValidations[input.name]?.unset !== undefined)
+        ? customValidations[input.name].unset
+        : false;
+    displayErrorMessage(input);
 
     if (unset) {
         input.classList.remove('success');
@@ -223,13 +189,7 @@ function toggleInputUI(input) {
     } else {
         input.classList.remove('success');
         input.classList.add('error');
-
-        if (input.type === 'file') {
-            input.value = '';
-        }
     }
-
-    updateFileLabel();
 }
 
-export { inputRules, inputValidation, toggleInputUI, validateFile, updateErrorMessage };
+export { inputValidation, toggleInputUI, validateFile, displayErrorMessage };

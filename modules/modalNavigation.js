@@ -23,9 +23,7 @@ function enableNextButton() {
     let validInputs = 0;
 
     pageInputElements.forEach(input => {
-        const { isValid } = inputValidation(input);
-
-        if (isValid) {
+        if (inputValidation(input)) {
             validInputs++;
         }
     });
@@ -40,16 +38,10 @@ function enableNextButton() {
 function wiggleOnError(button) {
     if (button.classList.contains('disabled')) {
         pageInputElements = inputs(currentPage);
-        console.log(pageInputElements);
-
         pageInputElements.forEach(input => {
-            const { isValid } = inputValidation(input);
-
-            if (!isValid) {
+            if (!inputValidation(input)) {
                 toggleInputUI(input);
-
                 input.classList.add('wiggle');
-
                 setTimeout(() => {
                     input.classList.remove('wiggle');
                 },1000);
@@ -87,7 +79,6 @@ uploadBox.addEventListener('drop', () => {
 const nextPageButtons = document.querySelectorAll('.next-page');
 nextPageButtons.forEach(button => {
     button.addEventListener('click', () => {
-        console.log('button was clicked');
         if (button.classList.contains('disabled')) {
             wiggleOnError(button);
         } else {

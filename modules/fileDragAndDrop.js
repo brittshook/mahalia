@@ -69,9 +69,7 @@ function updateFileLabel() {
     const numFiles = fileInput.files.length;
     fileLabel.innerHTML = numFiles === 0 
         ? '<span class="black">Choose files</span><span class="box-dragndrop"> or drag here</span>' 
-        : `<span class="black">${numFiles} file${numFiles !== 1 
-            ? 's'
-            : ''} uploaded</span>`
+        : `<span class="black">${numFiles} file${numFiles !== 1 ? 's' : ''} uploaded</span>`
 }
 
 export { updateFileLabel };
