@@ -14,10 +14,20 @@
         <script defer type="module" src="modules/menu.js"></script>
         <script defer type="module" src="modules/modal.js"></script>
         <script defer type="module" src="modules/modalNavigation.js"></script>
-        <script defer type="module" src="modules/faqToggle.js"></script>
+        <script defer type="module" src="modules/faqElements.js"></script>
         <script defer type="module" src="modules/showLogo.js"></script>
         <script defer type="module" src="modules/toggleOptionUI.js"></script>
         <script defer type="module" src="modules/fileDragAndDrop.js"></script>
+        <template id="faq-template">
+            <div class="question flex flex-col">
+              <div class="flex align-center space-btw">
+                <p class="p1"></p>
+                <i class="fa-solid fa-plus fa-xl"></i>
+              </div>
+              <div class="answer hidden">
+              </div>
+            </div>
+          </template>
     </head>
     <body class="flex flex-col">
         <nav class="flex align-center fixed fill">
@@ -81,64 +91,6 @@
         <section id="faqs" class="flex flex-col">
             <h2>FAQs</h2>
             <div id="faq-questions">
-                <div class="question flex flex-col">
-                    <div class="flex align-center space-btw">
-                        <p class="p1">What is your availability?</p>
-                        <i class="fa-solid fa-plus fa-xl"></i>
-                    </div>
-                    <div class="answer hidden">
-                        <p class="p2">I am currently booking 4-8 weeks out.</p>
-                    </div>
-                </div>
-                <div class="question flex flex-col">
-                    <div class="flex align-center space-btw">
-                        <p class="p1">What is your deposit policy?</p>
-                        <i class="fa-solid fa-plus fa-xl"></i>
-                    </div>
-                    <div class="answer hidden">
-                        <p class="p2">A one-time deposit of $250 is required after the consultation in order to reserve your tattoo appointment. This deposit goes towards the final cost of your tattoo.</p>
-                        <p class="p2">This deposit is non-refundable in the case of no-shows and cancellations less than 48 hours in advance of your appointment.</p>
-                    </div>
-                </div>
-                <div class="question flex flex-col">
-                    <div class="flex align-center space-btw">
-                        <p class="p1">Where is your studio?</p>
-                        <i class="fa-solid fa-plus fa-xl"></i>
-                    </div>
-                    <div class="answer hidden">
-                        <p class="p2">My home studio is located in the Williamsburg neighborhood of Brooklyn, New York City.</p>
-                    </div>
-                </div>
-                <div class="question flex flex-col">
-                    <div class="flex align-center space-btw">
-                        <p class="p1">How do I book an appointment?</p>
-                        <i class="fa-solid fa-plus fa-xl"></i>
-                    </div>
-                    <div class="answer hidden">
-                        <p class="p2">You may <a class="open-modal">book a tattoo consultation here</a>. If I feel I can bring your idea to life, we will discuss the concept further and set an appointment date during your consultation. </p>
-                    </div>
-                </div>
-                <div class="question flex flex-col">
-                    <div class="flex align-center space-btw">
-                        <p class="p1">How do I take care of my tattoo?</p>
-                        <i class="fa-solid fa-plus fa-xl"></i>
-                    </div>
-                    <div class="answer hidden">
-                        <p class="p2">After your tattoo is finished, I will apply a Saniderm bandage. You should keep this bandage on for 3 days, and avoid getting it wet as much as possible.</p>
-                        <p class="p2">It's best to remove the Saniderm with warm water, such as in the shower. After removing the bandage, wash your tattoo gently with unscented soap. Continue to wash it daily for 7 days.</p>
-                        <p class="p2">In addition to washing your tattoo, you should moisturize it 2x daily with unscented lotion for at least 7 days. Do NOT use any petroleum-based products, like Vaseline.
-                        <p class="p2">You should also avoid exposing your tattoo to direct sunlight, swimming, or soaking in hot tubs/baths for 2 weeks after your tattoo.</p>    
-                    </div>
-                </div>
-                <div class="question flex flex-col">
-                    <div class="flex align-center space-btw">
-                        <p class="p1">My tattoo is flaking, what do I do?</p>
-                        <i class="fa-solid fa-plus fa-xl"></i>
-                    </div>
-                    <div class="answer hidden">
-                        <p class="p2">It is normal for your tattoo to peel and scab for up to 2 weeks after your session. It is important NOT to pick or peel this skin.</p>
-                    </div>
-                </div>
             </div>
         </section>
         <section id="book" class="flex flex-col">
@@ -168,10 +120,10 @@
                         <div class="form-fields flex flex-col">
                             <fieldset id="name-fields" class="flex align-start fill">
                                 <div class="field flex flex-col">
-                                    <label class="flex flex-col" for="first-name">First Name<input type="text" id="first-name" name="first-name" placeholder="Liana" minlength="1" maxlength="30" required></label>
+                                    <label class="flex flex-col" for="first-name">First Name<input type="text" id="first-name" name="first-name" autocomplete="given-name" placeholder="Liana" minlength="1" maxlength="30" required></label>
                                 </div>
                                 <div class="field flex flex-col">
-                                    <label class="flex flex-col" for="last-name">Last Name<input type="text" id="last-name" name="last-name" placeholder="Fulmer" minlength="1" maxlength="30" required></label>
+                                    <label class="flex flex-col" for="last-name">Last Name<input type="text" id="last-name" name="last-name" autocomplete="family-name" placeholder="Fulmer" minlength="1" maxlength="30" required></label>
                                 </div>
                             </fieldset>
                             <div id="pronoun-fields" class="field flex flex-col fill">
@@ -218,11 +170,11 @@
                             </div>
                             <fieldset id="contact-fields" class="flex align-start fill">
                                 <div class="field flex flex-col">
-                                    <label class="flex flex-col" for="email">Email Address<input type="email" id="email" name="email" placeholder="liana@gmail.com" minlength="4" maxlength="40" required></label>
+                                    <label class="flex flex-col" for="email">Email Address<input type="email" id="email" name="email" autocomplete="email" placeholder="liana@gmail.com" minlength="4" maxlength="40" required></label>
                                     <span class="sr-only">Format: myname@example.com</span>
                                 </div>
                                 <div class="field flex flex-col">
-                                    <label class="flex flex-col" for="phone">Phone Number<input type="tel" id="phone" name="phone" placeholder="555-555-5555" minlength="4" maxlength="20" required></label>
+                                    <label class="flex flex-col" for="phone">Phone Number<input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="555-555-5555" minlength="4" maxlength="20" required></label>
                                     <span class="sr-only">Format: 123-456-7890</span> 
                                 </div>
                             </fieldset>

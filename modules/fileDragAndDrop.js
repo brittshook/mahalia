@@ -10,7 +10,7 @@ function isAdvancedUpload() {
     );
   }
 
-const uploadBox = document.querySelector('#file-upload-box');
+const uploadBox = document.getElementById('file-upload-box');
 
 if (isAdvancedUpload) {
     uploadBox.classList.add('has-advanced-upload');
@@ -54,17 +54,17 @@ if (isAdvancedUpload) {
 }
 
 function handleDrop(e) {
-    const fileInput = document.querySelector('#box-file');
+    const fileInput = document.getElementById('box-file');
     const files = e.dataTransfer.files;
     fileInput.files = files;
 }
 
 function triggerFileInput() {
-    document.querySelector('#box-file').click();
+    document.getElementById('box-file').click();
   }
 
 function updateFileLabel() {
-    const fileInput = document.querySelector('#box-file');
+    const fileInput = document.getElementById('box-file');
     const fileLabel = document.querySelector('label[for="file"');
     const numFiles = fileInput.files.length;
     fileLabel.innerHTML = numFiles === 0 

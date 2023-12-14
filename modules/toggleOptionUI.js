@@ -23,7 +23,7 @@ radioInputs.forEach(newInput => {
     newInput.addEventListener('click', () => {
         radioInputs.forEach(currentInput => {
             if (currentInput !== newInput && currentInput.name === newInput.name) {
-                    changeOptionInput(currentInput, 'remove');
+                changeOptionInput(currentInput, 'remove');
             }
         })
         changeOptionInput(newInput, 'add');

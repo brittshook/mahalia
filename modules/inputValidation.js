@@ -16,8 +16,43 @@ const customValidations = {
         max: 5,
         sizeMaxInBytes: 10485760,
         formatRegex: /^(image\/.*)/,
-        formatErrorMessage: 'Please upload image files only.',
-        sizeErrorMessage: 'Files must be less than 10 MB each.'
+        sizeErrorMessage: 'Files must be less than 10 MB each.',
+        formatErrorMessage: 'Please upload image files only.'
+    }
+}
+
+function inputValidation(input, type = input.type) {
+    const validationFuncs = {
+        text: validateText,
+        email: validateText,
+        tel: validateText,
+        textarea: validateText,
+        number: validateNumber,
+        radio: validateRadioCheckbox,
+        checkbox: validateRadioCheckbox,
+        file: validateFile
+    }
+
+    cleanInput(input);
+    return validationFuncs[type ? type : 'textarea'](input);
+}
+
+function toggleInputUI(input) {
+    const isValid = inputValidation(input);
+    const unset = (customValidations[input.name]?.unset !== undefined)
+        ? customValidations[input.name].unset
+        : false;
+    displayErrorMessage(input);
+
+    if (unset) {
+        input.classList.remove('success');
+        input.classList.remove('error');
+    } else if (isValid) {
+        input.classList.add('success');
+        input.classList.remove('error');
+    } else {
+        input.classList.remove('success');
+        input.classList.add('error');
     }
 }
 
@@ -87,7 +122,7 @@ function validateRadioCheckbox(input, type = input.type, id = input.id, name = i
     const checkedValues = allOptions.filter((item) => item.checked === true);
 
     if (id === 'custom') {
-        const customTextField = document.querySelector('#custom-pronoun');
+        const customTextField = document.getElementById('custom-pronoun');
 
         if (!isChecked) {
             customValidations['custom-pronoun'].unset = true;         
@@ -154,41 +189,6 @@ function displayErrorMessage(input) {
         errorMessageElement.textContent = input.validationMessage;
     } else if (!input.validationMessage && errorMessageElement) {
         errorMessageElement.remove();
-    }
-}
-
-function inputValidation(input, type = input.type) {
-    const validationFuncs = {
-        text: validateText,
-        email: validateText,
-        tel: validateText,
-        textarea: validateText,
-        number: validateNumber,
-        radio: validateRadioCheckbox,
-        checkbox: validateRadioCheckbox,
-        file: validateFile
-    }
-
-    cleanInput(input);
-    return validationFuncs[type ? type : 'textarea'](input);
-}
-
-function toggleInputUI(input) {
-    const isValid = inputValidation(input);
-    const unset = (customValidations[input.name]?.unset !== undefined)
-        ? customValidations[input.name].unset
-        : false;
-    displayErrorMessage(input);
-
-    if (unset) {
-        input.classList.remove('success');
-        input.classList.remove('error');
-    } else if (isValid) {
-        input.classList.add('success');
-        input.classList.remove('error');
-    } else {
-        input.classList.remove('success');
-        input.classList.add('error');
     }
 }
 

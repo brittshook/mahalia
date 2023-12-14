@@ -4,14 +4,25 @@ import { changeOptionInput } from "./toggleOptionUI.js";
 const openModalBtns = document.querySelectorAll('.open-modal');
 openModalBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        document.querySelector('#modal-window').style.display = 'flex';
+        document.getElementById('modal-window').style.display = 'flex';
         document.body.style.overflow = 'hidden';
         showPage(0);
     });
 });
 
+const closeModalButton = document.querySelector('.close-modal');
+closeModalButton.addEventListener('click', () => {
+    if (currentPage !== 0) {
+        if (confirm("Your consultation request will not be submitted. Press OK to confirm close.")) {
+            closeModal();
+        };
+    } else {
+        closeModal();
+    }
+    });
+
 function closeModal() {
-    document.querySelector('#modal-window').style.display = 'none';
+    document.getElementById('modal-window').style.display = 'none';
     document.body.style.overflow = 'visible';
     document.querySelector('form').reset();
 
@@ -28,24 +39,13 @@ function closeModal() {
     });
 }
 
-const closeModalButton = document.querySelector('.close-modal');
-closeModalButton.addEventListener('click', () => {
-    if (currentPage !== 0) {
-        if (confirm("Your consultation request will not be submitted. Press OK to confirm close.")) {
-            closeModal();
-        };
-    } else {
-        closeModal();
-    }
-    });
-
 function resetFormUI(input) {
     if (input.type === 'checkbox' || input.type === 'radio') {
         changeOptionInput(input, 'remove');
     }
 
     if (input.id === 'custom' && !input.checked) {
-        document.querySelector('#custom-pronoun').disabled = true;
+        document.getElementById('custom-pronoun').disabled = true;
     }
     
     input.setCustomValidity('');

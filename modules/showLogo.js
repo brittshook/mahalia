@@ -3,8 +3,8 @@ function scrolledTo(element) {
     return window.scrollY > rect.top;
 }
 
-const tattoos = document.querySelector('#tattoos');
-const logo = document.querySelector('#logo');
+const tattoos = document.getElementById('tattoos');
+const logo = document.getElementById('logo');
 
 window.addEventListener('scroll', () => {
     if (scrolledTo(tattoos)) {
