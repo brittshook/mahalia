@@ -481,9 +481,12 @@ legend#size {
 #socials, 
 #other, 
 .start-page, 
-.form-fields, 
-#pronoun-options .flex-col {
+.form-fields {
     gap: 20px;
+}
+
+#pronoun-options .flex-col {
+    gap: 12px;
 }
 
 .row {
@@ -491,13 +494,13 @@ legend#size {
 }
 
 #pronoun-options .flex-col:last-child {
-    gap: 10px;
+    gap: 8.5px;
 }
 
 #pronoun-options label,
 #coverup-field label,
 #color-field label {
-    gap: 16px;
+    gap: 8px;
 }
 
 /* not translating on mobile */
@@ -608,6 +611,25 @@ input[type="radio"] {
 .checkbox {
     border-radius: 6px;
 }
+
+.checkbox-container,
+.radio-container {
+    border: 6px solid var(--black);
+}
+
+.checkbox-container.error,
+.radio-container.error {
+    outline: 2px solid var(--red, #D83939);
+}
+
+.checkbox-container.error {
+    border-radius: 11px;
+}
+
+.radio-container.error {
+    border-radius: 100%;
+}
+
 
 .radio, 
 .circle,

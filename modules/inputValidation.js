@@ -118,7 +118,8 @@ function validateNumber(input) {
 
 function validateRadioCheckbox(input, type = input.type, id = input.id, name = input.name) {
     const isChecked = input.checked;
-    const allOptions = Array.from(document.querySelectorAll(`input[name="${name}"]`));
+    const optionElements = document.querySelectorAll(`input[name="${name}"]`);
+    const allOptions = Array.from(optionElements);
     const checkedValues = allOptions.filter((item) => item.checked === true);
 
     if (id === 'custom') {
