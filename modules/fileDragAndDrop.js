@@ -12,7 +12,7 @@ function isAdvancedUpload() {
 
 const uploadBox = document.getElementById('file-upload-box');
 
-if (!isAdvancedUpload) {
+if (isAdvancedUpload) {
     uploadBox.classList.add('has-advanced-upload');
 
     const preventDefaults = (e) => e.preventDefault();
