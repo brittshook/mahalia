@@ -13,7 +13,6 @@ const faqText = [
 
 faqText.forEach(({ question, answer }) => {
   const faqElement = faqTemplate.cloneNode(true);
-
   faqElement.querySelector('.p1').textContent = question;
   faqElement.querySelector('.answer').innerHTML = answer;
   faqContainer.appendChild(faqElement);

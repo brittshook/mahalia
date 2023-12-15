@@ -21,7 +21,6 @@
     border: none;
 }
 
-/* add fallbacks -- complete for b/w only */
 :root {
     --black: #121212;
     --off-white: #dcdcdc;
@@ -307,7 +306,6 @@ button.secondary.disabled {
     max-width: 1050px;
 }
 
-/* should prob move to more selective css sheet*/
 #header-with-img {
     flex-wrap: nowrap;
     align-items: end;
