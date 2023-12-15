@@ -524,8 +524,7 @@ input::-webkit-input-placeholder {
 }
 
 .options {
-    gap: 60px; /* might be poblematic*/
-    padding: 5px 2px 0;
+    gap: 60px;
 }
 
 #coverup-field {
@@ -629,7 +628,6 @@ input[type="radio"] {
 .radio-container.error {
     border-radius: 100%;
 }
-
 
 .radio, 
 .circle,

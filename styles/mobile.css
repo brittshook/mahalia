@@ -158,7 +158,6 @@
         left: 22px;
     }
 
-    /* too much spacing*/
     #details {
         padding-top: 30px;
         gap: 0px;
@@ -287,7 +286,6 @@
     #details,
     #header-with-img,
     #name-fields,
-    #pronoun-options,
     #contact-fields {
         gap: 24px;
     }
@@ -300,8 +298,9 @@
         display: none;
     }
 
+    #pronoun-options,
     #pronoun-options .flex-col {
-        gap: 24px;
+        gap: 18px;
     }
 
     #pronoun-options .flex-col:last-child {
